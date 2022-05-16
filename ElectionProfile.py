@@ -25,29 +25,36 @@ class ElectionProfile:
         self.threshold = threshold
         self.seats = seats
         self.apparentment = apparentments
+        reported_matches_truth = False
         with open(xls_file, "r") as results_file:
             file_reader = reader(results_file)
             header = next(file_reader)
             self.parties = header[PARTY_INDEX:]
 
-            # Load batches
-            self.batches = []
-            empty_tally = dict(zip(self.parties, [0]*len(self.parties)))
-            self.tot_batch = Batch(0, empty_tally, empty_tally, 0, 0, apparentments)
-            for i, line in enumerate(file_reader):
-                tally = dict(zip(self.parties, list(map(int, line[PARTY_INDEX:]))))
-                reported_invalid_votes = int(line[INVALID_VOTES_INDEX])
-                to_remove_total = 0
-                true_tally, true_invalid_votes = self.add_noise(tally, reported_invalid_votes)
-                batch = Batch(i, tally, true_tally, reported_invalid_votes, true_invalid_votes,
-                              apparentments)
+            while not reported_matches_truth:
+                # Load batches
+                self.batches = []
+                empty_tally = dict(zip(self.parties, [0]*len(self.parties)))
+                self.tot_batch = Batch(0, empty_tally, empty_tally, 0, 0, apparentments)
+                for i, line in enumerate(file_reader):
+                    tally = dict(zip(self.parties, list(map(int, line[PARTY_INDEX:]))))
+                    reported_invalid_votes = int(line[INVALID_VOTES_INDEX])
+                    true_tally, true_invalid_votes = self.add_noise(tally, reported_invalid_votes)
+                    batch = Batch(i, tally, true_tally, reported_invalid_votes, true_invalid_votes,
+                                  apparentments)
 
-                # TODO delete to here
-                self.batches.append(batch)
-                self.tot_batch += batch
+                    self.batches.append(batch)
+                    self.tot_batch += batch
 
-            #print(self.tot_batch)
-            self.reported_seats_won, self.reported_paired_seats_won= self.calculate_reported_results()
+                #print(self.tot_batch)
+                self.reported_seats_won, self.reported_paired_seats_won= \
+                    self.calculate_reported_results(self.tot_batch.reported_tally, self.tot_batch.reported_paired_tally,
+                                                    self.tot_batch.reported_invalid_votes)
+                true_seats_won, true_paired_seats_won = self.calculate_reported_results(self.tot_batch.true_tally, self.tot_batch.true_paired_tally,
+                                                    self.tot_batch.true_invalid_votes)
+                reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
+                                                 np.fromiter(true_seats_won.values(), dtype=int))
+                print("Drew noised elections")
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))
 
@@ -65,13 +72,13 @@ class ElectionProfile:
             seat_winning_table = seat_price_rank_table >= (seat_price_rank_table.size - seat_num)
             return dict(zip(tally.keys(), list(np.sum(seat_winning_table, axis=-1))))
 
-
+        voters = np.sum(list(tally.values())) + invalid
         thresholded_paired_tally = dict()
 
         # Calculate which parties passed the threshold
-        for key in self.tot_batch.reported_paired_tally:
-            if self.tot_batch.reported_paired_tally[key] > self.tot_batch.reported_valid_votes * self.threshold:
-                thresholded_paired_tally[key] = self.tot_batch.reported_paired_tally[key]
+        for key in paired_tally:
+            if paired_tally[key] > voters * self.threshold:
+                thresholded_paired_tally[key] = paired_tally[key]
         paired_seats_won = split_seats(thresholded_paired_tally, self.seats)
         #print(paired_seats_won)
         # Split seats between parties who signed apparentment agreements
@@ -80,8 +87,8 @@ class ElectionProfile:
             if i < len(self.apparentment):
                 party1, party2 = self.apparentment[i]
                 paired_parties_tally = dict()
-                paired_parties_tally[party1] = self.tot_batch.reported_tally[party1]
-                paired_parties_tally[party2] = self.tot_batch.reported_tally[party2]
+                paired_parties_tally[party1] = tally[party1]
+                paired_parties_tally[party2] = tally[party2]
                 paired_parties_seats = split_seats(paired_parties_tally, paired_seats_won[party1 + ' + ' + party2])
                 seats_won[party1] = paired_parties_seats[party1]
                 seats_won[party2] = paired_parties_seats[party2]
@@ -101,7 +108,7 @@ class ElectionProfile:
         """
         noised_tally = tally.copy()
         valid_voters = np.sum(list(noised_tally.values()))
-        invalid_to_valid_num = max(np.random.poisson(invalid_votes * invalid_to_valid_ratio), invalid_votes)
+        invalid_to_valid_num = min(np.random.poisson(invalid_votes * invalid_to_valid_ratio), invalid_votes)
         noised_invalid = invalid_votes - invalid_to_valid_num
         choice_probs = np.array(list(noised_tally.values())) / valid_voters
         invalid_to_valid_to = np.random.choice(self.parties, size=invalid_to_valid_num, p=choice_probs)
@@ -117,6 +124,6 @@ class ElectionProfile:
                     noised_tally[errors_to[i]] += 1
         for party_to in invalid_to_valid_to:
             noised_tally[party_to] += 1
-
+        assert np.sum(list(tally.values())) + invalid_votes == np.sum(list(noised_tally.values())) + noised_invalid
         return noised_tally, noised_invalid
 
