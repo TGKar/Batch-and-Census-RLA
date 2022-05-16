@@ -36,17 +36,10 @@ class ElectionProfile:
             self.tot_batch = Batch(0, empty_tally, empty_tally, 0, 0, apparentments)
             for i, line in enumerate(file_reader):
                 tally = dict(zip(self.parties, list(map(int, line[PARTY_INDEX:]))))
-                batch = Batch(i, tally, tally, int(line[INVALID_VOTES_INDEX]), int(line[INVALID_VOTES_INDEX]), apparentments)
-                # TODO delete from here
-
+                reported_invalid_votes = int(line[INVALID_VOTES_INDEX])
                 to_remove_total = 0
-                true_tally = tally.copy()
-                for party in ['Meretz']:
-                    to_remove = int(0*tally[party])
-                    true_tally[party] -= to_remove
-                    true_tally['Avoda'] += to_remove
-                    to_remove_total += to_remove
-                batch = Batch(i, tally, true_tally, int(line[INVALID_VOTES_INDEX]), int(line[INVALID_VOTES_INDEX]),
+                true_tally, true_invalid_votes = self.add_noise(tally, reported_invalid_votes)
+                batch = Batch(i, tally, true_tally, reported_invalid_votes, true_invalid_votes,
                               apparentments)
 
                 # TODO delete to here
@@ -58,7 +51,7 @@ class ElectionProfile:
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))
 
-    def calculate_reported_results(self):
+    def calculate_reported_results(self, tally, paired_tally, invalid):
         """
         Calculates the election results based on this profile's batches.
         """
@@ -95,3 +88,35 @@ class ElectionProfile:
             else:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
+
+    def add_noise(self, tally, invalid_votes, error_ratio=0.1, invalidation_rate=0.5, invalid_to_valid_ratio=0.1):
+        """
+        Adds error to a tally
+        :param tally: Vote tally
+        :param invalid_votes: Number of invalid votes
+        :param error_ratio: Desired error ratio from valid votes (in expectancy)
+        :param invalidation_rate: Rate of invalidation of votes, from total errors
+        :param invalid_to_valid_ratio: Rate of validating an invalid vote.
+        :return: The noised tally, the noised number of invalid votes
+        """
+        noised_tally = tally.copy()
+        valid_voters = np.sum(list(noised_tally.values()))
+        invalid_to_valid_num = max(np.random.poisson(invalid_votes * invalid_to_valid_ratio), invalid_votes)
+        noised_invalid = invalid_votes - invalid_to_valid_num
+        choice_probs = np.array(list(noised_tally.values())) / valid_voters
+        invalid_to_valid_to = np.random.choice(self.parties, size=invalid_to_valid_num, p=choice_probs)
+        errors = np.random.poisson(error_ratio * valid_voters)
+        errors_from = np.random.choice(self.parties, size=errors, p=choice_probs)
+        errors_to = np.random.choice(self.parties, size=errors, p=choice_probs)
+        for i in range(errors):
+            if noised_tally[errors_from[i]] > 0:
+                noised_tally[errors_from[i]] -= 1
+                if np.random.random() < invalidation_rate:
+                    noised_invalid += 1
+                else:
+                    noised_tally[errors_to[i]] += 1
+        for party_to in invalid_to_valid_to:
+            noised_tally[party_to] += 1
+
+        return noised_tally, noised_invalid
+

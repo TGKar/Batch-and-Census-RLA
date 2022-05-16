@@ -1,9 +1,5 @@
-import Assorter
 from ElectionProfile import ElectionProfile
-import ThresholdAssertion
-from FailedThresholdAssertion import FailedThresholdAssertion
 from ThresholdAssertion import ThresholdAssertion
-from MoveSeatAssertion import MoveSeatAssertion
 from Auditor import Auditor
 import numpy as np
 import matplotlib.pyplot as plt
