@@ -42,7 +42,7 @@ class CompMoveSeatAssertion2(Assorter):
         self.assorter_value = []
         self.plot_x = []
 
-        super().__init__(risk_limit, election_profile, u, eta, weighted_vote_margin, vote_margin)
+        super().__init__(risk_limit, election_profile, u, eta, vote_margin, weighted_vote_margin)
 
 
     def audit_ballot(self, ballot):
@@ -111,5 +111,7 @@ class CompMoveSeatAssertion2(Assorter):
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
         party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
         party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
-        weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)  # TODO check multipication instead of division
+        if self.party_from == 'Meretz':
+            print('hi')
+        weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
         return weighted_margin, min(party_to_margin, party_from_margin), 1/(party_to_seats+1) + 1/party_from_seats
