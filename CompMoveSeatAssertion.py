@@ -101,13 +101,15 @@ class CompMoveSeatAssertion(Assorter):
                          / (2*self.inner_u)
         #assorter_value = (self.inner_u * batch.total_votes + true_inner_assorter_value - reported_inner_assorter_value) \
         #                 / (2 * batch.total_votes * (self.inner_u - self.reported_inner_margin))
+        #if self.u - self.mu == 0 or self.mu == 0:
+        #    print(self, self.mu)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
         self.update_mu(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
         #print(self.T)
-        if self.mu < 0:
+        if self.mu <= 0:
             self.T = float('inf')
         if self.mu > self.u:
             self.T = 0

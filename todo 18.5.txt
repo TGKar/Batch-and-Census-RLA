@@ -1,0 +1,7 @@
+V 1. update mu and eta
+V 2. change batchcomp2
+3. change original assertions
+4. test batchcomp2 vs. original assertions
+5. Add noise
+6. Run only if reported results are correct
+7. Test

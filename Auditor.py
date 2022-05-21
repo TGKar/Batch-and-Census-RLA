@@ -91,7 +91,8 @@ class Auditor:
             ballot_counter += batch_to_audit.total_votes
 
             for i, delete_ind in enumerate(completed_assertion_inds):  # Remove assertions that were fulfilled
-                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',  assertions[delete_ind - i].vote_margin,'after ballot ', str('{:,}'.format(ballot_counter)))
+                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',  assertions[delete_ind - i].vote_margin,'after ballot ', str('{:,}'.format(ballot_counter)),
+                      "True mean:", assertions[delete_ind - i].reported_assorter_mean)
                 #print("Finished assertion: ", str(assertions[delete_ind - i]),'after ballot ', str('{:,}'.format(ballot_counter)))
                 #if isinstance(assertions[delete_ind - i], MoveSeatAssertion):  # TODO delete
                 #    plot_ballot_counter.append(ballot_counter)

@@ -25,7 +25,7 @@ class CompThresholdAssertion2(Assorter):
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, election_profile.tot_batch.total_votes)
-        super().__init__(risk_limit, election_profile, u, eta, vote_margin)
+        super().__init__(risk_limit, election_profile, u, eta, vote_margin, vote_margin)
 
     def audit_ballot(self, ballot):
         return None, None

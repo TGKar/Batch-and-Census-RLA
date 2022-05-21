@@ -27,9 +27,8 @@ class CompMoveSeatAssertion2(Assorter):
         self.election_profile = election_profile
         self.mu = DEFAULT_MU
         self.paired = paired
-        self.parties_n = 2
-        vote_margin = self.calc_margin()
-        u = 0.5 + vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n)
+        weighted_vote_margin, vote_margin, self.parties_n = self.calc_margins()
+        u = 0.5 + weighted_vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n)
         self.reported_assorter_mean = u
         eta = None
         if eta_mode == ADAPTIVE_ETA:
@@ -43,8 +42,8 @@ class CompMoveSeatAssertion2(Assorter):
         self.assorter_value = []
         self.plot_x = []
 
+        super().__init__(risk_limit, election_profile, u, eta, weighted_vote_margin, vote_margin)
 
-        super().__init__(risk_limit, election_profile, u, eta, vote_margin)
 
     def audit_ballot(self, ballot):
         return None, None
@@ -71,7 +70,7 @@ class CompMoveSeatAssertion2(Assorter):
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
         #print(self.T)
-        if self.mu < 0:
+        if self.mu <= 0:
             self.T = float('inf')
         if self.mu > self.u:
             self.T = 0
@@ -99,15 +98,18 @@ class CompMoveSeatAssertion2(Assorter):
         fig.suptitle(str(self) + ' (margin: ' + str('{:,}'.format(self.get_margin())) + ')')
         plt.show()
 
-    def calc_margin(self):
+    def calc_margins(self):
         if self.paired:
-            party_from_price = self.election_profile.tot_batch.reported_paired_tally[self.party_from] / \
-                               self.election_profile.reported_paired_seats_won[self.party_from]
+            party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to]
             party_to_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_to]
         else:
-            party_from_price = self.election_profile.tot_batch.reported_tally[self.party_from] / \
-                               self.election_profile.reported_seats_won[self.party_from]
+            party_from_votes = self.election_profile.tot_batch.reported_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_seats_won[self.party_to]
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
-        return party_from_price * (party_to_seats+1) - party_to_votes
+        party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
+        party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
+        weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)  # TODO check multipication instead of division
+        return weighted_margin, min(party_to_margin, party_from_margin), 1/(party_to_seats+1) + 1/party_from_seats

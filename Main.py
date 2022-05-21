@@ -28,6 +28,14 @@ if __name__ == "__main__":
             print("Bad assorter sum: ", str(assertion), '. Difference ', str(assertion.reported_assorter_mean - assertion.eta.assorter_sum))
     """
     auditor.audit()
+    print("Reported Results:")
+    print(profile.reported_seats_won)
+    print("True Results:")
+    print(profile.true_seats_won)
+    print("Reported Tally:")
+    print(profile.tot_batch.reported_tally)
+    print("True Tally:")
+    print(profile.tot_batch.true_tally)
     exit(0)
 
     #reported_assorter_share = profile.tot_batch.tally[party] / profile.tot_batch.valid_votes

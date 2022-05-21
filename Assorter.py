@@ -9,7 +9,8 @@ DEFAULT_MU = 0.5
 class Assorter(ABC):
 
     @abstractmethod
-    def __init__(self, risk_limit, election_profile: ElectionProfile, upper_bound, eta, vote_margin, initial_statistic=1):
+    def __init__(self, risk_limit, election_profile: ElectionProfile, upper_bound, eta, vote_margin=None,
+                 weighted_vote_margin=None, initial_statistic=1):
         """
         Constructs a new assertion
         :param risk_limit: Allowed probability of failure
@@ -26,6 +27,7 @@ class Assorter(ABC):
         self.eta = eta
         self.total_ballots = election_profile.tot_batch.total_votes
         self.vote_margin = vote_margin
+        self.weighted_vote_margin = weighted_vote_margin
 
 
     @abstractmethod
@@ -44,6 +46,8 @@ class Assorter(ABC):
         else:
             self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_examined)  # Make sure we should multiply by ballots_examined
             self.mu = min(max(self.mu, 0), self.u - 2*EPSILON)
+        if self.mu == 0:
+            print(self)
 
     def get_margin(self):
         return self.vote_margin
