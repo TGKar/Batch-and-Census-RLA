@@ -27,6 +27,14 @@ class CompMoveSeatAssertion2(Assorter):
         self.election_profile = election_profile
         self.mu = DEFAULT_MU
         self.paired = paired
+
+        if paired:
+            self.party_from_seats = election_profile.reported_paired_seats_won[party_from]
+            self.party_to_seats = election_profile.reported_paired_seats_won[party_to]
+        else:
+            self.party_from_seats = election_profile.reported_seats_won[party_from]
+            self.party_to_seats = election_profile.reported_seats_won[party_to]
+
         weighted_vote_margin, vote_margin, self.parties_n = self.calc_margins()
         u = 0.5 + weighted_vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n)
         self.reported_assorter_mean = u
@@ -60,7 +68,8 @@ class CompMoveSeatAssertion2(Assorter):
             true_party_from_votes = batch.true_tally[self.party_from]
             true_party_to_votes = batch.true_tally[self.party_to]
 
-        discrepancy = rep_party_from_votes - true_party_from_votes + true_party_to_votes - rep_party_to_votes
+        discrepancy = (rep_party_from_votes - true_party_from_votes) / (self.party_from_seats) + \
+                      (true_party_to_votes - rep_party_to_votes) / (self.party_to_seats + 1)
         normalized_margin = batch.total_votes * self.vote_margin / self.total_ballots
         assorter_value = 0.5 + (normalized_margin - discrepancy) / (2 * batch.total_votes * self.parties_n)
 
@@ -111,7 +120,5 @@ class CompMoveSeatAssertion2(Assorter):
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
         party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
         party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
-        if self.party_from == 'Meretz':
-            print('hi')
         weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
         return weighted_margin, min(party_to_margin, party_from_margin), 1/(party_to_seats+1) + 1/party_from_seats

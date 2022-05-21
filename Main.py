@@ -36,6 +36,7 @@ if __name__ == "__main__":
     print(profile.tot_batch.reported_tally)
     print("True Tally:")
     print(profile.tot_batch.true_tally)
+    print("True threshold:", profile.threshold * (profile.tot_batch.total_votes-profile.tot_batch.true_invalid_votes))
     exit(0)
 
     #reported_assorter_share = profile.tot_batch.tally[party] / profile.tot_batch.valid_votes

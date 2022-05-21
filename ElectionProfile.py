@@ -26,12 +26,12 @@ class ElectionProfile:
         self.seats = seats
         self.apparentment = apparentments
         reported_matches_truth = False
-        with open(xls_file, "r") as results_file:
-            file_reader = reader(results_file)
-            header = next(file_reader)
-            self.parties = header[PARTY_INDEX:]
+        while not reported_matches_truth:
+            with open(xls_file, "r") as results_file:
+                file_reader = reader(results_file)
+                header = next(file_reader)
+                self.parties = header[PARTY_INDEX:]
 
-            while not reported_matches_truth:
                 # Load batches
                 self.batches = []
                 empty_tally = dict(zip(self.parties, [0]*len(self.parties)))
@@ -54,6 +54,7 @@ class ElectionProfile:
                                                     self.tot_batch.true_invalid_votes)  # TODO remove self.
                 reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
                                                  np.fromiter(self.true_seats_won.values(), dtype=int))
+                reported_matches_truth = True  # TODO delete
                 print("Drew noised elections")
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))
@@ -62,25 +63,33 @@ class ElectionProfile:
         """
         Calculates the election results based on this profile's batches.
         """
-        def split_seats(tally, seat_num):
+        def split_seats(sub_tally, seat_num):
             """
             Splits a given number of seats based on a given tally. Returns the number of seats each party receives.
             """
-            seat_price_table = np.array(list(tally.values()), dtype=np.float).reshape(-1, 1) / \
+            seat_price_table = np.array(list(sub_tally.values()), dtype=np.float).reshape(-1, 1) / \
                                (np.arange(seat_num).reshape(1, -1) + 1)  # [i,j] contains the price party i pays for j seats
             seat_price_rank_table = seat_price_table.ravel().argsort().argsort().reshape(seat_price_table.shape)
             seat_winning_table = seat_price_rank_table >= (seat_price_rank_table.size - seat_num)
-            return dict(zip(tally.keys(), list(np.sum(seat_winning_table, axis=-1))))
+            return dict(zip(sub_tally.keys(), list(np.sum(seat_winning_table, axis=-1))))
 
-        voters = np.sum(list(tally.values())) + invalid
         thresholded_paired_tally = dict()
+        vote_threshold = (np.sum(list(tally.values())) - invalid) * self.threshold
 
         # Calculate which parties passed the threshold
-        for key in paired_tally:
-            if paired_tally[key] > voters * self.threshold:
+        for key in paired_tally.keys():
+            parties_to_check = key.split(' + ')
+            passed_parties = []
+            for party in parties_to_check:
+                if tally[party] > vote_threshold:
+                    passed_parties.append(party)
+            if len(passed_parties) == len(parties_to_check):  # All parties in apparentment passed the threshold
                 thresholded_paired_tally[key] = paired_tally[key]
+            elif len(passed_parties) == 1:
+                thresholded_paired_tally[passed_parties[0]] = tally[passed_parties[0]]
+
         paired_seats_won = split_seats(thresholded_paired_tally, self.seats)
-        #print(paired_seats_won)
+
         # Split seats between parties who signed apparentment agreements
         seats_won = dict(zip(self.parties, [0]*len(self.parties)))
         for i, key in enumerate(paired_seats_won):
@@ -96,7 +105,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.0, invalidation_rate=0.5, invalid_to_valid_ratio=0.0):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.75, invalidation_rate=0.5, invalid_to_valid_ratio=1.0):
         """
         Adds error to a tally
         :param tally: Vote tally
