@@ -1,6 +1,6 @@
 from Batch import Batch
 from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU
-from ElectionProfile import ElectionProfile
+from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 
@@ -19,7 +19,7 @@ class CompThresholdAssertion2(Assorter):
         eta = None
         vote_margin = election_profile.tot_batch.reported_tally[party] - \
                       threshold * (election_profile.tot_batch.total_votes - election_profile.tot_batch.reported_invalid_votes)
-        u = 0.5 + vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n)
+        u = 0.5 + vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n) + EPSILON
         self.reported_assorter_mean = u
         if eta_mode == ADAPTIVE_ETA:
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
@@ -39,15 +39,13 @@ class CompThresholdAssertion2(Assorter):
                   (self.u - self.mu)
         if self.T < 0:
             print(self.T)
-        #self.T *= (assorter_value / self.mu)
-        self.update_mu(batch.total_votes, assorter_value)
+        # self.T *= (assorter_value / self.mu)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-        #print(self.T)
+        # print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
+        # print(self.T)
         if self.mu < 0:
             self.T = float('inf')
-        if self.mu > self.u:
-            self.T = 0
 
         return self.T >= (1 / self.alpha), self.T
 

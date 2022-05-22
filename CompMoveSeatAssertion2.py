@@ -1,6 +1,6 @@
 from Batch import Batch
 from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU
-from ElectionProfile import ElectionProfile
+from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 import matplotlib.pyplot as plt
@@ -36,7 +36,7 @@ class CompMoveSeatAssertion2(Assorter):
             self.party_to_seats = election_profile.reported_seats_won[party_to]
 
         weighted_vote_margin, vote_margin, self.parties_n = self.calc_margins()
-        u = 0.5 + weighted_vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n)
+        u = 0.5 + weighted_vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n) + EPSILON
         self.reported_assorter_mean = u
         eta = None
         if eta_mode == ADAPTIVE_ETA:
@@ -75,9 +75,11 @@ class CompMoveSeatAssertion2(Assorter):
         normalized_margin = batch.total_votes * self.weighted_vote_margin / self.total_ballots
         assorter_value = 0.5 + (normalized_margin - discrepancy) / (2 * batch.total_votes * self.parties_n)
 
+        if self.u == self.mu or self.u == self.eta.value or self.mu == self.eta.value or self.mu == 0:
+            print("uh oh, stinky")
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
-        self.update_mu(batch.total_votes, assorter_value)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
         #print(self.T)
@@ -110,8 +112,12 @@ class CompMoveSeatAssertion2(Assorter):
         axs[0].plot(self.plot_x, self.assorter_mean, label='Assorter mean value')
         axs[0].legend()
         axs[1].plot(self.plot_x, self.T_list, label='T')
-        axs[1].scatter(self.plot_x, self.inc_T_list, s=20, label='Batch T')
-        axs[1].legend()
+        #axs[1].scatter(self.plot_x, self.inc_T_list, s=20, label='Batch T')
+        #axs[1].legend()
+        axs[0].set_xlabel('Ballots')
+        axs[0].set_ylabel('Value')
+        axs[1].set_xlabel('Ballots')
+        axs[1].set_ylabel('T')
         fig.suptitle(str(self) + ' (margin: ' + str('{:,}'.format(self.get_margin())) + ')')
         plt.show()
 

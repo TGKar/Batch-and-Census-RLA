@@ -80,7 +80,7 @@ class MoveSeatAssertion(Assorter):
             assorter_value = 0.5
         self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
                   (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
-        self.update_mu(1, assorter_value)
+        self.update_mu_and_u(1, assorter_value)
         self.eta.calculate_eta(1, assorter_value, self.mu)
         return (self.T >= 1 / self.alpha), self.T
 
@@ -94,7 +94,7 @@ class MoveSeatAssertion(Assorter):
         assorter_value = (1 / batch.total_votes) * (self.u*party_from_votes + 0.5*(batch.total_votes - party_from_votes - party_to_votes))
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
-        self.update_mu(batch.total_votes, assorter_value)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
 
         if self.mu < 0:

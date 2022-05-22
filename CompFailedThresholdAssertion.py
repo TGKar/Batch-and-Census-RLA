@@ -47,7 +47,7 @@ class CompFailedThresholdAssertion(Assorter):
         #                 / (2 * batch.total_votes * (self.inner_u - self.reported_inner_margin))
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
-        self.update_mu(batch.total_votes, assorter_value)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
         #print(self.T)

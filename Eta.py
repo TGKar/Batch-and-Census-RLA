@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from ElectionProfile import EPSILON
 
 class Eta(ABC):
 
@@ -10,7 +10,7 @@ class Eta(ABC):
         :param initial_eta: Initial value for the alternative hypothesis (the prior)
         """
         self.eta_0 = initial_eta
-        self.value = initial_eta
+        self.value = min(initial_eta, u - EPSILON)
         self.u = u
         self.total_ballots = 0
 

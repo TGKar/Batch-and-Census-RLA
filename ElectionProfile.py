@@ -47,7 +47,7 @@ class ElectionProfile:
                     self.tot_batch += batch
 
                 #print(self.tot_batch)
-                self.reported_seats_won, self.reported_paired_seats_won= \
+                self.reported_seats_won, self.reported_paired_seats_won = \
                     self.calculate_reported_results(self.tot_batch.reported_tally, self.tot_batch.reported_paired_tally)
                 self.true_seats_won, true_paired_seats_won = self.calculate_reported_results(self.tot_batch.true_tally, self.tot_batch.true_paired_tally)  # TODO remove self.
                 reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
@@ -107,7 +107,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.3, invalidation_rate=0.5, invalid_to_valid_ratio=0.3):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.02, invalidation_rate=0.5, invalid_to_valid_ratio=0.1):
         """
         Adds error to a tally
         :param tally: Vote tally

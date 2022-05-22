@@ -25,7 +25,6 @@ class AdaptiveEta(Eta):
             self.c = c
         self.assorter_sum = 0
 
-
     def calculate_eta(self, samples, assorter_value, mu):
         """
         Updates eta based on an additional number of samples.
@@ -37,4 +36,6 @@ class AdaptiveEta(Eta):
         self.assorter_sum += assorter_value
         self.total_ballots += samples
         self.value = min(max((self.d*self.eta_0 + self.assorter_sum) / (self.d + self.total_ballots - 1), mu + EPSILON), self.u - EPSILON)
+        if self.value == self.u:
+            print("This is stinky!")
         return self.value

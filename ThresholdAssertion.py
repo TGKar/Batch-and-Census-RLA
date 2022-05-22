@@ -40,7 +40,7 @@ class ThresholdAssertion(Assorter):
             assorter_value = 0
         self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
                   (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
-        self.update_mu(1, assorter_value)
+        self.update_mu_and_u(1, assorter_value)
         self.eta.calculate_eta(1, assorter_value, self.mu)
         return (self.T >= 1 / self.alpha), self.T
 
@@ -48,7 +48,7 @@ class ThresholdAssertion(Assorter):
         assorter_value = (1 / batch.total_votes) * (batch.true_tally[self.party] / (2 * self.threshold) + 0.5 * batch.true_invalid_votes)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
-        self.update_mu(batch.total_votes, assorter_value)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
         #print(self.T)

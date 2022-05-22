@@ -38,18 +38,16 @@ class Assorter(ABC):
     def audit_batch(self, batch):
         pass
 
-    def update_mu(self, ballot_count, assorter_sum):
+    def update_mu_and_u(self, ballot_count, assorter_sum):
         self.ballots_examined += ballot_count
         self.assorter_total += assorter_sum * ballot_count
-        if self.total_ballots - self.ballots_examined == 0:
-            self.mu = 0
+        if self.total_ballots == self.ballots_examined:
+            self.mu = 0.5
         else:
             self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_examined)  # Make sure we should multiply by ballots_examined
-            if self.mu > self.u:
-                print(self, ' uh oh, stinky! I wanted ', self.mu, 'but ', self.u, '. Ballots: ', self.ballots_examined)
-            self.mu = min(max(self.mu, 0), self.u - 2*EPSILON)
-        if self.mu == 0:
-            print(self)
+            self.u = max(self.u, self.mu + 2*EPSILON)
+            self.mu = max(self.mu, 0)
+        self.eta.u = self.u
 
     def get_margin(self):
         return self.vote_margin
