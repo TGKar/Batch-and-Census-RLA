@@ -48,10 +48,8 @@ class ElectionProfile:
 
                 #print(self.tot_batch)
                 self.reported_seats_won, self.reported_paired_seats_won= \
-                    self.calculate_reported_results(self.tot_batch.reported_tally, self.tot_batch.reported_paired_tally,
-                                                    self.tot_batch.reported_invalid_votes)
-                self.true_seats_won, true_paired_seats_won = self.calculate_reported_results(self.tot_batch.true_tally, self.tot_batch.true_paired_tally,
-                                                    self.tot_batch.true_invalid_votes)  # TODO remove self.
+                    self.calculate_reported_results(self.tot_batch.reported_tally, self.tot_batch.reported_paired_tally)
+                self.true_seats_won, true_paired_seats_won = self.calculate_reported_results(self.tot_batch.true_tally, self.tot_batch.true_paired_tally)  # TODO remove self.
                 reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
                                                  np.fromiter(self.true_seats_won.values(), dtype=int))
                 reported_matches_truth = True  # TODO delete
@@ -59,7 +57,7 @@ class ElectionProfile:
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))
 
-    def calculate_reported_results(self, tally, paired_tally, invalid):
+    def calculate_reported_results(self, tally, paired_tally):
         """
         Calculates the election results based on this profile's batches.
         """
@@ -74,7 +72,7 @@ class ElectionProfile:
             return dict(zip(sub_tally.keys(), list(np.sum(seat_winning_table, axis=-1))))
 
         thresholded_paired_tally = dict()
-        vote_threshold = (np.sum(list(tally.values())) - invalid) * self.threshold
+        vote_threshold = np.sum(list(tally.values())) * self.threshold
 
         # Calculate which parties passed the threshold
         for key in paired_tally.keys():
@@ -95,17 +93,21 @@ class ElectionProfile:
         for i, key in enumerate(paired_seats_won):
             if i < len(self.apparentment):
                 party1, party2 = self.apparentment[i]
-                paired_parties_tally = dict()
-                paired_parties_tally[party1] = tally[party1]
-                paired_parties_tally[party2] = tally[party2]
-                paired_parties_seats = split_seats(paired_parties_tally, paired_seats_won[party1 + ' + ' + party2])
-                seats_won[party1] = paired_parties_seats[party1]
-                seats_won[party2] = paired_parties_seats[party2]
+                if party1 + ' + ' + party2 in paired_seats_won.keys():
+                    paired_parties_tally = dict()
+                    paired_parties_tally[party1] = tally[party1]
+                    paired_parties_tally[party2] = tally[party2]
+                    paired_parties_seats = split_seats(paired_parties_tally, paired_seats_won[party1 + ' + ' + party2])
+                    seats_won[party1] = paired_parties_seats[party1]
+                    seats_won[party2] = paired_parties_seats[party2]
+                else:
+                    seats_won[party1] = paired_seats_won.get(party1, 0)
+                    seats_won[party2] = paired_seats_won.get(party2, 0)
             else:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.75, invalidation_rate=0.5, invalid_to_valid_ratio=1.0):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.3, invalidation_rate=0.5, invalid_to_valid_ratio=0.3):
         """
         Adds error to a tally
         :param tally: Vote tally
@@ -120,10 +122,11 @@ class ElectionProfile:
         invalid_to_valid_num = min(np.random.poisson(invalid_votes * invalid_to_valid_ratio), invalid_votes)
         noised_invalid = invalid_votes - invalid_to_valid_num
         choice_probs = np.array(list(noised_tally.values())) / valid_voters
-        invalid_to_valid_to = np.random.choice(self.parties, size=invalid_to_valid_num, p=choice_probs)
+        invalid_to_valid_to = np.random.choice(self.parties, size=invalid_to_valid_num)
         errors = np.random.poisson(error_ratio * valid_voters)
         errors_from = np.random.choice(self.parties, size=errors, p=choice_probs)
-        errors_to = np.random.choice(self.parties, size=errors, p=choice_probs)
+        errors_to = np.random.choice(self.parties, size=errors)
+
         for i in range(errors):
             if noised_tally[errors_from[i]] > 0:
                 noised_tally[errors_from[i]] -= 1

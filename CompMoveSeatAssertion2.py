@@ -44,10 +44,12 @@ class CompMoveSeatAssertion2(Assorter):
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, self.election_profile.tot_batch.total_votes)
         # TODO delete this section
+        self.inc_T_list = []
         self.T_list = []
         self.mu_list = []
         self.eta_list = []
-        self.assorter_value = []
+        self.assorter_mean = []
+        self.assorter_values = []
         self.plot_x = []
 
         super().__init__(risk_limit, election_profile, u, eta, vote_margin, weighted_vote_margin)
@@ -68,9 +70,9 @@ class CompMoveSeatAssertion2(Assorter):
             true_party_from_votes = batch.true_tally[self.party_from]
             true_party_to_votes = batch.true_tally[self.party_to]
 
-        discrepancy = (rep_party_from_votes - true_party_from_votes) / (self.party_from_seats) + \
+        discrepancy = (rep_party_from_votes - true_party_from_votes) / self.party_from_seats + \
                       (true_party_to_votes - rep_party_to_votes) / (self.party_to_seats + 1)
-        normalized_margin = batch.total_votes * self.vote_margin / self.total_ballots
+        normalized_margin = batch.total_votes * self.weighted_vote_margin / self.total_ballots
         assorter_value = 0.5 + (normalized_margin - discrepancy) / (2 * batch.total_votes * self.parties_n)
 
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
@@ -86,9 +88,12 @@ class CompMoveSeatAssertion2(Assorter):
 
         # TODO delete this section
         self.T_list.append(self.T)
+        self.inc_T_list.append((assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                  (self.u - self.mu))
         self.mu_list.append(self.mu)
         self.eta_list.append(self.eta.value)
-        self.assorter_value.append(self.eta.assorter_sum / self.eta.total_ballots)
+        self.assorter_mean.append(self.eta.assorter_sum / self.eta.total_ballots)
+        self.assorter_values.append(assorter_value)
         self.plot_x.append(self.eta.total_ballots)
 
         return self.T >= (1 / self.alpha), self.T
@@ -101,9 +106,12 @@ class CompMoveSeatAssertion2(Assorter):
         fig, axs = plt.subplots(2)
         axs[0].plot(self.plot_x, self.mu_list, label='mu')
         axs[0].plot(self.plot_x, self.eta_list, label='eta')
-        axs[0].plot(self.plot_x, self.assorter_value, label='Assorter mean value')
+        axs[0].scatter(self.plot_x, self.assorter_values, s=20, label='Assorter value')
+        axs[0].plot(self.plot_x, self.assorter_mean, label='Assorter mean value')
         axs[0].legend()
         axs[1].plot(self.plot_x, self.T_list, label='T')
+        axs[1].scatter(self.plot_x, self.inc_T_list, s=20, label='Batch T')
+        axs[1].legend()
         fig.suptitle(str(self) + ' (margin: ' + str('{:,}'.format(self.get_margin())) + ')')
         plt.show()
 

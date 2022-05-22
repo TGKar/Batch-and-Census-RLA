@@ -92,7 +92,9 @@ class Auditor:
 
             for i, delete_ind in enumerate(completed_assertion_inds):  # Remove assertions that were fulfilled
                 print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',  assertions[delete_ind - i].vote_margin,'after ballot ', str('{:,}'.format(ballot_counter)),
-                      "True mean:", assertions[delete_ind - i].reported_assorter_mean)
+                      "True mean:", assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots)
+                if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
+                    assertions[delete_ind - i].plot()
                 #print("Finished assertion: ", str(assertions[delete_ind - i]),'after ballot ', str('{:,}'.format(ballot_counter)))
                 #if isinstance(assertions[delete_ind - i], MoveSeatAssertion):  # TODO delete
                 #    plot_ballot_counter.append(ballot_counter)

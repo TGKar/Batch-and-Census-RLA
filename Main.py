@@ -36,7 +36,10 @@ if __name__ == "__main__":
     print(profile.tot_batch.reported_tally)
     print("True Tally:")
     print(profile.tot_batch.true_tally)
-    print("True threshold:", profile.threshold * (profile.tot_batch.total_votes-profile.tot_batch.true_invalid_votes))
+    print("True threshold:", profile.threshold * (profile.tot_batch.total_votes-profile.tot_batch.true_invalid_votes),
+          'total voters: ', profile.tot_batch.total_votes)
+
+    print("Reported matches truth: ", np.all(np.array(list(profile.reported_seats_won.values())) == np.array(list(profile.true_seats_won.values()))))
     exit(0)
 
     #reported_assorter_share = profile.tot_batch.tally[party] / profile.tot_batch.valid_votes
