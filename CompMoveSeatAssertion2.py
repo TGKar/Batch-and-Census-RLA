@@ -59,30 +59,11 @@ class CompMoveSeatAssertion2(Assorter):
         return None, None
 
     def audit_batch(self, batch: Batch):
-        if self.paired:
-            rep_party_from_votes = batch.reported_paired_tally[self.party_from]
-            rep_party_to_votes = batch.reported_paired_tally[self.party_to]
-            true_party_from_votes = batch.true_paired_tally[self.party_from]
-            true_party_to_votes = batch.true_paired_tally[self.party_to]
-        else:
-            rep_party_from_votes = batch.reported_tally[self.party_from]
-            rep_party_to_votes = batch.reported_tally[self.party_to]
-            true_party_from_votes = batch.true_tally[self.party_from]
-            true_party_to_votes = batch.true_tally[self.party_to]
-
-        discrepancy = (rep_party_from_votes - true_party_from_votes) / self.party_from_seats + \
-                      (true_party_to_votes - rep_party_to_votes) / (self.party_to_seats + 1)
-        normalized_margin = batch.total_votes * self.weighted_vote_margin / self.total_ballots
-        assorter_value = 0.5 + (normalized_margin - discrepancy) / (2 * batch.total_votes * self.parties_n)
-
-        if self.u == self.mu or self.u == self.eta.value or self.mu == self.eta.value or self.mu == 0:
-            print("uh oh, stinky")
+        assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-        #print(self.T)
         if self.mu <= 0:
             self.T = float('inf')
         if self.mu > self.u:
@@ -99,6 +80,25 @@ class CompMoveSeatAssertion2(Assorter):
         self.plot_x.append(self.eta.total_ballots)
 
         return self.T >= (1 / self.alpha), self.T
+
+    def get_assorter_value(self, batch: Batch):
+        if self.paired:
+            rep_party_from_votes = batch.reported_paired_tally[self.party_from]
+            rep_party_to_votes = batch.reported_paired_tally[self.party_to]
+            true_party_from_votes = batch.true_paired_tally[self.party_from]
+            true_party_to_votes = batch.true_paired_tally[self.party_to]
+        else:
+            rep_party_from_votes = batch.reported_tally[self.party_from]
+            rep_party_to_votes = batch.reported_tally[self.party_to]
+            true_party_from_votes = batch.true_tally[self.party_from]
+            true_party_to_votes = batch.true_tally[self.party_to]
+
+        discrepancy = (rep_party_from_votes - true_party_from_votes) / self.party_from_seats + \
+                      (true_party_to_votes - rep_party_to_votes) / (self.party_to_seats + 1)
+        normalized_margin = batch.total_votes * self.weighted_vote_margin / self.total_ballots
+
+        return 0.5 + (normalized_margin - discrepancy) / (2 * batch.total_votes * self.parties_n)
+
 
     def __str__(self):
         return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to

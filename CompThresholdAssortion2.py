@@ -31,10 +31,8 @@ class CompThresholdAssertion2(Assorter):
         return None, None
 
     def audit_batch(self, batch: Batch):
-        discrepancy = batch.reported_tally[self.party] - batch.true_tally[self.party] + \
-                      self.threshold*(batch.reported_invalid_votes - batch.true_invalid_votes)
-        normalized_margin = batch.total_votes * self.vote_margin / self.total_ballots
-        assorter_value = 0.5 + (normalized_margin - discrepancy) / (2*batch.total_votes*self.parties_n)
+
+        assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
         if self.T < 0:
@@ -48,6 +46,12 @@ class CompThresholdAssertion2(Assorter):
             self.T = float('inf')
 
         return self.T >= (1 / self.alpha), self.T
+
+    def get_assorter_value(self, batch: Batch):
+        discrepancy = batch.reported_tally[self.party] - batch.true_tally[self.party] + \
+                      self.threshold*(batch.reported_invalid_votes - batch.true_invalid_votes)
+        normalized_margin = batch.total_votes * self.vote_margin / self.total_ballots
+        return 0.5 + (normalized_margin - discrepancy) / (2*batch.total_votes*self.parties_n)
 
     def __str__(self):
         return "Batch-comp (total discrepancy) passed threshold: " + self.party

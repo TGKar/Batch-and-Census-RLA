@@ -89,8 +89,14 @@ class Auditor:
             ballot_counter += batch_to_audit.total_votes
 
             for i, delete_ind in enumerate(completed_assertion_inds):  # Remove assertions that were fulfilled
+                assorter_true_mean = assertions[delete_ind - i].get_assorter_value(self.election_profile.tot_batch)
+                # Assorter true mean at time of apporval: assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots
+
+                if assorter_true_mean < 0.5:
+                    print("A WRONG ASSERTION WAS APPROVED!!!")
                 print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',  assertions[delete_ind - i].vote_margin,'after ballot ', str('{:,}'.format(ballot_counter)),
-                      "True mean:", assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots)
+                      "True mean:", assorter_true_mean)
+
                 if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
                     assertions[delete_ind - i].plot()
                 if assertions[delete_ind - i].type == 1:
@@ -122,6 +128,6 @@ class Auditor:
         plt.legend()
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
-        plt.show()
+        # plt.show()
 
-        return batch_counter, ballot_counter
+        return len(assertions) == 0
