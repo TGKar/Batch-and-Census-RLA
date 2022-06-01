@@ -74,8 +74,6 @@ class Auditor:
         batch_counter, ballot_counter = 0, 0
         assertions = self.comparison_assertions + self.failed_threshold_assertions + self.passed_threshold_assertions
         statistic_values = np.zeros(len(assertions))
-        plot_margin = []
-        plot_ballot_counter = []
         while len(assertions) > 0 and batch_counter < len(self.election_profile.batches):
             assert(np.isclose(np.sum(batch_probs), 1.0))
             batch_ind = np.random.choice(list(range(len(batch_probs))), p=batch_probs)
@@ -95,13 +93,6 @@ class Auditor:
                       "True mean:", assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots)
                 if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
                     assertions[delete_ind - i].plot()
-                #print("Finished assertion: ", str(assertions[delete_ind - i]),'after ballot ', str('{:,}'.format(ballot_counter)))
-                #if isinstance(assertions[delete_ind - i], MoveSeatAssertion):  # TODO delete
-                #    plot_ballot_counter.append(ballot_counter)
-                #    plot_margin.append(assertions[delete_ind - i].vote_margin)
-                #    if ballot_counter > 4000000:
-                #        pass
-                        # assertions[delete_ind - i].plot()
                 if assertions[delete_ind - i].type == 1:
                     required_ballots_threshold.append(ballot_counter)
                     margin_threshold.append(assertions[delete_ind - i].vote_margin)

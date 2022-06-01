@@ -107,7 +107,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.2, invalidation_rate=0.5, invalid_to_valid_ratio=0.5):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.1, invalidation_rate=0.2, invalid_to_valid_ratio=0.1):
         """
         Adds error to a tally
         :param tally: Vote tally
@@ -121,19 +121,21 @@ class ElectionProfile:
         valid_voters = np.sum(list(noised_tally.values()))
         invalid_to_valid_num = min(np.random.poisson(invalid_votes * invalid_to_valid_ratio), invalid_votes)
         noised_invalid = invalid_votes - invalid_to_valid_num
-        choice_probs = np.array(list(noised_tally.values())) / valid_voters
         invalid_to_valid_to = np.random.choice(self.parties, size=invalid_to_valid_num)
-        errors = np.random.poisson(error_ratio * valid_voters)
-        errors_from = np.random.choice(self.parties, size=errors, p=choice_probs)
-        errors_to = np.random.choice(self.parties, size=errors)
+        if valid_voters > 0:
+            # Add noise from reported tally to other parties / invalidation
+            choice_probs = np.array(list(noised_tally.values())) / valid_voters
+            errors = np.random.poisson(error_ratio * valid_voters)
+            errors_from = np.random.choice(self.parties, size=errors, p=choice_probs)
+            errors_to = np.random.choice(self.parties, size=errors)
+            for i in range(errors):
+                if noised_tally[errors_from[i]] > 0:
+                    noised_tally[errors_from[i]] -= 1
+                    if np.random.random() < invalidation_rate:
+                        noised_invalid += 1
+                    else:
+                        noised_tally[errors_to[i]] += 1
 
-        for i in range(errors):
-            if noised_tally[errors_from[i]] > 0:
-                noised_tally[errors_from[i]] -= 1
-                if np.random.random() < invalidation_rate:
-                    noised_invalid += 1
-                else:
-                    noised_tally[errors_to[i]] += 1
         for party_to in invalid_to_valid_to:
             noised_tally[party_to] += 1
         assert np.sum(list(tally.values())) + invalid_votes == np.sum(list(noised_tally.values())) + noised_invalid

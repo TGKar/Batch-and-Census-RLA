@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 # Constants
 # APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] 24!!!
-APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]
-
+# APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')] 23!
+APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
 THRESHOLD = 0.0325
 SEATS = 120
 ALPHA = 0.05
@@ -16,7 +16,7 @@ ALPHA = 0.05
 if __name__ == "__main__":
 
 
-    profile = ElectionProfile("Results 23.csv", THRESHOLD, SEATS, APPARENTMENTS)
+    profile = ElectionProfile("Results 22.csv", THRESHOLD, SEATS, APPARENTMENTS)
     auditor = Auditor(profile, ALPHA, THRESHOLD)
     auditor.audit()
 
