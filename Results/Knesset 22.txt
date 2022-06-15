@@ -1,0 +1,74 @@
+C:\Users\barkr\AppData\Local\Programs\Python\Python39\python.exe "C:/Users/barkr/Documents/Uni/Thesis/Israeli Batch RLA/Main.py"
+REPEATING: 0
+Drew noised elections
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with margin  969420.8049999999 after ballot  6,250 True mean: 0.6051367326680968
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with margin  1007017.8049999999 after ballot  6,250 True mean: 0.6092142454651555
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with margin  326014.805 after ballot  19,810 True mean: 0.535357330090648
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with margin  186002.805 after ballot  34,012 True mean: 0.5201725887085754
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with margin  165957.805 after ballot  38,219 True mean: 0.51799864546797
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with margin  144196.195 after ballot  43,586 True mean: 0.5156385304784868
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with margin  144196.195 after ballot  43,586 True mean: 0.5156385304784868
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with margin  144196.195 after ballot  43,586 True mean: 0.5156385304784868
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with margin  143003.195 after ballot  43,917 True mean: 0.5155091458795323
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with margin  143460.195 after ballot  43,917 True mean: 0.5155587089656365
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with margin  143762.195 after ballot  43,917 True mean: 0.5155914618146593
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with margin  143586.195 after ballot  43,917 True mean: 0.5155723740615864
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with margin  143654.195 after ballot  43,917 True mean: 0.5155797488752737
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with margin  143699.195 after ballot  43,917 True mean: 0.5155846292666844
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with margin  143163.195 after ballot  43,917 True mean: 0.5155264983823259
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with margin  142651.195 after ballot  43,917 True mean: 0.5154709703733865
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with margin  142960.195 after ballot  43,917 True mean: 0.5155044823944066
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with margin  143471.195 after ballot  43,917 True mean: 0.5155599019502035
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with margin  143604.195 after ballot  43,917 True mean: 0.5155743262181507
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with margin  142723.195 after ballot  43,917 True mean: 0.5154787789996437
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with margin  143268.195 after ballot  43,917 True mean: 0.5155378859622842
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with margin  143202.195 after ballot  43,917 True mean: 0.5155307280548819
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with margin  141143.195 after ballot  44,316 True mean: 0.5153074230345572
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with margin  141801.195 after ballot  44,316 True mean: 0.5153787852022957
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with margin  139838.195 after ballot  44,820 True mean: 0.5151658916836473
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with margin  138250.195 after ballot  45,189 True mean: 0.5149936680934213
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with margin  129391.195 after ballot  47,942 True mean: 0.5140328817043704
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with margin  124578.805 after ballot  49,432 True mean: 0.5135109628861286
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with margin  116458.805 after ballot  53,669 True mean: 0.5126303233693555
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with margin  68585.805 after ballot  91,328 True mean: 0.5074383460803806
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with margin  60587.19500000001 after ballot  103,442 True mean: 0.5065708716905708
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with margin  48298.80499999999 after ballot  129,679 True mean: 0.5052381571793
+Finished assertion:  Batch-comp (total discrepancy) move sit from Yahadut Hatora + Shas to Likud + Yemina  with margin  49265.19999999995 after ballot  168,772 True mean: 0.5039404372435067
+Finished assertion:  Batch-comp (total discrepancy) move sit from Yisrael Beytenu to Kahol Lavan  with margin  39280.117647058796 after ballot  186,553 True mean: 0.5035606936263306
+Finished assertion:  Batch-comp (total discrepancy) move sit from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with margin  42262.38095238095 after ballot  192,479 True mean: 0.5034269475530874
+Finished assertion:  Batch-comp (total discrepancy) move sit from Meretz to Avoda  with margin  40507.85714285713 after ballot  246,721 True mean: 0.5026459904009584
+Finished assertion:  Batch-comp (total discrepancy) move sit from Yahadut Hatora to Shas  with margin  37635.70000000001 after ballot  263,363 True mean: 0.5024790385332448
+Finished assertion:  Batch-comp (total discrepancy) move sit from Kahol Lavan + Yisrael Beytenu to Meshutefet  with margin  28792.70731707319 after ballot  270,410 True mean: 0.5024034543096088
+Finished assertion:  Batch-comp (total discrepancy) move sit from Yemina to Likud  with margin  24433.212121212127 after ballot  286,485 True mean: 0.502257182708467
+Finished assertion:  Batch-comp (total discrepancy) move sit from Avoda + Meretz to Meshutefet  with margin  35825.5 after ballot  287,824 True mean: 0.5022465313735116
+Finished assertion:  Batch-comp (total discrepancy) move sit from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with margin  22537.761904761894 after ballot  322,334 True mean: 0.5019999374276116
+Finished assertion:  Batch-comp (total discrepancy) move sit from Meshutefet to Likud + Yemina  with margin  23572.599999999977 after ballot  323,465 True mean: 0.5019921581348601
+Finished assertion:  Batch-comp (total discrepancy) move sit from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with margin  22440.46341463417 after ballot  330,892 True mean: 0.501943891447487
+Finished assertion:  Batch-comp (total discrepancy) move sit from Likud + Yemina to Meshutefet  with margin  23117.41025641025 after ballot  336,958 True mean: 0.50190484708843
+Finished assertion:  Batch-comp (total discrepancy) move sit from Meshutefet to Avoda + Meretz  with margin  28763.923076923063 after ballot  380,151 True mean: 0.5016748798701415
+Finished assertion:  Batch-comp (total discrepancy) move sit from Likud to Yemina  with margin  17749.25 after ballot  399,273 True mean: 0.5015900185614517
+Finished assertion:  Batch-comp (total discrepancy) move sit from Meshutefet to Kahol Lavan + Yisrael Beytenu  with margin  17882.809523809527 after ballot  414,549 True mean: 0.5015291657151941
+Finished assertion:  Batch-comp (total discrepancy) move sit from Shas to Yahadut Hatora  with margin  24735.222222222248 after ballot  431,272 True mean: 0.5014663633761438
+Finished assertion:  Batch-comp (total discrepancy) move sit from Avoda to Meretz  with margin  20287.0 after ballot  551,237 True mean: 0.5011358475201829
+Finished assertion:  Batch-comp (total discrepancy) move sit from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with margin  6959.073170731659 after ballot  1,063,096 True mean: 0.5005508577535701
+Finished assertion:  Batch-comp (total discrepancy) move sit from Kahol Lavan to Yisrael Beytenu  with margin  3813.4545454545296 after ballot  1,594,501 True mean: 0.5003355176909677
+Finished assertion:  Batch-comp (total discrepancy) move sit from Likud + Yemina to Yahadut Hatora + Shas  with margin  67.64102564100176 after ballot  4,465,054 True mean: 0.5000052749574996
+Remaining assertions:
+Reported Results:
+{'Avoda': 6, 'Yahadut Hatora': 7, 'Meshutefet': 13, '1': 0, '2': 0, '3': 0, '4': 0, 'Yemina': 7, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, 'Otzma Yehudit': 0, 'Yisrael Beytenu': 8, 'Likud': 32, 'Meretz': 5, '12': 0, '13': 0, '14': 0, 'Kahol Lavan': 33, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, 'Shas': 9}
+True Results:
+{'Avoda': 6, 'Yahadut Hatora': 7, 'Meshutefet': 13, '1': 0, '2': 0, '3': 0, '4': 0, 'Yemina': 7, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, 'Otzma Yehudit': 0, 'Yisrael Beytenu': 8, 'Likud': 32, 'Meretz': 5, '12': 0, '13': 0, '14': 0, 'Kahol Lavan': 33, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, 'Shas': 9}
+Reported Tally:
+{'Avoda': 212782, 'Yahadut Hatora': 268775, 'Meshutefet': 470211, '1': 1193, '2': 736, '3': 0, '4': 14805, 'Yemina': 260655, '5': 434, '6': 4358, '7': 610, '8': 542, '9': 497, '10': 0, '11': 5946, 'Otzma Yehudit': 83609, 'Yisrael Beytenu': 310154, 'Likud': 1113617, 'Meretz': 192495, '12': 1033, '13': 1545, '14': 0, 'Kahol Lavan': 1151214, '15': 1236, '16': 3053, '17': 725, '18': 592, '19': 1473, '20': 928, '21': 994, '22': 2395, 'Shas': 330199}
+True Tally:
+{'Avoda': 212782, 'Yahadut Hatora': 268775, 'Meshutefet': 470211, '1': 1193, '2': 736, '3': 0, '4': 14805, 'Yemina': 260655, '5': 434, '6': 4358, '7': 610, '8': 542, '9': 497, '10': 0, '11': 5946, 'Otzma Yehudit': 83609, 'Yisrael Beytenu': 310154, 'Likud': 1113617, 'Meretz': 192495, '12': 1033, '13': 1545, '14': 0, 'Kahol Lavan': 1151214, '15': 1236, '16': 3053, '17': 725, '18': 592, '19': 1473, '20': 928, '21': 994, '22': 2395, 'Shas': 330199}
+True threshold: 144196.195 total voters:  4465168
+Reported matches truth:  True
+FINISHED!!!
+Correct approvals: 1
+Correct rejections: 0
+Wrong approvals: 0
+Wrong rejections: 0
+
+Process finished with exit code 0
+

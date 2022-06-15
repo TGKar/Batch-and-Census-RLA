@@ -128,6 +128,6 @@ class Auditor:
         plt.legend()
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
-        # plt.show()
+        plt.show()
 
         return len(assertions) == 0
