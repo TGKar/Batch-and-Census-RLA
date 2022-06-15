@@ -5,7 +5,7 @@ from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 import matplotlib.pyplot as plt
 
-class CompMoveSeatAssertion(Assorter):
+class CompMoveSeatAssertion2(Assorter):
     """
     Asserts the hypothesis a seat from one party shouldn't be given to another specific party (specific for this assertion)
     instead.
@@ -28,61 +28,70 @@ class CompMoveSeatAssertion(Assorter):
         self.mu = DEFAULT_MU
         self.paired = paired
 
-        self.party_from1, self.party_from2 = None, None
         if paired:
-            reported_party_from_votes = election_profile.tot_batch.reported_paired_tally[party_from]
-            reported_party_to_votes = election_profile.tot_batch.reported_paired_tally[party_to]
-            if ' + ' in party_to:
-                party_to1, party_to2 = party_to.split(' + ')
-                party_to_seats = election_profile.reported_seats_won[party_to1] + election_profile.reported_seats_won[party_to2]
-            else:
-                party_to_seats = election_profile.reported_seats_won[party_to]
-            if ' + ' in party_from:
-                self.party_from1, self.party_from2 = party_from.split(' + ')
-                party_from_seats = election_profile.reported_seats_won[self.party_from1] + election_profile.reported_seats_won[self.party_from2]
-            else:
-                party_from_seats = election_profile.reported_seats_won[party_from]
+            self.party_from_seats = election_profile.reported_paired_seats_won[party_from]
+            self.party_to_seats = election_profile.reported_paired_seats_won[party_to]
+            party_from_reported_votes = election_profile.tot_batch.reported_paired_tally[party_from]
+            party_to_reported_votes = election_profile.tot_batch.reported_paired_tally[party_to]
         else:
-            reported_party_from_votes = election_profile.tot_batch.reported_tally[party_from]
-            reported_party_to_votes = election_profile.tot_batch.reported_tally[party_to]
-            party_from_seats = election_profile.reported_seats_won[party_from]
-            party_to_seats = election_profile.reported_seats_won[party_to]
-        self.inner_u = 0.5 + (party_to_seats + 1)/(2 * party_from_seats)
+            self.party_from_seats = election_profile.reported_seats_won[party_from]
+            self.party_to_seats = election_profile.reported_seats_won[party_to]
+            party_from_reported_votes = election_profile.tot_batch.reported_tally[party_from]
+            party_to_reported_votes = election_profile.tot_batch.reported_tally[party_to]
 
-        reported_inner_assorter_mean = self.get_inner_assorter_mean(reported_party_from_votes, reported_party_to_votes, self.election_profile.tot_batch.total_votes)
-        self.reported_inner_margin = reported_inner_assorter_mean - 0.5
-        # u = 1 + self.reported_inner_margin / (2*self.inner_u)
-        #u = self.inner_u / (self.inner_u - self.reported_inner_margin)
-        u = 0.5 + 1/(2 * self.inner_u * election_profile.tot_batch.total_votes) + EPSILON
-        self.reported_assorter_mean = 0.5 + (self.reported_inner_margin) / (2*self.inner_u)
+        self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
+        self.reported_inner_assorter_margin = self.get_inner_assorter_value(party_from_reported_votes,
+                                                                            party_to_reported_votes,
+                                                                            election_profile.tot_batch.total_votes) - 0.5
+
+        weighted_vote_margin, vote_margin = self.calc_margins()
+        u = 0.5 + self.reported_inner_assorter_margin / (2*self.inner_u) + EPSILON
+        self.reported_assorter_mean = u - EPSILON
+
         eta = None
         if eta_mode == ADAPTIVE_ETA:
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, self.election_profile.tot_batch.total_votes)
-        # TODO delete this section
+        # Next block is for debugging purposes only
+        self.inc_T_list = []
         self.T_list = []
         self.mu_list = []
         self.eta_list = []
-        self.assorter_value = []
+        self.assorter_mean = []
+        self.assorter_values = []
         self.plot_x = []
 
-        super().__init__(risk_limit, election_profile, u, eta, -1)
+        super().__init__(risk_limit, election_profile, u, eta, vote_margin, weighted_vote_margin)
+
 
     def audit_ballot(self, ballot):
-        if ballot == self.party_from or ballot == self.party_from1 or ballot == self.party_from2:
-            assorter_value = self.u
-        elif ballot == self.party_to:
-            assorter_value = 0
-        else:
-            assorter_value = 0.5
-        self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
-                  (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
-        self.update_mu_and_u(1, assorter_value)
-        self.eta.calculate_eta(1, assorter_value, self.mu)
-        return (self.T >= 1 / self.alpha), self.T
+        return None, None
 
     def audit_batch(self, batch: Batch):
+        assorter_value = self.get_assorter_value(batch)
+        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                  (self.u - self.mu)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
+        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
+        if self.mu <= 0:
+            self.T = float('inf')
+        if self.mu > self.u:
+            self.T = 0
+
+        # For debugging purposes
+        self.T_list.append(self.T)
+        self.inc_T_list.append((assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                  (self.u - self.mu))
+        self.mu_list.append(self.mu)
+        self.eta_list.append(self.eta.value)
+        self.assorter_mean.append(self.eta.assorter_sum / self.eta.total_ballots)
+        self.assorter_values.append(assorter_value)
+        self.plot_x.append(self.eta.total_ballots)
+
+        return self.T >= (1 / self.alpha), self.T
+
+    def get_assorter_value(self, batch: Batch):
         if self.paired:
             rep_party_from_votes = batch.reported_paired_tally[self.party_from]
             rep_party_to_votes = batch.reported_paired_tally[self.party_to]
@@ -94,61 +103,46 @@ class CompMoveSeatAssertion(Assorter):
             true_party_from_votes = batch.true_tally[self.party_from]
             true_party_to_votes = batch.true_tally[self.party_to]
 
-        reported_inner_assorter_value = self.get_inner_assorter_mean(rep_party_from_votes, rep_party_to_votes, batch.total_votes)
-        true_inner_assorter_value = self.get_inner_assorter_mean(true_party_from_votes, true_party_to_votes, batch.total_votes)
-
-        assorter_value = 0.5 + (self.reported_inner_margin - reported_inner_assorter_value + true_inner_assorter_value) \
-                         / (2*self.inner_u)
-        #assorter_value = (self.inner_u * batch.total_votes + true_inner_assorter_value - reported_inner_assorter_value) \
-        #                 / (2 * batch.total_votes * (self.inner_u - self.reported_inner_margin))
-        #if self.u - self.mu == 0 or self.mu == 0:
-        #    print(self, self.mu)
-        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu)
-        self.update_mu_and_u(batch.total_votes, assorter_value)
-        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-        #print(self.T)
-        if self.mu <= 0:
-            self.T = float('inf')
-        if self.mu > self.u:
-            self.T = 0
-
-        # TODO delete this section
-        self.T_list.append(self.T)
-        self.mu_list.append(self.mu)
-        self.eta_list.append(self.eta.value)
-        self.assorter_value.append(self.eta.assorter_sum / self.eta.total_ballots)
-        self.plot_x.append(self.eta.total_ballots)
-
-        return self.T >= (1 / self.alpha), self.T
+        discrepancy = self.get_inner_assorter_value(rep_party_from_votes, rep_party_to_votes, batch.total_votes) - \
+                      self.get_inner_assorter_value(true_party_from_votes, true_party_to_votes, batch.total_votes)
+        return 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*self.inner_u)
 
     def __str__(self):
-        return "Batch-comp move sit from " + self.party_from + " to " + self.party_to
-
-    def get_margin(self):
-        if self.paired:
-            party_from_price = self.election_profile.tot_batch.true_paired_tally[self.party_from] / \
-                               self.election_profile.reported_paired_seats_won[self.party_from]
-            party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to]
-            party_to_votes = self.election_profile.tot_batch.true_paired_tally[self.party_to]
-        else:
-            party_from_price = self.election_profile.tot_batch.true_tally[self.party_from] / \
-                               self.election_profile.reported_seats_won[self.party_from]
-            party_to_seats = self.election_profile.reported_seats_won[self.party_to]
-            party_to_votes = self.election_profile.tot_batch.true_tally[self.party_to]
-        return party_from_price * (party_to_seats+1) - party_to_votes
+        return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to
 
     # TODO delete
     def plot(self):
         fig, axs = plt.subplots(2)
         axs[0].plot(self.plot_x, self.mu_list, label='mu')
         axs[0].plot(self.plot_x, self.eta_list, label='eta')
-        axs[0].plot(self.plot_x, self.assorter_value, label='Assorter mean value')
+        axs[0].scatter(self.plot_x, self.assorter_values, s=20, label='Assorter value')
+        axs[0].plot(self.plot_x, self.assorter_mean, label='Assorter mean value')
         axs[0].legend()
         axs[1].plot(self.plot_x, self.T_list, label='T')
+        #axs[1].scatter(self.plot_x, self.inc_T_list, s=20, label='Batch T')
+        #axs[1].legend()
+        axs[0].set_xlabel('Ballots')
+        axs[0].set_ylabel('Value')
+        axs[1].set_xlabel('Ballots')
+        axs[1].set_ylabel('T')
         fig.suptitle(str(self) + ' (margin: ' + str('{:,}'.format(self.get_margin())) + ')')
         plt.show()
 
-    def get_inner_assorter_mean(self, party_from_votes, party_to_votes, total_votes):
+    def calc_margins(self):
+        if self.paired:
+            party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from]
+            party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to]
+            party_to_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_to]
+        else:
+            party_from_votes = self.election_profile.tot_batch.reported_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_seats_won[self.party_from]
+            party_to_seats = self.election_profile.reported_seats_won[self.party_to]
+            party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
+        party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
+        party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
+        weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
+        return weighted_margin, min(party_to_margin, party_from_margin)
+
+    def get_inner_assorter_value(self, party_from_votes, party_to_votes, total_votes):
         return (party_from_votes * self.inner_u + 0.5 * (total_votes - party_from_votes - party_to_votes)) / total_votes
