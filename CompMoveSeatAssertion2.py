@@ -37,7 +37,7 @@ class CompMoveSeatAssertion2(Assorter):
 
         weighted_vote_margin, vote_margin, self.parties_n = self.calc_margins()
         u = 0.5 + weighted_vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n) + EPSILON
-        self.reported_assorter_mean = u
+        self.reported_assorter_mean = u - EPSILON
         eta = None
         if eta_mode == ADAPTIVE_ETA:
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
