@@ -107,7 +107,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.5, invalidation_rate=0.0, invalid_to_valid_ratio=0.0):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.0, invalidation_rate=0.0, invalid_to_valid_ratio=0.0):
         """
         Adds error to a tally
         :param tally: Vote tally

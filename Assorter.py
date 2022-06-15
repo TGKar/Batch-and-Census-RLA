@@ -34,9 +34,20 @@ class Assorter(ABC):
     def audit_ballot(self, ballot):
         pass
 
-    @abstractmethod
     def audit_batch(self, batch):
-        pass
+        assorter_value = self.get_assorter_value(batch)
+        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                  (self.u - self.mu)
+        self.update_mu_and_u(batch.total_votes, assorter_value)
+        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
+        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
+        if self.mu < 0:
+            self.T = float('inf')
+        if self.mu > self.u:
+            self.T = 0
+
+        return self.T >= (1 / self.alpha), self.T
+
 
     def update_mu_and_u(self, ballot_count, assorter_sum):
         self.ballots_examined += ballot_count
@@ -51,3 +62,7 @@ class Assorter(ABC):
 
     def get_margin(self):
         return self.vote_margin
+
+    @abstractmethod
+    def get_assorter_value(self, batch: Batch):
+        pass
