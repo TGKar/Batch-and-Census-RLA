@@ -107,7 +107,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.0, invalidation_rate=0.0, invalid_to_valid_ratio=0.0):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.01, invalidation_rate=0.5, invalid_to_valid_ratio=0.0):
         """
         Adds error to a tally
         :param tally: Vote tally
@@ -125,7 +125,7 @@ class ElectionProfile:
         if valid_voters > 0:
             # Add noise from reported tally to other parties / invalidation
             choice_probs = np.array(list(noised_tally.values())) / valid_voters
-            errors = np.random.poisson(error_ratio * valid_voters)
+            errors = np.random.binomial(valid_voters, error_ratio)
             errors_from = np.random.choice(self.parties, size=errors, p=choice_probs)
             errors_to = np.random.choice(self.parties, size=errors)
             for i in range(errors):

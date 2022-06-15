@@ -17,8 +17,6 @@ class CompFailedThresholdAssertion2(Assorter):
         eta = None
         vote_margin = (election_profile.tot_batch.total_votes - election_profile.tot_batch.reported_invalid_votes) * threshold \
                       - election_profile.tot_batch.reported_tally[party]
-        if (2*election_profile.tot_batch.total_votes*self.parties_n) == 0:
-            print('hi')
         u = 0.5 + vote_margin / (2*election_profile.tot_batch.total_votes*self.parties_n) + EPSILON
         self.reported_assorter_mean = u
         if eta_mode == ADAPTIVE_ETA:
@@ -37,7 +35,6 @@ class CompFailedThresholdAssertion2(Assorter):
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-        #print(self.T)
         if self.mu < 0:
             self.T = float('inf')
         if self.mu > self.u:

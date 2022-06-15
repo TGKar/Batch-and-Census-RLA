@@ -10,11 +10,11 @@ class CompThresholdAssertion2(Assorter):
     Asserts the hypothesis that a certain party has at least a certain share of the valid votes.
     """
 
-    def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):  # TODO Support more eta types
+    def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):
         self.type = 1
         self.party = party
         self.threshold = threshold
-        self.parties_n = 1 + threshold # Was 2
+        self.parties_n = 1 + threshold
         self.profile = election_profile  # TODO delete
         eta = None
         vote_margin = election_profile.tot_batch.reported_tally[party] - \
@@ -37,11 +37,9 @@ class CompThresholdAssertion2(Assorter):
                   (self.u - self.mu)
         if self.T < 0:
             print(self.T)
-        # self.T *= (assorter_value / self.mu)
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         # print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-        # print(self.T)
         if self.mu < 0:
             self.T = float('inf')
 

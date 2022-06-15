@@ -43,7 +43,7 @@ class CompMoveSeatAssertion2(Assorter):
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, self.election_profile.tot_batch.total_votes)
-        # TODO delete this section
+        # Next block is for debugging purposes only
         self.inc_T_list = []
         self.T_list = []
         self.mu_list = []
@@ -69,7 +69,7 @@ class CompMoveSeatAssertion2(Assorter):
         if self.mu > self.u:
             self.T = 0
 
-        # TODO delete this section
+        # For debugging purposes
         self.T_list.append(self.T)
         self.inc_T_list.append((assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu))
