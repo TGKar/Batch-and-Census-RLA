@@ -5,6 +5,7 @@ from ElectionProfile import ElectionProfile, EPSILON
 
 INVALID_BALLOT = "Invalid"
 DEFAULT_MU = 0.5
+MAX_ERR = 0.0001
 
 class Assorter(ABC):
 
@@ -38,9 +39,15 @@ class Assorter(ABC):
         assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
+        #self.T *= assorter_value/self.mu
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
+
+        # Delete next 2 lines
+        #self.u = self.eta.value + EPSILON
+        #self.eta.u = self.u
+
         if self.mu < 0:
             self.T = float('inf')
         if self.mu > self.u:
@@ -55,9 +62,9 @@ class Assorter(ABC):
         if self.total_ballots == self.ballots_examined:
             self.mu = 0.5
         else:
-            self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_examined)  # Make sure we should multiply by ballots_examined
-            self.u = max(self.u, self.mu + 2*EPSILON)
+            self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_examined)
             self.mu = max(self.mu, 0)
+            self.u = max(self.u, self.mu + 2*EPSILON)  # I switched this line with the previous but it shouldn't effect anything
         self.eta.u = self.u
 
     def get_margin(self):

@@ -1,5 +1,5 @@
 from Batch import Batch
-from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU
+from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR
 from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
@@ -45,7 +45,9 @@ class CompMoveSeatAssertion2(Assorter):
                                                                             election_profile.tot_batch.total_votes) - 0.5
 
         weighted_vote_margin, vote_margin = self.calc_margins()
-        u = 0.5 + self.reported_inner_assorter_margin / (2*self.inner_u) + EPSILON
+        #u = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin)) + EPSILON
+        u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*self.inner_u) / (
+                2 * (self.inner_u - self.reported_inner_assorter_margin))
         self.reported_assorter_mean = u - EPSILON
 
         eta = None
@@ -105,7 +107,7 @@ class CompMoveSeatAssertion2(Assorter):
 
         discrepancy = self.get_inner_assorter_value(rep_party_from_votes, rep_party_to_votes, batch.total_votes) - \
                       self.get_inner_assorter_value(true_party_from_votes, true_party_to_votes, batch.total_votes)
-        return 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*self.inner_u)
+        return 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*(self.inner_u - self.reported_inner_assorter_margin))
 
     def __str__(self):
         return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to
