@@ -1,15 +1,18 @@
 from ElectionProfile import ElectionProfile
-from CompThresholdAssortion import CompThresholdAssertion2
-from CompFailedThresholdAssertion import CompFailedThresholdAssertion2
-from CompMoveSeatAssertion import CompMoveSeatAssertion2
+from CompThresholdAssortion import CompThresholdAssertion
+from CompFailedThresholdAssertion import CompFailedThresholdAssertion
+from CompMoveSeatAssertion import CompMoveSeatAssertion
+from MoveSeatAssertion import MoveSeatAssertion
+from FailedThresholdAssertion import FailedThresholdAssertion
+from  ThresholdAssertion import ThresholdAssertion
 import numpy as np
 from MyEta import MY_ETA
 import matplotlib.pyplot as plt
 
-
-MOVE_SEAT_ASSERTION = CompMoveSeatAssertion2
-THRESHOLD_ASSERTION = CompThresholdAssertion2
-FAILED_ASSERTION = CompFailedThresholdAssertion2
+ELECTION_NAME = "Knesset 22"
+MOVE_SEAT_ASSERTION = CompMoveSeatAssertion
+THRESHOLD_ASSERTION = CompThresholdAssertion
+FAILED_ASSERTION = CompFailedThresholdAssertion
 
 
 class Auditor:
@@ -49,7 +52,7 @@ class Auditor:
             self.comparison_assertions.append(MOVE_SEAT_ASSERTION(self.risk_limit, party1, party2, self.election_profile, False))
             self.comparison_assertions.append(MOVE_SEAT_ASSERTION(self.risk_limit, party2, party1, self.election_profile, False))
 
-    def audit(self):
+    def batch_audit(self):
         # Calculate batch sampling probabilities
         batch_probs = np.zeros(len(self.election_profile.batches))
         for i, batch in enumerate(self.election_profile.batches):
@@ -112,16 +115,82 @@ class Auditor:
                   ". Reported assorter value: " + str(assertion.reported_assorter_mean) + '. Actual mean value: ' +
                   str(assertion.eta.assorter_sum / assertion.eta.total_ballots) + '. Final eta assorter mean: ' + str(assertion.eta.assorter_sum / assertion.eta.total_ballots))
             print('Ballots examined: ', str(assertion.eta.total_ballots), '/', str(assertion.eta.total_ballots))
-            print(assertion.eta.total_ballots)
-            #assertio.plot()
 
         # TODO delete next section
         plt.scatter(margin_threshold, required_ballots_threshold, label='Passed Threshold')
         plt.scatter(margin_failed, required_ballots_failed, label='Failed Threshold')
-        plt.scatter(margin_moveseat, required_ballots_moveseat, label='Move-seat Threshold')
+        plt.scatter(margin_moveseat, required_ballots_moveseat, label='Move Seat Between Parties')
         plt.legend()
+        plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
         plt.show()
 
         return len(assertions) == 0
+
+    def ballot_audit(self):
+
+        required_ballots_moveseat = []
+        margin_moveseat = []
+        required_ballots_threshold = []
+        margin_threshold = []
+        required_ballots_failed = []
+        margin_failed = []
+
+        # Audit elections
+        ballot_counter = 0
+        assertions = self.comparison_assertions + self.failed_threshold_assertions + self.passed_threshold_assertions
+        statistic_values = np.zeros(len(assertions))
+        while len(assertions) > 0 and ballot_counter < len(self.election_profile.ballots):
+            ballot_to_audit = self.election_profile.ballots[ballot_counter]
+            completed_assertion_inds = []
+            for i, assertion in enumerate(assertions):
+                assertion_done, statistic_values[i] = assertion.audit_ballot(ballot_to_audit)
+                if assertion_done:
+                    completed_assertion_inds.append(i)
+
+            ballot_counter += 1
+
+            for i, delete_ind in enumerate(completed_assertion_inds):  # Remove assertions that were fulfilled
+                assorter_true_mean = assertions[delete_ind - i].get_assorter_value(self.election_profile.tot_batch)
+                # Assorter true mean at time of apporval: assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots
+
+                if assorter_true_mean < 0.5:
+                    print("A WRONG ASSERTION WAS APPROVED!!!")
+                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',
+                      assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
+                      "True mean:", assorter_true_mean)
+
+                if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
+                    assertions[delete_ind - i].plot()
+                if assertions[delete_ind - i].type == 1:
+                    required_ballots_threshold.append(ballot_counter)
+                    margin_threshold.append(assertions[delete_ind - i].vote_margin)
+                elif assertions[delete_ind - i].type == 2:
+                    required_ballots_failed.append(ballot_counter)
+                    margin_failed.append(assertions[delete_ind - i].vote_margin)
+                elif assertions[delete_ind - i].type == 3:
+                    required_ballots_moveseat.append(ballot_counter)
+                    margin_moveseat.append(assertions[delete_ind - i].vote_margin)
+                del assertions[delete_ind - i]
+
+        print("Remaining assertions:")
+        for assertion in assertions:
+            print(str(assertion) + ". T:" + str(assertion.T) + '. Margin: ' + str(assertion.vote_margin) +
+                  ". Reported assorter value: " + str(assertion.reported_assorter_mean) + '. Actual mean value: ' +
+                  str(assertion.eta.assorter_sum / assertion.eta.total_ballots) + '. Final eta assorter mean: ' + str(
+                assertion.eta.assorter_sum / assertion.eta.total_ballots))
+            print('Ballots examined: ', str(assertion.eta.total_ballots), '/', str(assertion.eta.total_ballots))
+
+        # TODO delete next section
+        plt.scatter(margin_threshold, required_ballots_threshold, label='Passed Threshold')
+        plt.scatter(margin_failed, required_ballots_failed, label='Failed Threshold')
+        plt.scatter(margin_moveseat, required_ballots_moveseat, label='Move Seat Between Parties')
+        plt.legend()
+        plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
+        plt.xlabel("Assertion Margin")
+        plt.ylabel("Required Ballots")
+        plt.show()
+
+        return len(assertions) == 0
+

@@ -33,30 +33,25 @@ class ThresholdAssertion(Assorter):
 
     def audit_ballot(self, ballot):
         if ballot == self.party:
-            assorter_value = 1 / (2*self.threshold)
+            assorter_value = self.u
         elif ballot == INVALID_BALLOT:
             assorter_value = 0.5
         else:
             assorter_value = 0
+
         self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
                   (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
         self.update_mu_and_u(1, assorter_value)
         self.eta.calculate_eta(1, assorter_value, self.mu)
-        return (self.T >= 1 / self.alpha), self.T
 
-    def audit_batch(self, batch: Batch):
-        assorter_value = (1 / batch.total_votes) * (batch.true_tally[self.party] / (2 * self.threshold) + 0.5 * batch.true_invalid_votes)
-        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu)
-        self.update_mu_and_u(batch.total_votes, assorter_value)
-        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-        #print(self.T)
         if self.mu < 0:
             self.T = float('inf')
-        elif self.mu > self.u:
+        if self.mu > self.u:
             self.T = 0
-        return self.T >= (1 / self.alpha), self.T
+        return (self.T >= 1 / self.alpha), self.T
+
+    def get_assorter_value(self, batch: Batch):
+        return (1 / batch.total_votes) * (batch.true_tally[self.party] / (2 * self.threshold) + 0.5 * batch.true_invalid_votes)
 
     def __str__(self):
         return "Passed threshold: " + self.party

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 # Constants
-#APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!!!
+#APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
 #APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
 APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
 THRESHOLD = 0.0325
@@ -25,7 +25,8 @@ if __name__ == "__main__":
         print("REPEATING: " + str(i))
         profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS)
         auditor = Auditor(profile, ALPHA, THRESHOLD)
-        audit_approves = auditor.audit()
+        audit_approves = auditor.batch_audit()
+        #audit_approves = auditor.ballot_audit()
 
         print("Reported Results:")
         print(profile.reported_seats_won)
@@ -55,8 +56,3 @@ if __name__ == "__main__":
     print("Correct rejections:", correct_rejections)
     print("Wrong approvals:", wrong_approvals)
     print("Wrong rejections:", wrong_rejections)
-
-
-
-
-

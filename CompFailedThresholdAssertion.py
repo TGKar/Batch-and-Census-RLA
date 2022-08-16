@@ -5,7 +5,7 @@ from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 
 
-class CompFailedThresholdAssertion2(Assorter):
+class CompFailedThresholdAssertion(Assorter):
     """
     Asserts the hypothesis that a certain party has at least a certain share of the valid votes.
     """

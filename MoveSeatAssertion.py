@@ -72,12 +72,13 @@ class MoveSeatAssertion(Assorter):
         super().__init__(risk_limit, election_profile, u, eta, self.calc_margin())
 
     def audit_ballot(self, ballot):
-        if ballot == self.party_from or ballot == self.party_from1 or ballot == self.party_from2:
+        if ballot in self.party_from.split(' + '):
             assorter_value = self.u
-        elif ballot == self.party_to:
+        elif ballot in self.party_to.split(' + '):
             assorter_value = 0
         else:
             assorter_value = 0.5
+
         self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
                   (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
         self.update_mu_and_u(1, assorter_value)
@@ -85,13 +86,7 @@ class MoveSeatAssertion(Assorter):
         return (self.T >= 1 / self.alpha), self.T
 
     def audit_batch(self, batch: Batch):
-        if self.paired:
-            party_from_votes = batch.true_paired_tally[self.party_from]
-            party_to_votes = batch.true_paired_tally[self.party_to]
-        else:
-            party_from_votes = batch.true_tally[self.party_from]
-            party_to_votes = batch.true_tally[self.party_to]
-        assorter_value = (1 / batch.total_votes) * (self.u*party_from_votes + 0.5*(batch.total_votes - party_from_votes - party_to_votes))
+        assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
         self.update_mu_and_u(batch.total_votes, assorter_value)
@@ -114,17 +109,26 @@ class MoveSeatAssertion(Assorter):
     def __str__(self):
         return "Move seat from " + self.party_from + " to " + self.party_to
 
+    def get_assorter_value(self, batch: Batch):
+        if self.paired:
+            party_from_votes = batch.true_paired_tally[self.party_from]
+            party_to_votes = batch.true_paired_tally[self.party_to]
+        else:
+            party_from_votes = batch.true_tally[self.party_from]
+            party_to_votes = batch.true_tally[self.party_to]
+        return (1 / batch.total_votes) * (self.u*party_from_votes + 0.5*(batch.total_votes - party_from_votes - party_to_votes))
+
     def calc_margin(self):
         if self.paired:
-            party_from_price = self.election_profile.tot_batch.true_paired_tally[self.party_from] / \
+            party_from_price = self.election_profile.tot_batch.reported_paired_tally[self.party_from] / \
                                self.election_profile.reported_paired_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to]
             party_to_votes = self.election_profile.tot_batch.true_paired_tally[self.party_to]
         else:
-            party_from_price = self.election_profile.tot_batch.true_tally[self.party_from] / \
+            party_from_price = self.election_profile.tot_batch.reported_tally[self.party_from] / \
                                self.election_profile.reported_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_seats_won[self.party_to]
-            party_to_votes = self.election_profile.tot_batch.true_tally[self.party_to]
+            party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
         return party_from_price * (party_to_seats+1) - party_to_votes
 
     # TODO delete

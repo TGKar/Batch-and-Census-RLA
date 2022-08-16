@@ -18,7 +18,6 @@ class AdaptiveEta(Eta):
         """
         super().__init__(u, initial_eta)
         self.d = d
-        self.mu = mu
         if c is None:
             self.c = (initial_eta - mu) / 2
         else:

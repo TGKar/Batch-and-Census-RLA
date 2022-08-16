@@ -1,9 +1,8 @@
 from Batch import Batch
 from AdaptiveEta import AdaptiveEta
 from abc import ABC, abstractmethod
-from ElectionProfile import ElectionProfile, EPSILON
+from ElectionProfile import ElectionProfile, EPSILON, INVALID_BALLOT
 
-INVALID_BALLOT = "Invalid"
 DEFAULT_MU = 0.5
 MAX_ERR = 0.0001
 

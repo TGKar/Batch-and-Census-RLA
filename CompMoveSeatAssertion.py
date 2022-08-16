@@ -5,7 +5,7 @@ from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 import matplotlib.pyplot as plt
 
-class CompMoveSeatAssertion2(Assorter):
+class CompMoveSeatAssertion(Assorter):
     """
     Asserts the hypothesis a seat from one party shouldn't be given to another specific party (specific for this assertion)
     instead.
@@ -83,8 +83,12 @@ class CompMoveSeatAssertion2(Assorter):
 
         # For debugging purposes
         self.T_list.append(self.T)
-        self.inc_T_list.append((assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu))
+        if self.mu > 0:
+            next_t = (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                  (self.u - self.mu)
+        else:
+            next_t = 1 / self.alpha
+        self.inc_T_list.append(next_t)
         self.mu_list.append(self.mu)
         self.eta_list.append(self.eta.value)
         self.assorter_mean.append(self.eta.assorter_sum / self.eta.total_ballots)
@@ -145,6 +149,7 @@ class CompMoveSeatAssertion2(Assorter):
         party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
         weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
         return weighted_margin, min(party_to_margin, party_from_margin)
+
 
     def get_inner_assorter_value(self, party_from_votes, party_to_votes, total_votes):
         return (party_from_votes * self.inner_u + 0.5 * (total_votes - party_from_votes - party_to_votes)) / total_votes

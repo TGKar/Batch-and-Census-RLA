@@ -5,9 +5,8 @@ from csv import reader
 # XLS constants
 INVALID_VOTES_INDEX = 5
 PARTY_INDEX = 6
-APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")]
-# I didn't add calcalit and kahol lavan because I didn't add support for apparentments when one of the parties didn't pass the threshold
-EPSILON = 0.0000001  # Min difference between eta and mu
+INVALID_BALLOT = 'Invalid'
+EPSILON = 10**(-9)  # Min difference between eta and mu
 
 
 class ElectionProfile:
@@ -46,14 +45,21 @@ class ElectionProfile:
                     self.batches.append(batch)
                     self.tot_batch += batch
 
+                # Load ballots
+                self.ballots = []
+                for party in self.parties:
+                    self.ballots += [party]*self.tot_batch.true_tally[party]
+                self.ballots += [INVALID_BALLOT]*self.tot_batch.true_invalid_votes
+                np.random.shuffle(self.ballots)
+
                 #print(self.tot_batch)
                 self.reported_seats_won, self.reported_paired_seats_won = \
                     self.calculate_reported_results(self.tot_batch.reported_tally, self.tot_batch.reported_paired_tally)
                 self.true_seats_won, true_paired_seats_won = self.calculate_reported_results(self.tot_batch.true_tally, self.tot_batch.true_paired_tally)  # TODO remove self.
                 reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
                                                  np.fromiter(self.true_seats_won.values(), dtype=int))
-                reported_matches_truth = True  # TODO delete
                 print("Drew noised elections")
+                reported_matches_truth = True
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))
 
@@ -107,7 +113,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.0, invalidation_rate=0.0, invalid_to_valid_ratio=0.0):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.0, invalidation_rate=0.05, invalid_to_valid_ratio=0.0):
         """
         Adds error to a tally
         :param tally: Vote tally
