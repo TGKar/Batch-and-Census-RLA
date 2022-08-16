@@ -124,7 +124,7 @@ class Auditor:
         plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
-        plt.show()
+        #plt.show()
 
         return len(assertions) == 0
 
@@ -190,7 +190,7 @@ class Auditor:
         plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
-        plt.show()
+        #plt.show()
 
         return len(assertions) == 0
 

@@ -66,4 +66,6 @@ class Batch:
 
         return result_tally
 
-
+    def copy(self):
+        return Batch(self.id, self.reported_tally, self.true_tally, self.reported_invalid_votes, self.true_invalid_votes,
+                    self.apparentment)

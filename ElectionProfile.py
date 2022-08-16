@@ -11,7 +11,7 @@ EPSILON = 10**(-9)  # Min difference between eta and mu
 
 class ElectionProfile:
 
-    def __init__(self, xls_file, threshold, seats, apparentments):
+    def __init__(self, xls_file, threshold, seats, apparentments, shuffle_true_tallies=False):
         """
         Creates an election profile from a result xls (formatted as in the gov's website)
         :param xls_file: Path to the file which contains the election results.
@@ -52,6 +52,26 @@ class ElectionProfile:
                 self.ballots += [INVALID_BALLOT]*self.tot_batch.true_invalid_votes
                 np.random.shuffle(self.ballots)
 
+                # Shuffle true tallies
+                if shuffle_true_tallies:
+                    self.tot_batch = Batch(0, empty_tally, empty_tally, 0, 0, apparentments)
+                    perm = np.arange(len(self.batches))
+                    np.random.shuffle(perm)
+                    batches_copy = [self.batches[i].copy() for i in range(len(self.batches))]
+                    for i, j in enumerate(perm):
+                        self.batches[i].true_tally = batches_copy[j].true_tally.copy()
+                        self.batches[i].true_invalid_votes = batches_copy[j].true_invalid_votes
+                        self.batches[i].true_paired_tally = batches_copy[j].true_paired_tally.copy()
+                        if self.batches[i].total_votes > self.batches[i].true_invalid_votes + sum(self.batches[i].true_tally.values()):
+                            self.batches[i].true_invalid_votes = self.batches[i].total_votes - sum(self.batches[i].true_tally.values())
+                        else:
+                            self.batches[i].reported_invalid_votes = self.batches[i].true_invalid_votes + \
+                                                                     sum(self.batches[i].true_tally.values()) - \
+                                                                     sum(self.batches[i].reported_tally.values())
+                        assert sum(self.batches[i].true_tally.values()) + self.batches[i].true_invalid_votes == \
+                               sum(self.batches[i].reported_tally.values()) + self.batches[i].reported_invalid_votes
+                        self.batches[i].total_votes = sum(self.batches[i].reported_tally.values()) + self.batches[i].reported_invalid_votes
+                        self.tot_batch += self.batches[i]
                 #print(self.tot_batch)
                 self.reported_seats_won, self.reported_paired_seats_won = \
                     self.calculate_reported_results(self.tot_batch.reported_tally, self.tot_batch.reported_paired_tally)
@@ -113,7 +133,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.0, invalidation_rate=0.05, invalid_to_valid_ratio=0.0):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.2, invalidation_rate=0.0, invalid_to_valid_ratio=0.0):
         """
         Adds error to a tally
         :param tally: Vote tally
