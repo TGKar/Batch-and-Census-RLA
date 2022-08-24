@@ -9,10 +9,10 @@ import numpy as np
 from MyEta import MY_ETA
 import matplotlib.pyplot as plt
 
-ELECTION_NAME = "Knesset 22"
-MOVE_SEAT_ASSERTION = CompMoveSeatAssertion
-THRESHOLD_ASSERTION = CompThresholdAssertion
-FAILED_ASSERTION = CompFailedThresholdAssertion
+ELECTION_NAME = "Knesset 24"
+MOVE_SEAT_ASSERTION = MoveSeatAssertion
+THRESHOLD_ASSERTION = ThresholdAssertion
+FAILED_ASSERTION = FailedThresholdAssertion
 
 
 class Auditor:
@@ -57,7 +57,7 @@ class Auditor:
         batch_probs = np.zeros(len(self.election_profile.batches))
         for i, batch in enumerate(self.election_profile.batches):
             batch_probs[i] = batch.total_votes / self.election_profile.tot_batch.total_votes
-        assert(np.sum(batch_probs) == 1.0)
+        assert(np.isclose(np.sum(batch_probs), 1.0))
 
         # TODO delete - plots margin vs required ballots
         required_ballots_moveseat = []
@@ -124,7 +124,7 @@ class Auditor:
         plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
-        #plt.show()
+        plt.show()
 
         return len(assertions) == 0
 
@@ -190,7 +190,7 @@ class Auditor:
         plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
-        #plt.show()
+        plt.show()
 
         return len(assertions) == 0
 

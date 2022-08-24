@@ -5,18 +5,17 @@ import matplotlib.pyplot as plt
 
 
 # Constants
-APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
-#APPARENTMENTS = []
-#APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
+#APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
+APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
 #APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
 THRESHOLD = 0.0325
 SEATS = 120
-ALPHA = 0.2
-RESULTS_FILE = "Results 24.csv"
+ALPHA = 0.05
+RESULTS_FILE = "Results 23.csv"
 
 if __name__ == "__main__":
 
-    reps = 100
+    reps = 1
     correct_approvals = 0
     correct_rejections = 0
     wrong_approvals = 0
@@ -24,9 +23,9 @@ if __name__ == "__main__":
 
     for i in range(reps):
         print("REPEATING: " + str(i))
-        profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=True)
+        profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False)
         auditor = Auditor(profile, ALPHA, THRESHOLD)
-        audit_approves = auditor.batch_audit()
+        audit_approves = auditor.ballot_audit()
         #audit_approves = auditor.ballot_audit()
 
         print("Reported Results:")
