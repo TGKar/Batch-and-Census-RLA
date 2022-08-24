@@ -10,10 +10,10 @@ from MyEta import MY_ETA
 import matplotlib.pyplot as plt
 
 ELECTION_NAME = "Knesset 22"
-MOVE_SEAT_ASSERTION = MoveSeatAssertion
-THRESHOLD_ASSERTION = ThresholdAssertion
-FAILED_ASSERTION = FailedThresholdAssertion
-
+MOVE_SEAT_ASSERTION = CompMoveSeatAssertion
+THRESHOLD_ASSERTION = CompThresholdAssertion
+FAILED_ASSERTION = CompFailedThresholdAssertion
+MAX_ERR_SHARE = 0.2
 
 class Auditor:
     def __init__(self, election_profile: ElectionProfile, risk_limit, threshold):

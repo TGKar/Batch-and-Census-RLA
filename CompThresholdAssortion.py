@@ -1,5 +1,5 @@
 from Batch import Batch
-from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR
+from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
 from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
@@ -17,16 +17,25 @@ class CompThresholdAssertion(Assorter):
         self.threshold = threshold
         self.profile = election_profile  # TODO delete
 
+        """
         self.inner_u = 0
         for batch in election_profile.batches:
             batch_max_disc = self.get_inner_assorter_value(batch.reported_tally[party], batch.reported_invalid_votes, batch.total_votes)
             self.inner_u = max(batch_max_disc, self.inner_u)
         #self.inner_u = 1 / (2*threshold)
+        """
+        self.inner_u = MAX_DISC_SHARE / (2*threshold)
 
         reported_inner_assorter_mean = self.get_inner_assorter_value(election_profile.tot_batch.reported_tally[party],
                                                                             election_profile.tot_batch.reported_invalid_votes,
                                                                             election_profile.tot_batch.total_votes)
         self.reported_inner_assorter_margin = reported_inner_assorter_mean - 0.5
+
+        if self.reported_inner_assorter_margin >= MAX_DISC_SHARE:
+            self.inner_u = 1 / (2*threshold)
+        else:
+            self.inner_u = MAX_DISC_SHARE / (2*threshold)
+
 
         eta = None
         vote_margin = election_profile.tot_batch.reported_tally[party] - \
