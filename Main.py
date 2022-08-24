@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 
 # Constants
 #APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
-APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
-#APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
+#APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
+APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
 THRESHOLD = 0.0325
 SEATS = 120
 ALPHA = 0.05
-RESULTS_FILE = "Results 23.csv"
+RESULTS_FILE = "Results 22.csv"
 
 if __name__ == "__main__":
 
@@ -26,7 +26,6 @@ if __name__ == "__main__":
         profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False)
         auditor = Auditor(profile, ALPHA, THRESHOLD)
         audit_approves = auditor.ballot_audit()
-        #audit_approves = auditor.ballot_audit()
 
         print("Reported Results:")
         print(profile.reported_seats_won)
@@ -42,15 +41,14 @@ if __name__ == "__main__":
         reported_matches_truth = np.all(np.array(list(profile.reported_seats_won.values())) == np.array(list(profile.true_seats_won.values())))
         print("Reported matches truth: ", reported_matches_truth)
 
-    if reported_matches_truth and audit_approves:
-        correct_approvals += 1
-    elif reported_matches_truth and (not audit_approves):
-        wrong_rejections += 1
-    elif (not reported_matches_truth) and audit_approves:
-        wrong_approvals += 1
-        wrong_approvals += 1
-    else:
-        correct_rejections += 1
+        if reported_matches_truth and audit_approves:
+            correct_approvals += 1
+        elif reported_matches_truth and (not audit_approves):
+            wrong_rejections += 1
+        elif (not reported_matches_truth) and audit_approves:
+            wrong_approvals += 1
+        else:
+            correct_rejections += 1
     print("FINISHED!!!")
     print("Correct approvals:", correct_approvals)
     print("Correct rejections:", correct_rejections)

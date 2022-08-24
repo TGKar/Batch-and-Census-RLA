@@ -3,6 +3,7 @@ from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR
 from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
+import numpy as np
 
 
 class CompThresholdAssertion(Assorter):
@@ -15,7 +16,13 @@ class CompThresholdAssertion(Assorter):
         self.party = party
         self.threshold = threshold
         self.profile = election_profile  # TODO delete
-        self.inner_u = 1 / (2*threshold)
+
+        self.inner_u = 0
+        for batch in election_profile.batches:
+            batch_max_disc = self.get_inner_assorter_value(batch.reported_tally[party], batch.reported_invalid_votes, batch.total_votes)
+            self.inner_u = max(batch_max_disc, self.inner_u)
+        #self.inner_u = 1 / (2*threshold)
+
         reported_inner_assorter_mean = self.get_inner_assorter_value(election_profile.tot_batch.reported_tally[party],
                                                                             election_profile.tot_batch.reported_invalid_votes,
                                                                             election_profile.tot_batch.total_votes)
@@ -43,7 +50,7 @@ class CompThresholdAssertion(Assorter):
         return 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*(self.inner_u - self.reported_inner_assorter_margin))
 
     def get_inner_assorter_value(self, party_votes, invalid_votes, total_votes):
-        return (self.inner_u * party_votes + 0.5 * invalid_votes) / total_votes
+        return (party_votes/(2*self.threshold) + 0.5 * invalid_votes) / total_votes
 
     def __str__(self):
         return "Batch-comp (total discrepancy) passed threshold: " + self.party

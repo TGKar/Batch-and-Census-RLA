@@ -4,6 +4,8 @@ from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 import matplotlib.pyplot as plt
+import numpy as np
+
 
 class CompMoveSeatAssertion(Assorter):
     """
@@ -39,15 +41,28 @@ class CompMoveSeatAssertion(Assorter):
             party_from_reported_votes = election_profile.tot_batch.reported_tally[party_from]
             party_to_reported_votes = election_profile.tot_batch.reported_tally[party_to]
 
-        self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
+        self.inner_u = 0
+        for batch in election_profile.batches:
+            if paired:
+                party_from_reported_batch_votes = batch.reported_paired_tally[party_from]
+                party_to_reported_batch_votes = batch.reported_paired_tally[party_to]
+            else:
+                party_from_reported_batch_votes = batch.reported_tally[party_from]
+                party_to_reported_batch_votes = batch.reported_tally[party_to]
+            batch_max_disc = self.get_inner_assorter_value(party_from_reported_batch_votes, party_to_reported_batch_votes, batch.total_votes)
+            self.inner_u = max(batch_max_disc, self.inner_u)
+
+        #self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
+
+
         self.reported_inner_assorter_margin = self.get_inner_assorter_value(party_from_reported_votes,
                                                                             party_to_reported_votes,
                                                                             election_profile.tot_batch.total_votes) - 0.5
 
         weighted_vote_margin, vote_margin = self.calc_margins()
         #u = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin)) + EPSILON
-        u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*self.inner_u) / (
-                2 * (self.inner_u - self.reported_inner_assorter_margin))
+        u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
+            (2 * (self.inner_u - self.reported_inner_assorter_margin))
         self.reported_assorter_mean = u - EPSILON
 
         eta = None
@@ -111,7 +126,9 @@ class CompMoveSeatAssertion(Assorter):
 
         discrepancy = self.get_inner_assorter_value(rep_party_from_votes, rep_party_to_votes, batch.total_votes) - \
                       self.get_inner_assorter_value(true_party_from_votes, true_party_to_votes, batch.total_votes)
-        return 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*(self.inner_u - self.reported_inner_assorter_margin))
+        assorter_value = 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*(self.inner_u - self.reported_inner_assorter_margin))
+        assert assorter_value >= 0
+        return assorter_value
 
     def __str__(self):
         return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to
@@ -150,6 +167,6 @@ class CompMoveSeatAssertion(Assorter):
         weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
         return weighted_margin, min(party_to_margin, party_from_margin)
 
-
     def get_inner_assorter_value(self, party_from_votes, party_to_votes, total_votes):
-        return (party_from_votes * self.inner_u + 0.5 * (total_votes - party_from_votes - party_to_votes)) / total_votes
+        assorter_max = 0.5 + (self.party_to_seats + 1) / (2*self.party_from_seats)
+        return (party_from_votes * assorter_max + 0.5 * (total_votes - party_from_votes - party_to_votes)) / total_votes

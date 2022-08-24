@@ -9,7 +9,7 @@ import numpy as np
 from MyEta import MY_ETA
 import matplotlib.pyplot as plt
 
-ELECTION_NAME = "Knesset 24"
+ELECTION_NAME = "Knesset 22"
 MOVE_SEAT_ASSERTION = MoveSeatAssertion
 THRESHOLD_ASSERTION = ThresholdAssertion
 FAILED_ASSERTION = FailedThresholdAssertion
@@ -41,7 +41,7 @@ class Auditor:
             paired_parties += [party1, party2]
         for i, party1 in enumerate(self.election_profile.reported_paired_seats_won.keys()):
             if self.election_profile.reported_paired_seats_won[party1] > 0 and (party1 not in paired_parties):
-                for j in range(i-1):
+                for j in range(i):
                     party2 = list(self.election_profile.reported_paired_seats_won.keys())[j]
                     if self.election_profile.reported_paired_seats_won[party2] > 0 and (party2 not in paired_parties):
                         self.comparison_assertions.append(MOVE_SEAT_ASSERTION(self.risk_limit, party1, party2, self.election_profile, True))

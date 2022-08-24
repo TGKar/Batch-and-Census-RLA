@@ -1,0 +1,77 @@
+C:\Users\barkr\AppData\Local\Programs\Python\Python39\python.exe "C:/Users/barkr/Documents/Uni/Thesis/Israeli Batch RLA/Main.py"
+REPEATING: 0
+Drew noised elections
+Finished assertion:  Passed threshold: Kahol Lavan  with margin  1071203.9849999999 after ballot  10 True mean: 4.070873074718791
+Finished assertion:  Passed threshold: Likud  with margin  1203271.9849999999 after ballot  11 True mean: 4.5111235515987484
+Finished assertion:  Passed threshold: Yahadut Hatora  with margin  125259.98499999999 after ballot  34 True mean: 0.9175558661464274
+Finished assertion:  Passed threshold: Shas  with margin  203675.985 after ballot  66 True mean: 1.1789566702399155
+Finished assertion:  Passed threshold: Meshutefet  with margin  432329.985 after ballot  90 True mean: 1.9411778937044177
+Finished assertion:  Didn't pass threshold: Peula  with margin  148967.015 after ballot  92 True mean: 0.5166811019542656
+Finished assertion:  Didn't pass threshold: Tzomet  with margin  149177.015 after ballot  92 True mean: 0.5167046174379478
+Finished assertion:  Didn't pass threshold: Hahazon  with margin  148869.015 after ballot  92 True mean: 0.5166701280618807
+Finished assertion:  Didn't pass threshold: Adom Lavan  with margin  148835.015 after ballot  92 True mean: 0.5166663207930942
+Finished assertion:  Didn't pass threshold: Kvod Haadam  with margin  148955.015 after ballot  92 True mean: 0.516679758212341
+Finished assertion:  Didn't pass threshold: Hatanachi  with margin  148788.015 after ballot  92 True mean: 0.5166610578038892
+Finished assertion:  Didn't pass threshold: Manhigut Hevratit  with margin  148906.015 after ballot  92 True mean: 0.5166742712661486
+Finished assertion:  Didn't pass threshold: Halev Hayehudi  with margin  148661.015 after ballot  92 True mean: 0.5166468365351862
+Finished assertion:  Didn't pass threshold: Kama  with margin  148827.015 after ballot  92 True mean: 0.5166654249651443
+Finished assertion:  Didn't pass threshold: Mitkademet  with margin  148555.015 after ballot  92 True mean: 0.5166349668148513
+Finished assertion:  Didn't pass threshold: Daam  with margin  148565.015 after ballot  92 True mean: 0.5166360865997887
+Finished assertion:  Didn't pass threshold: Shmah  with margin  148735.015 after ballot  92 True mean: 0.5166551229437217
+Finished assertion:  Didn't pass threshold: Ihud Habrit  with margin  148500.015 after ballot  93 True mean: 0.5166288079976965
+Finished assertion:  Didn't pass threshold: Ani veAta  with margin  148365.015 after ballot  93 True mean: 0.5166136909010438
+Finished assertion:  Didn't pass threshold: Hakoah Lehaspia  with margin  148510.015 after ballot  93 True mean: 0.5166299277826338
+Finished assertion:  Didn't pass threshold: Pirates  with margin  147704.015 after ballot  93 True mean: 0.5165396731166922
+Finished assertion:  Didn't pass threshold: Israelist  with margin  148197.015 after ballot  93 True mean: 0.5165948785140982
+Finished assertion:  Didn't pass threshold: Seder Hadash  with margin  148500.015 after ballot  93 True mean: 0.5166288079976965
+Finished assertion:  Didn't pass threshold: Mishpat Tzedek  with margin  147802.015 after ballot  93 True mean: 0.5165506470090772
+Finished assertion:  Didn't pass threshold: Liberalit  with margin  145396.015 after ballot  94 True mean: 0.5162812267531772
+Finished assertion:  Didn't pass threshold: Kol Hanashim  with margin  146404.015 after ballot  94 True mean: 0.516394101074851
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with margin  129775.01500000001 after ballot  105 True mean: 0.514532010702714
+Finished assertion:  Passed threshold: Yisrael Beytenu  with margin  114187.98499999999 after ballot  113 True mean: 0.880647203336247
+Finished assertion:  Passed threshold: Avoda  with margin  118302.98499999999 after ballot  342 True mean: 0.8943646118860928
+Finished assertion:  Passed threshold: Yemina  with margin  91511.98499999999 after ballot  637 True mean: 0.805056448469588
+Finished assertion:  Move seat from Likud + Yemina to Yisrael Beytenu  with margin  40089.85714285716 after ballot  5,023 True mean: 0.5043433027574337
+Finished assertion:  Move seat from Avoda + Kahol Lavan to Yisrael Beytenu  with margin  34207.20000000001 after ballot  6,742 True mean: 0.5037059804317751
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Yisrael Beytenu  with margin  50280.0 after ballot  6,806 True mean: 0.50544729460785
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Kahol Lavan  with margin  119569.625 after ballot  8,589 True mean: 0.5129540766413117
+Finished assertion:  Move seat from Kahol Lavan to Avoda  with margin  28369.939393939392 after ballot  12,571 True mean: 0.5030735763302633
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with margin  92703.875 after ballot  12,617 True mean: 0.5100434629756225
+Finished assertion:  Move seat from Meshutefet to Yisrael Beytenu  with margin  46772.06666666665 after ballot  12,828 True mean: 0.5050672479425484
+Finished assertion:  Move seat from Meshutefet to Avoda + Kahol Lavan  with margin  101591.46666666656 after ballot  19,207 True mean: 0.511006337481641
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with margin  73848.73333333316 after ballot  23,388 True mean: 0.5080007121496265
+Finished assertion:  Move seat from Yemina to Likud  with margin  131799.8333333335 after ballot  28,165 True mean: 0.5142790875384289
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Kahol Lavan  with margin  67345.14285714296 after ballot  28,218 True mean: 0.5072961184079278
+Finished assertion:  Move seat from Likud to Yemina  with margin  22287.194444444496 after ballot  28,562 True mean: 0.5024145766531688
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with margin  39199.85714285716 after ballot  37,094 True mean: 0.5042468808759503
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with margin  31751.266666666605 after ballot  47,479 True mean: 0.5034399065971706
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with margin  45783.0 after ballot  56,574 True mean: 0.5049600932583771
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with margin  17551.57142857148 after ballot  60,094 True mean: 0.5019015230788016
+Finished assertion:  Move seat from Avoda to Kahol Lavan  with margin  78807.57142857136 after ballot  70,733 True mean: 0.5085379486654855
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with margin  25402.71428571432 after ballot  71,556 True mean: 0.5027521095575443
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with margin  39210.111111111124 after ballot  72,481 True mean: 0.5042479917825926
+Finished assertion:  Move seat from Avoda + Kahol Lavan to Meshutefet  with margin  13637.400000000023 after ballot  166,742 True mean: 0.501477464906227
+Finished assertion:  Move seat from Yisrael Beytenu to Avoda + Kahol Lavan  with margin  54705.42857142864 after ballot  302,751 True mean: 0.5059267419665328
+Finished assertion:  Move seat from Yisrael Beytenu to Meshutefet  with margin  20470.14285714284 after ballot  563,651 True mean: 0.5022177187511463
+Finished assertion:  Move seat from Avoda + Kahol Lavan to Yahadut Hatora + Shas  with margin  5050.925000000047 after ballot  828,024 True mean: 0.5005472131367772
+Finished assertion:  Move seat from Avoda + Kahol Lavan to Likud + Yemina  with margin  6312.574999999953 after ballot  931,623 True mean: 0.5006838992792193
+Finished assertion:  Move seat from Yisrael Beytenu to Likud + Yemina  with margin  24675.571428571362 after ballot  1,310,530 True mean: 0.5026733314874399
+Finished assertion:  Move seat from Yisrael Beytenu to Yahadut Hatora + Shas  with margin  12310.714285714319 after ballot  1,320,211 True mean: 0.5013337328470039
+Remaining assertions:
+Reported Results:
+{'Avoda': 7, 'Yahadut Hatora': 7, 'Meshutefet': 15, 'Liberalit': 0, 'Peula': 0, 'Tzomet': 0, 'Yemina': 6, 'Hahazon': 0, 'Adom Lavan': 0, 'Ihud Habrit': 0, 'Kvod Haadam': 0, 'Hatanachi': 0, 'Manhigut Hevratit': 0, 'Halev Hayehudi': 0, 'Ani veAta': 0, 'Yisrael Beytenu': 7, 'Likud': 36, 'Kol Hanashim': 0, 'Hakoah Lehaspia': 0, 'Kama': 0, 'Otzma Yehudit': 0, 'Mitkademet': 0, 'Kahol Lavan': 33, 'Pirates': 0, 'Daam': 0, 'Israelist': 0, 'Shmah': 0, 'Seder Hadash': 0, 'Mishpat Tzedek': 0, 'Shas': 9}
+True Results:
+{'Avoda': 7, 'Yahadut Hatora': 7, 'Meshutefet': 15, 'Liberalit': 0, 'Peula': 0, 'Tzomet': 0, 'Yemina': 6, 'Hahazon': 0, 'Adom Lavan': 0, 'Ihud Habrit': 0, 'Kvod Haadam': 0, 'Hatanachi': 0, 'Manhigut Hevratit': 0, 'Halev Hayehudi': 0, 'Ani veAta': 0, 'Yisrael Beytenu': 7, 'Likud': 36, 'Kol Hanashim': 0, 'Hakoah Lehaspia': 0, 'Kama': 0, 'Otzma Yehudit': 0, 'Mitkademet': 0, 'Kahol Lavan': 33, 'Pirates': 0, 'Daam': 0, 'Israelist': 0, 'Shmah': 0, 'Seder Hadash': 0, 'Mishpat Tzedek': 0, 'Shas': 9}
+Reported Tally:
+{'Avoda': 267480, 'Yahadut Hatora': 274437, 'Meshutefet': 581507, 'Liberalit': 3781, 'Peula': 210, 'Tzomet': 0, 'Yemina': 240689, 'Hahazon': 308, 'Adom Lavan': 342, 'Ihud Habrit': 677, 'Kvod Haadam': 222, 'Hatanachi': 389, 'Manhigut Hevratit': 271, 'Halev Hayehudi': 516, 'Ani veAta': 812, 'Yisrael Beytenu': 263365, 'Likud': 1352449, 'Kol Hanashim': 2773, 'Hakoah Lehaspia': 667, 'Kama': 350, 'Otzma Yehudit': 19402, 'Mitkademet': 622, 'Kahol Lavan': 1220381, 'Pirates': 1473, 'Daam': 612, 'Israelist': 980, 'Shmah': 442, 'Seder Hadash': 677, 'Mishpat Tzedek': 1375, 'Shas': 352853}
+True Tally:
+{'Avoda': 267480, 'Yahadut Hatora': 274437, 'Meshutefet': 581507, 'Liberalit': 3781, 'Peula': 210, 'Tzomet': 0, 'Yemina': 240689, 'Hahazon': 308, 'Adom Lavan': 342, 'Ihud Habrit': 677, 'Kvod Haadam': 222, 'Hatanachi': 389, 'Manhigut Hevratit': 271, 'Halev Hayehudi': 516, 'Ani veAta': 812, 'Yisrael Beytenu': 263365, 'Likud': 1352449, 'Kol Hanashim': 2773, 'Hakoah Lehaspia': 667, 'Kama': 350, 'Otzma Yehudit': 19402, 'Mitkademet': 622, 'Kahol Lavan': 1220381, 'Pirates': 1473, 'Daam': 612, 'Israelist': 980, 'Shmah': 442, 'Seder Hadash': 677, 'Mishpat Tzedek': 1375, 'Shas': 352853}
+True threshold: 149177.015 total voters:  4615135
+Reported matches truth:  True
+FINISHED!!!
+Correct approvals: 1
+Correct rejections: 0
+Wrong approvals: 0
+Wrong rejections: 0
+
+Process finished with exit code 0
