@@ -17,14 +17,11 @@ class CompThresholdAssertion(Assorter):
         self.threshold = threshold
         self.profile = election_profile  # TODO delete
 
-        """
         self.inner_u = 0
         for batch in election_profile.batches:
             batch_max_disc = self.get_inner_assorter_value(batch.reported_tally[party], batch.reported_invalid_votes, batch.total_votes)
             self.inner_u = max(batch_max_disc, self.inner_u)
         #self.inner_u = 1 / (2*threshold)
-        """
-        self.inner_u = MAX_DISC_SHARE / (2*threshold)
 
         reported_inner_assorter_mean = self.get_inner_assorter_value(election_profile.tot_batch.reported_tally[party],
                                                                             election_profile.tot_batch.reported_invalid_votes,
