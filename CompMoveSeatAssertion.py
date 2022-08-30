@@ -41,7 +41,7 @@ class CompMoveSeatAssertion(Assorter):
             party_from_reported_votes = election_profile.tot_batch.reported_tally[party_from]
             party_to_reported_votes = election_profile.tot_batch.reported_tally[party_to]
 
-        """
+
         self.inner_u = 0
         for batch in election_profile.batches:
             if paired:
@@ -52,8 +52,8 @@ class CompMoveSeatAssertion(Assorter):
                 party_to_reported_batch_votes = batch.reported_tally[party_to]
             batch_max_disc = self.get_inner_assorter_value(party_from_reported_batch_votes, party_to_reported_batch_votes, batch.total_votes)
             self.inner_u = max(batch_max_disc, self.inner_u)
-        """
-        self.inner_u = (0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats))*MAX_DISC_SHARE
+
+        self.inner_u = min(self.inner_u, (0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats))*MAX_DISC_SHARE)
         #self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
 
 

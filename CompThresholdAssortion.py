@@ -31,10 +31,8 @@ class CompThresholdAssertion(Assorter):
                                                                             election_profile.tot_batch.total_votes)
         self.reported_inner_assorter_margin = reported_inner_assorter_mean - 0.5
 
-        if self.reported_inner_assorter_margin >= MAX_DISC_SHARE:
-            self.inner_u = 1 / (2*threshold)
-        else:
-            self.inner_u = MAX_DISC_SHARE / (2*threshold)
+        if self.reported_inner_assorter_margin < MAX_DISC_SHARE:
+            self.inner_u = min(self.inner_u, MAX_DISC_SHARE / (2*threshold))
 
 
         eta = None

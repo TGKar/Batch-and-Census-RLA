@@ -5,7 +5,7 @@ from ElectionProfile import ElectionProfile, EPSILON, INVALID_BALLOT
 
 DEFAULT_MU = 0.5
 MAX_ERR = 0.0001
-MAX_DISC_SHARE = 0.1
+MAX_DISC_SHARE = 1.0
 
 class Assorter(ABC):
 

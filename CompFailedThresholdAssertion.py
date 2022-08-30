@@ -15,12 +15,10 @@ class CompFailedThresholdAssertion(Assorter):
         self.party = party
         self.threshold = threshold
 
-        """
         self.inner_u = 0
         for batch in election_profile.batches:
             batch_max_disc = self.get_inner_assorter_value(batch.reported_tally[party], batch.reported_invalid_votes, batch.total_votes)
             self.inner_u = max(batch_max_disc, self.inner_u)
-        """
         #self.inner_u = 1 / (2*(1 - threshold))
 
         reported_inner_assorter_mean = self.get_inner_assorter_value(election_profile.tot_batch.reported_tally[party],
@@ -31,12 +29,9 @@ class CompFailedThresholdAssertion(Assorter):
         vote_margin = (election_profile.tot_batch.total_votes - election_profile.tot_batch.reported_invalid_votes) * threshold \
                       - election_profile.tot_batch.reported_tally[party]
 
-        if self.reported_inner_assorter_margin >= MAX_DISC_SHARE:
-            self.inner_u = 1 / (2*(1 - threshold))
-        else:
-            self.inner_u = MAX_DISC_SHARE / (2 * (1 - threshold))
+        if self.reported_inner_assorter_margin < MAX_DISC_SHARE:
+            self.inner_u = min(self.inner_u, MAX_DISC_SHARE / (2 * (1 - threshold)))
 
-        #u = 0.5 + self.reported_inner_assorter_margin / (2*(self.inner_u - self.reported_inner_assorter_margin)) + EPSILON
         u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR / (2*(1 - self.threshold))) / (
                 2 * (self.inner_u - self.reported_inner_assorter_margin))
         self.reported_assorter_mean = u - EPSILON

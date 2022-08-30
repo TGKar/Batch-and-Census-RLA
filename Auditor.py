@@ -9,7 +9,7 @@ import numpy as np
 from MyEta import MY_ETA
 import matplotlib.pyplot as plt
 
-ELECTION_NAME = "Knesset 22"
+ELECTION_NAME = "Knesset 23"
 MOVE_SEAT_ASSERTION = CompMoveSeatAssertion
 THRESHOLD_ASSERTION = CompThresholdAssertion
 FAILED_ASSERTION = CompFailedThresholdAssertion
