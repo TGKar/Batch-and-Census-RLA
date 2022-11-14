@@ -1,19 +1,19 @@
 
 class Batch:
-    def __init__(self, id, reported_tally, true_tally, reported_invalid_votes, true_invalid_votes, apparentment, paired_tally=None):
+    def __init__(self, id, reported_tally, true_tally, reported_invalid_votes, true_invalid_votes, apparentments, paired_tally=None):
         """
         :param id: ID of this batch (better use ints)
         :param reported_tally: np array with the reported number of votes for each party
         :param true_tally: np array with the tre number of votes for each party
         :param reported_invalid_votes: reported # of invalid votes in this batch
         :param true_invalid_votes: true # of invalid votes in this batch
-        :param apparentment: list of tuples of apparentmen agreements
+        :param apparentments: list of tuples of apparentmen agreements
         """
         self.id = id
         self.true_tally = true_tally
-        self.apparentment = apparentment
+        self.apparentment = apparentments
         if paired_tally is None:
-            self.true_paired_tally = self.perform_apparentment(self.true_tally, apparentment)
+            self.true_paired_tally = self.perform_apparentment(self.true_tally, apparentments)
         else:
             self.true_paired_tally = paired_tally
         self.reported_invalid_votes = reported_invalid_votes
@@ -23,7 +23,7 @@ class Batch:
 
         # TODO add noise to reported results and verify that total results remain the same
         self.reported_tally = reported_tally
-        self.reported_paired_tally = self.perform_apparentment(reported_tally, apparentment)
+        self.reported_paired_tally = self.perform_apparentment(reported_tally, apparentments)
 
 
     def __str__(self):

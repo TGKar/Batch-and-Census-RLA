@@ -1,6 +1,7 @@
 import numpy as np
 from Batch import Batch
 from csv import reader
+from collections import Counter
 
 # XLS constants
 INVALID_VOTES_INDEX = 5
@@ -11,7 +12,7 @@ EPSILON = 10**(-9)  # Min difference between eta and mu
 
 class ElectionProfile:
 
-    def __init__(self, xls_file, threshold, seats, apparentments, shuffle_true_tallies=False):
+    def __init__(self, xls_file, threshold, seats, apparentments, shuffle_true_tallies=False, redraw_tallies=False):
         """
         Creates an election profile from a result xls (formatted as in the gov's website)
         :param xls_file: Path to the file which contains the election results.
@@ -23,7 +24,7 @@ class ElectionProfile:
         """
         self.threshold = threshold
         self.seats = seats
-        self.apparentment = apparentments
+        self.apparentments = apparentments
         reported_matches_truth = False
         while not reported_matches_truth:
             with open(xls_file, "r") as results_file:
@@ -37,11 +38,14 @@ class ElectionProfile:
                 self.tot_batch = Batch(0, empty_tally, empty_tally, 0, 0, apparentments)
                 for i, line in enumerate(file_reader):
                     tally = dict(zip(self.parties, list(map(int, line[PARTY_INDEX:]))))
-                    reported_invalid_votes = int(line[INVALID_VOTES_INDEX])
-                    true_tally, true_invalid_votes = self.add_noise(tally, reported_invalid_votes)
-                    batch = Batch(i, tally, true_tally, reported_invalid_votes, true_invalid_votes,
-                                  apparentments)
-
+                    invalid_votes = int(line[INVALID_VOTES_INDEX])
+                    if redraw_tallies:
+                        true_tally, true_invalid_votes = self.redraw_tally(tally, invalid_votes)
+                        rep_tally, rep_invalid_votes = self.redraw_tally(tally, invalid_votes)
+                        batch = Batch(i, rep_tally, true_tally, rep_invalid_votes, true_invalid_votes, apparentments)
+                    else:
+                        true_tally, true_invalid_votes = self.add_noise(tally, invalid_votes)
+                        batch = Batch(i, tally, true_tally, invalid_votes, true_invalid_votes, apparentments)
                     self.batches.append(batch)
                     self.tot_batch += batch
 
@@ -83,6 +87,21 @@ class ElectionProfile:
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))
 
+    """
+    def __init__(self, reported_tally, true_ballots, reported_invalid_votes=0, true_invalid_votes=0):
+        self.parties = list(reported_tally.keys())
+
+        # Load batches
+        true_tally = Counter(true_ballots)
+        batch = Batch(0, reported_tally, true_tally, reported_invalid_votes, true_invalid_votes, ())
+        self.batches = [batch]
+        self.tot_batch = batch
+
+        # Load ballots
+        self.ballots = true_ballots.copy()
+        np.random.shuffle(self.ballots)
+    """
+
     def calculate_reported_results(self, tally, paired_tally):
         """
         Calculates the election results based on this profile's batches.
@@ -117,8 +136,8 @@ class ElectionProfile:
         # Split seats between parties who signed apparentment agreements
         seats_won = dict(zip(self.parties, [0]*len(self.parties)))
         for i, key in enumerate(paired_seats_won):
-            if i < len(self.apparentment):
-                party1, party2 = self.apparentment[i]
+            if i < len(self.apparentments):
+                party1, party2 = self.apparentments[i]
                 if party1 + ' + ' + party2 in paired_seats_won.keys():
                     paired_parties_tally = dict()
                     paired_parties_tally[party1] = tally[party1]
@@ -167,3 +186,19 @@ class ElectionProfile:
         assert np.sum(list(tally.values())) + invalid_votes == np.sum(list(noised_tally.values())) + noised_invalid
         return noised_tally, noised_invalid
 
+
+    def redraw_tally(self, tally, invalid_votes):
+        n_ballots = np.sum(list(tally.values())) + invalid_votes
+        full_tally = tally.copy()
+        full_tally[INVALID_BALLOT] = invalid_votes
+        tally_values = np.array(list(full_tally.values()))
+        # TODO sample more efficiently
+        sampled_ballots = np.random.choice(list(full_tally.keys()), size=n_ballots, p=tally_values / n_ballots)
+        new_tally = dict()
+        new_tally.update(zip(full_tally.keys(), np.zeros(len(full_tally.values()), dtype=int)))
+        if not new_tally.__contains__(INVALID_BALLOT):
+            print("bad")
+        new_tally.update(dict(Counter(sampled_ballots)))
+        new_invalid = new_tally[INVALID_BALLOT]
+        del new_tally[INVALID_BALLOT]
+        return new_tally, new_invalid

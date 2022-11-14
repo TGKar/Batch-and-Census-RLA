@@ -1,20 +1,33 @@
 from ElectionProfile import ElectionProfile
 from Auditor import Auditor
+from PluralityAuditor import PluralityAuditor
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 # Constants
-APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
+APPARENTMENTS = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
+#APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
 #APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
 #APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
 THRESHOLD = 0.0325
 SEATS = 120
 ALPHA = 0.05
-RESULTS_FILE = "Results 24.csv"
+RESULTS_FILE = "Results 25.csv"
+
+
+def plurality_race():
+    reported_tally = {'p1': 380, 'p2': 310, 'p3': 310}
+    true_ballots = ['p1']*reported_tally['p1'] + ['p2']*reported_tally['p2'] + ['p3']*reported_tally['p3']
+    ballot_counter = 0
+    for _ in range(1000):
+        profile = ElectionProfile(reported_tally, true_ballots)
+        auditor = PluralityAuditor(profile, ALPHA)
+        ballot_counter += auditor.ballot_audit()
+    print(ballot_counter / 1000)
+
 
 if __name__ == "__main__":
-
     reps = 1
     correct_approvals = 0
     correct_rejections = 0
@@ -23,7 +36,7 @@ if __name__ == "__main__":
 
     for i in range(reps):
         print("REPEATING: " + str(i))
-        profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False)
+        profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False, redraw_tallies=False)
         auditor = Auditor(profile, ALPHA, THRESHOLD)
         audit_approves = auditor.batch_audit()
 

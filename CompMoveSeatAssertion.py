@@ -13,7 +13,8 @@ class CompMoveSeatAssertion(Assorter):
     instead.
     """
 
-    def __init__(self, risk_limit, party_from, party_to, election_profile: ElectionProfile, paired, eta_mode=ADAPTIVE_ETA):  # TODO Support more eta types
+    def __init__(self, risk_limit, party_from, party_to, election_profile: ElectionProfile, paired,
+                 eta_mode=ADAPTIVE_ETA, mode=0):  # TODO Support more eta types
         """
         :param risk_limit: Risk limit of the audit
         :param party_from: Party that a seat should potentially be taken away from
@@ -22,13 +23,18 @@ class CompMoveSeatAssertion(Assorter):
         :param paired: Whether this assertion is done pre-apparentments (true) or post (false)
         :param mu: Assorter mean under the null hypothesis.
         :param eta_mode: Which alternative hypothesis class to use
+        :param mode: If -1, makes sure "party_from" doesn't deserve 2 seats less than it received. If +1, makes sure
+        party_to doesn't deserve 2 extra seats. If 0,
         """
+        if mode < -1 or mode > 1:
+            print("ILLEGAL ASSERTION MODE")
         self.type = 3
         self.party_from = party_from
         self.party_to = party_to
         self.election_profile = election_profile
         self.mu = DEFAULT_MU
         self.paired = paired
+        self.mode = mode
 
         if paired:
             self.party_from_seats = election_profile.reported_paired_seats_won[party_from]
@@ -88,12 +94,14 @@ class CompMoveSeatAssertion(Assorter):
         return None, None
 
     def audit_batch(self, batch: Batch):
+        self.batch_counter += 1
         assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         if self.mu <= 0:
+            print(self, "approved via small mu")
             self.T = float('inf')
         if self.mu > self.u:
             self.T = 0
@@ -133,7 +141,13 @@ class CompMoveSeatAssertion(Assorter):
         return assorter_value
 
     def __str__(self):
-        return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to
+        if self.mode == 0:
+            return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to
+        elif self.mode == -1:
+            return "Batch-comp (total discrepancy) move sit from " + self.party_from + " (-1) to " + self.party_to
+        elif self.mode == 1:
+            return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to + " (+1)"
+        return "FAULTY ASSERTION: ILLEGAL ASSERTION MODE"
 
     # TODO delete
     def plot(self):
@@ -156,13 +170,13 @@ class CompMoveSeatAssertion(Assorter):
     def calc_margins(self):
         if self.paired:
             party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
-            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from]
-            party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to]
+            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from] + min(self.mode, 0)
+            party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to] + max(self.mode, 0)
             party_to_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_to]
         else:
             party_from_votes = self.election_profile.tot_batch.reported_tally[self.party_from]
-            party_from_seats = self.election_profile.reported_seats_won[self.party_from]
-            party_to_seats = self.election_profile.reported_seats_won[self.party_to]
+            party_from_seats = self.election_profile.reported_seats_won[self.party_from] + min(self.mode, 0)
+            party_to_seats = self.election_profile.reported_seats_won[self.party_to] + max(self.mode, 0)
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
         party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
         party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
@@ -170,5 +184,13 @@ class CompMoveSeatAssertion(Assorter):
         return weighted_margin, min(party_to_margin, party_from_margin)
 
     def get_inner_assorter_value(self, party_from_votes, party_to_votes, total_votes):
-        assorter_max = 0.5 + (self.party_to_seats + 1) / (2*self.party_from_seats)
+        assorter_max = 0
+
+        if self.mode == 0:
+            assorter_max = 0.5 + (self.party_to_seats + 1) / (2*self.party_from_seats)
+        elif self.mode == 1:
+            assorter_max = 0.5 + (self.party_to_seats + 2) / (2*self.party_from_seats)
+        elif self.mode == -1:
+            assorter_max = 0.5 + (self.party_to_seats + 1) / (2*(self.party_from_seats - 1))
+
         return (party_from_votes * assorter_max + 0.5 * (total_votes - party_from_votes - party_to_votes)) / total_votes

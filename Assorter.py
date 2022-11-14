@@ -1,4 +1,5 @@
 from Batch import Batch
+import numpy as np
 from AdaptiveEta import AdaptiveEta
 from abc import ABC, abstractmethod
 from ElectionProfile import ElectionProfile, EPSILON, INVALID_BALLOT
@@ -19,6 +20,7 @@ class Assorter(ABC):
         :param eta: Potentially adaptive alternative hypothesis. Should be inherited from the "Eta" class.
         :param initial_statistic: Initial value for this assorter's statistic (usually 1)
         """
+        self.batch_counter = 0
         self.u = upper_bound
         self.alpha = risk_limit
         self.T = initial_statistic
@@ -30,12 +32,18 @@ class Assorter(ABC):
         self.vote_margin = vote_margin
         self.weighted_vote_margin = weighted_vote_margin
 
+        # Next couple of lines predict the # of batches required for the audit
+        #self.batch_num = len(election_profile.batches)
+        #self.batch_pred = -np.log(self.alpha) / \
+        #                  np.log(self.inner_u / (self.inner_u - self.reported_inner_assorter_margin))
+
 
     @abstractmethod
     def audit_ballot(self, ballot):
         pass
 
     def audit_batch(self, batch):
+        self.batch_counter += 1
         assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
                   (self.u - self.mu)
@@ -73,3 +81,19 @@ class Assorter(ABC):
     @abstractmethod
     def get_assorter_value(self, batch: Batch):
         pass
+
+    def get_batch_prediction(self):
+        x = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin))
+        d = self.batch_num
+        min_batches = 1
+        max_batches = d
+        batches = 0
+        inequality = lambda  j: np.log(self.alpha) + (d + 0.5)*np.log(d) + (d/(2*x) - j - 0.5)*np.log(d/(2*x) - j - 1) \
+                  - (d/(2*x) + 0.5)*np.log(d / (2*x)) - (d - j - 0.5)*np.log(d - j - 1)
+        while min_batches + 1 != max_batches:
+            batches = int((max_batches + min_batches) / 2)
+            if inequality(batches) > 0:
+                max_batches = batches
+            else:
+                min_batches = batches
+        return batches
