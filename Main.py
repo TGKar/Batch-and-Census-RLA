@@ -3,6 +3,7 @@ from Auditor import Auditor
 from PluralityAuditor import PluralityAuditor
 import numpy as np
 import matplotlib.pyplot as plt
+import Plotter
 
 
 # Constants
@@ -15,7 +16,7 @@ SEATS = 120
 ALPHA = 0.05
 RESULTS_FILE = "Results 25.csv"
 
-
+"""
 def plurality_race():
     reported_tally = {'p1': 380, 'p2': 310, 'p3': 310}
     true_ballots = ['p1']*reported_tally['p1'] + ['p2']*reported_tally['p2'] + ['p3']*reported_tally['p3']
@@ -25,10 +26,26 @@ def plurality_race():
         auditor = PluralityAuditor(profile, ALPHA)
         ballot_counter += auditor.ballot_audit()
     print(ballot_counter / 1000)
+"""
 
 
-if __name__ == "__main__":
-    reps = 1
+def make_batchcomp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
+    auditor = Auditor(profile, alpha, threshold)
+    audit_approves, assertions = auditor.batch_audit()
+    if audit_approves:
+        Plotter.assertions_plot(assertions, profile.tot_batch.total_votes)
+
+def make_comp_plot(profile1, profile2, alpha=ALPHA, threshold=THRESHOLD):
+    batchcomp_auditor = Auditor(profile1, alpha, threshold)
+    alpha_auditor = Auditor(profile2, alpha, threshold, bathcomp=False)
+    batchcomp_audit_approves, batchcomp_assertions = batchcomp_auditor.batch_audit()
+    alpha_audit_approves, alpha_assertions = alpha_auditor.batch_audit()
+    if batchcomp_audit_approves and alpha_audit_approves:
+        Plotter.assertions_comparison_plots()
+
+
+
+def old_plot(profile, reps=1):
     correct_approvals = 0
     correct_rejections = 0
     wrong_approvals = 0
@@ -36,9 +53,8 @@ if __name__ == "__main__":
 
     for i in range(reps):
         print("REPEATING: " + str(i))
-        profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False, redraw_tallies=False)
         auditor = Auditor(profile, ALPHA, THRESHOLD)
-        audit_approves = auditor.batch_audit()
+        audit_approves, assertions = auditor.batch_audit()
 
         print("Reported Results:")
         print(profile.reported_seats_won)
@@ -67,3 +83,16 @@ if __name__ == "__main__":
     print("Correct rejections:", correct_rejections)
     print("Wrong approvals:", wrong_approvals)
     print("Wrong rejections:", wrong_rejections)
+
+if __name__ == "__main__":
+    election_profile1 = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False,
+                              redraw_tallies=False)
+    election_profile2 = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False,
+                                       redraw_tallies=False)
+    make_comp_plot(election_profile1, election_profile2)
+
+
+
+
+
+
