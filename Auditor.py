@@ -91,7 +91,6 @@ class Auditor:
             assert(np.isclose(np.sum(batch_probs), 1.0))
             batch_ind = np.random.choice(list(range(len(batch_probs))), p=batch_probs)
             batch_to_audit = self.election_profile.batches[batch_ind]
-            batch_to_audit.audited = True
             completed_assertion_inds = []
             for i, assertion in enumerate(assertions):
                 assertion_done, statistic_values[i] = assertion.audit_batch(batch_to_audit)
@@ -204,7 +203,7 @@ class Auditor:
         plt.scatter(margin_failed, required_ballots_failed, label='Failed Threshold')
         plt.scatter(margin_moveseat, required_ballots_moveseat, label='Move Seat Between Parties')
         plt.legend()
-        plt.title(ELECTION_NAME + ' - Required # of Ballots vs. Assorter Margin')
+        plt.title('Required # of Ballots vs. Assorter Margin')
         plt.xlabel("Assertion Margin")
         plt.ylabel("Required Ballots")
         plt.show()

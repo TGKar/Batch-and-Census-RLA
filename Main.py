@@ -35,13 +35,13 @@ def make_batchcomp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
     if audit_approves:
         Plotter.assertions_plot(assertions, profile.tot_batch.total_votes)
 
-def make_comp_plot(profile1, profile2, alpha=ALPHA, threshold=THRESHOLD):
-    batchcomp_auditor = Auditor(profile1, alpha, threshold)
-    alpha_auditor = Auditor(profile2, alpha, threshold, bathcomp=False)
+def make_comp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
+    batchcomp_auditor = Auditor(profile, alpha, threshold)
+    alpha_auditor = Auditor(profile, alpha, threshold, bathcomp=False)
     batchcomp_audit_approves, batchcomp_assertions = batchcomp_auditor.batch_audit()
     alpha_audit_approves, alpha_assertions = alpha_auditor.batch_audit()
     if batchcomp_audit_approves and alpha_audit_approves:
-        Plotter.assertions_comparison_plots()
+        Plotter.assertions_comparison_plots(alpha_assertions, batchcomp_assertions, profile.tot_batch.total_votes)
 
 
 
@@ -84,12 +84,11 @@ def old_plot(profile, reps=1):
     print("Wrong approvals:", wrong_approvals)
     print("Wrong rejections:", wrong_rejections)
 
+
 if __name__ == "__main__":
-    election_profile1 = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False,
+    election_profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False,
                               redraw_tallies=False)
-    election_profile2 = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False,
-                                       redraw_tallies=False)
-    make_comp_plot(election_profile1, election_profile2)
+    make_comp_plot(election_profile)
 
 
 

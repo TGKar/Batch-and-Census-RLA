@@ -63,13 +63,18 @@ def assertions_comparison_plots(alpha_assertions, batchcomp_assertions, total_vo
             name = (assertion.party, '-')
         elif assertion.type == 3:
             name = (assertion.party_from, assertion.party_to)
-        required_ballots[np.where(assertion_parties == name), 1] = assertion.ballots_examined
+        assertion_index = assertion_parties.index(name)
+        required_ballots[assertion_parties.index(name), 1] = assertion.ballots_examined
 
     max_margin = max(assertion_margin)
-    for i, lab in ASSERTION_LABELS:
-        slicer = np.where(assertion_type == i)
+
+    # Plot comparison
+    for i, lab in enumerate(ASSERTION_LABELS):
+        slicer = np.where(assertion_type == i + 1)
         plt.scatter(assertion_margin[slicer], required_ballots[slicer, 0], label=lab + ' - ALPHA')
         plt.scatter(assertion_margin[slicer], required_ballots[slicer, 1], label=lab + ' - Batchcomp')
+        for slice in slicer:
+            plt.plot([assertion_margin[slice], assertion_margin[slice]], [required_ballots[slice, 0], required_ballots[slice, 1]], '--', color='grey')
     plt.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     plt.xlim((-10000, max_margin + 10000))
     plt.legend()
@@ -77,4 +82,19 @@ def assertions_comparison_plots(alpha_assertions, batchcomp_assertions, total_vo
     plt.xlabel("Assertion Margin")
     plt.ylabel("Required Ballots")
     plt.show()
+
+    # Plot Difference
+
+    diff = required_ballots[:, 0] - required_ballots[:, 1]
+    for i, lab in enumerate(ASSERTION_LABELS):
+        slicer = np.where(assertion_type == i + 1)
+        plt.scatter(assertion_margin[slicer], diff[slicer], label=lab)
+        plt.plot([0, max_margin], [0, 0], '--')
+        plt.xlim((-10000, max_margin + 10000))
+        plt.legend()
+        plt.title(ELECTION_NAME + ' - Required # of Ballots Improvement via Batchcomp')
+        plt.xlabel("Assertion Margin")
+        plt.ylabel("Required Ballots")
+        plt.show()
+
 
