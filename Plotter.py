@@ -8,8 +8,10 @@ ASSERTION_LABELS = ['Passed Threshold', 'Failed Threshold', 'Move Seat Between P
 # Assertion dictionary indexes
 ASSERTION_TYPE_IND = 0
 ALPHA_REQ_BALLOTS_IND = 1
+BATHCOMP_PREDICTION_IND = 2
 BATCHCOMP_REQ_BALLOTS_IND = 2
 MARGIN_IND = 3
+
 
 
 def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, total_voters, knesset_num):
@@ -71,3 +73,32 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     plt.show()
 
 
+def prediction_plots(assertions_list, knesset_num):
+    # Create a dictionary with every assertion's data across all repeats
+    assertion_data = dict()
+    for assertions in assertions_list:
+        for i, assertion in enumerate(assertions):
+            if assertion.type == 1 or assertion.type == 2:
+                name = (assertion.party, '-')
+            else:
+                name = (assertion.party_from, assertion.party_to)
+            if name not in assertion_data:
+                assertion_data[name] = [0] * 4
+                assertion_data[name][ASSERTION_TYPE_IND] = assertion.type
+                assertion_data[name][MARGIN_IND] = assertion.vote_margin
+                assertion_data[name][BATHCOMP_PREDICTION_IND] = assertion.get_batch_prediction()
+                print('assertion ' + str(name) + ' req ballots ' + str(assertion.ballots_examined) + ' / ' + str(assertion_data[name][BATHCOMP_PREDICTION_IND]))
+            assertion_data[name][BATCHCOMP_REQ_BALLOTS_IND] += assertion.ballots_examined
+    assertion_data_mat = np.array(list(assertion_data.values()))
+    assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND] /= len(assertions_list)
+
+    # Plot
+    for i, lab in enumerate(ASSERTION_LABELS):
+        slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
+        plt.scatter(assertion_data_mat[slicer, BATHCOMP_PREDICTION_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
+    plt.plot([0, 0], [max(assertion_data_mat[BATCHCOMP_REQ_BALLOTS_IND]), max(assertion_data_mat[BATCHCOMP_REQ_BALLOTS_IND])],'--')
+    plt.legend()
+    plt.title("Knesset " + str(knesset_num) + ' - # of Ballots Required per Assertion')
+    plt.xlabel("Prediction")
+    plt.ylabel("Actual")
+    plt.show()

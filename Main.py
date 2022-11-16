@@ -54,6 +54,14 @@ def make_comp_plot(profile, reps=10, alpha=ALPHA, threshold=THRESHOLD):
 
     Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, KNESSET_NUM)
 
+def make_prediction_plots(profile, reps=10, alpha=ALPHA, threshold=THRESHOLD):
+    assertions_list = []
+    for rep in range(reps):
+        auditor = Auditor(profile, alpha, threshold)
+        audit_approves, assertions = auditor.batch_audit()
+        assert audit_approves
+        assertions_list.append(assertions)
+    Plotter.prediction_plots(assertions_list, KNESSET_NUM)
 
 
 def old_plot(profile, reps=1):
@@ -99,7 +107,7 @@ def old_plot(profile, reps=1):
 if __name__ == "__main__":
     election_profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False,
                               redraw_tallies=False)
-    make_comp_plot(election_profile)
+    make_prediction_plots(election_profile)
 
 
 

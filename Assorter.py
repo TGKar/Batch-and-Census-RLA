@@ -33,7 +33,7 @@ class Assorter(ABC):
         self.weighted_vote_margin = weighted_vote_margin
 
         # Next couple of lines predict the # of batches required for the audit
-        #self.batch_num = len(election_profile.batches)
+        self.batch_num = len(election_profile.batches)
         #self.batch_pred = -np.log(self.alpha) / \
         #                  np.log(self.inner_u / (self.inner_u - self.reported_inner_assorter_margin))
 

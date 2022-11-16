@@ -88,24 +88,28 @@ class Auditor:
         assertions = self.comparison_assertions + self.failed_threshold_assertions + self.passed_threshold_assertions
         statistic_values = np.zeros(len(assertions))
         while len(assertions) > 0 and batch_counter < len(self.election_profile.batches):
+            batch_counter += 1
+            #print('batch counter ', batch_counter, ' ballot counter ', ballot_counter)
+            if not np.isclose(np.sum(batch_probs), 1.0):
+                print('batch counter ', batch_counter)
+                print('total batches ', len(self.election_profile.batches))
+                print('probability sum ', np.sum(batch_probs))
             assert(np.isclose(np.sum(batch_probs), 1.0))
             batch_ind = np.random.choice(list(range(len(batch_probs))), p=batch_probs)
             batch_to_audit = self.election_profile.batches[batch_ind]
+            ballot_counter += batch_to_audit.total_votes
             completed_assertion_inds = []
             for i, assertion in enumerate(assertions):
                 assertion_done, statistic_values[i] = assertion.audit_batch(batch_to_audit)
                 if assertion_done:
                     completed_assertion_inds.append(i)
 
-            batch_counter += 1
-            ballot_counter += batch_to_audit.total_votes
 
             for i, delete_ind in enumerate(completed_assertion_inds):  # Remove assertions that were fulfilled
                 assorter_true_mean = assertions[delete_ind - i].get_assorter_value(self.election_profile.tot_batch)
 
                 if assorter_true_mean < 0.5:
                     print("A WRONG ASSERTION WAS APPROVED!!!")
-                batch_counter = assertions[delete_ind - i].batch_counter
                 batch_prediction.append(0)  # TODO
                 #batch_prediction.append(assertions[delete_ind - i].get_batch_prediction())
                 print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',  assertions[delete_ind - i].vote_margin,'after ballot ', str('{:,}'.format(ballot_counter)),
