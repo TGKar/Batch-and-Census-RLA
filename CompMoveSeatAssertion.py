@@ -14,7 +14,7 @@ class CompMoveSeatAssertion(Assorter):
     """
 
     def __init__(self, risk_limit, party_from, party_to, election_profile: ElectionProfile, paired,
-                 eta_mode=ADAPTIVE_ETA, mode=0):  # TODO Support more eta types
+                 eta_mode=ADAPTIVE_ETA, mode=0):
         """
         :param risk_limit: Risk limit of the audit
         :param party_from: Party that a seat should potentially be taken away from
@@ -60,8 +60,7 @@ class CompMoveSeatAssertion(Assorter):
             self.inner_u = max(batch_max_disc, self.inner_u)
 
         self.inner_u = min(self.inner_u, (0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats))*MAX_DISC_SHARE)
-        #self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
-
+        #self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)  Used for alpha batch comparison
 
         self.reported_inner_assorter_margin = self.get_inner_assorter_value(party_from_reported_votes,
                                                                             party_to_reported_votes,
@@ -72,6 +71,11 @@ class CompMoveSeatAssertion(Assorter):
         u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
             (2 * (self.inner_u - self.reported_inner_assorter_margin))
         self.reported_assorter_mean = u - EPSILON
+
+        # Next lines are used to convert this to an alpha batch comparison audit
+        # u = 0.5 + (self.reported_inner_assorter_margin + self.inner_u*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
+        #     (2 * (self.inner_u - self.reported_inner_assorter_margin))
+        # self.reported_assorter_mean = 0.5 + self.reported_inner_assorter_margin / (2 * (self.inner_u - self.reported_inner_assorter_margin))
 
         eta = None
         if eta_mode == ADAPTIVE_ETA:
@@ -149,7 +153,7 @@ class CompMoveSeatAssertion(Assorter):
             return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to + " (+1)"
         return "FAULTY ASSERTION: ILLEGAL ASSERTION MODE"
 
-    # TODO delete
+    # For debugging
     def plot(self):
         fig, axs = plt.subplots(2)
         axs[0].plot(self.plot_x, self.mu_list, label='mu')

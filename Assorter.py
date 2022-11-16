@@ -6,7 +6,7 @@ from ElectionProfile import ElectionProfile, EPSILON, INVALID_BALLOT
 
 DEFAULT_MU = 0.5
 MAX_ERR = 0.0001
-MAX_DISC_SHARE = 1.0
+MAX_DISC_SHARE = 1.0  # Assumed maximal discrepency between reported and true results, as a share of the maximal possible assorter value
 
 class Assorter(ABC):
 
