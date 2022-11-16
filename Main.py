@@ -5,16 +5,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import Plotter
 
-
 # Constants
-APPARENTMENTS = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
-#APPARENTMENTS = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # 24!
-#APPARENTMENTS = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]  # 23!
-#APPARENTMENTS = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]  # 22!
+KNESSET_NUM = 22
+APPARENTMENTS = dict()
+APPARENTMENTS[25] = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
+APPARENTMENTS[24] = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")]
+APPARENTMENTS[23] = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]
+APPARENTMENTS[22] = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]
 THRESHOLD = 0.0325
 SEATS = 120
 ALPHA = 0.05
-RESULTS_FILE = "Results 25.csv"
+RESULTS_FILE = 'Results ' + str(KNESSET_NUM) + '.csv'
+ELECTION_NAME = "Knesset " + str(KNESSET_NUM)
+
 
 """
 def plurality_race():
@@ -26,7 +29,6 @@ def plurality_race():
         auditor = PluralityAuditor(profile, ALPHA)
         ballot_counter += auditor.ballot_audit()
     print(ballot_counter / 1000)
-"""
 
 
 def make_batchcomp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
@@ -34,14 +36,23 @@ def make_batchcomp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
     audit_approves, assertions = auditor.batch_audit()
     if audit_approves:
         Plotter.assertions_plot(assertions, profile.tot_batch.total_votes)
+"""
 
-def make_comp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
-    batchcomp_auditor = Auditor(profile, alpha, threshold)
-    alpha_auditor = Auditor(profile, alpha, threshold, bathcomp=False)
-    batchcomp_audit_approves, batchcomp_assertions = batchcomp_auditor.batch_audit()
-    alpha_audit_approves, alpha_assertions = alpha_auditor.batch_audit()
-    if batchcomp_audit_approves and alpha_audit_approves:
-        Plotter.assertions_comparison_plots(alpha_assertions, batchcomp_assertions, profile.tot_batch.total_votes)
+
+
+def make_comp_plot(profile, reps=10, alpha=ALPHA, threshold=THRESHOLD):
+    batchcomp_assertions_list = []
+    alpha_assertions_list = []
+    for rep in range(reps):
+        batchcomp_auditor = Auditor(profile, alpha, threshold)
+        alpha_auditor = Auditor(profile, alpha, threshold, bathcomp=False)
+        batchcomp_audit_approves, batchcomp_assertions = batchcomp_auditor.batch_audit()
+        alpha_audit_approves, alpha_assertions = alpha_auditor.batch_audit()
+        assert alpha_audit_approves and batchcomp_audit_approves
+        alpha_assertions_list.append(alpha_assertions)
+        batchcomp_assertions_list.append(batchcomp_assertions)
+
+    Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, KNESSET_NUM)
 
 
 
@@ -86,7 +97,7 @@ def old_plot(profile, reps=1):
 
 
 if __name__ == "__main__":
-    election_profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS, shuffle_true_tallies=False,
+    election_profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False,
                               redraw_tallies=False)
     make_comp_plot(election_profile)
 
