@@ -133,6 +133,6 @@ if __name__ == "__main__":
     for knesset_i in [22, 23, 24, 25]:
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
         #make_error_plot(knesset_i)
-        make_comp_plot(prof, knesset_i)
+        make_comp_plot(prof, knesset_i, reps=1)
         election_profiles.append(prof)
     make_prediction_plots(election_profiles)

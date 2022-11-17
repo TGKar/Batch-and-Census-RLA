@@ -60,7 +60,7 @@ class CompMoveSeatAssertion(Assorter):
             self.inner_u = max(batch_max_disc, self.inner_u)
 
         self.inner_u = min(self.inner_u, (0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats))*MAX_DISC_SHARE)
-        #self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)  Used for alpha batch comparison
+        # self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
 
         self.reported_inner_assorter_margin = self.get_inner_assorter_value(party_from_reported_votes,
                                                                             party_to_reported_votes,
@@ -74,7 +74,7 @@ class CompMoveSeatAssertion(Assorter):
 
         # Next lines are used to convert this to an alpha batch comparison audit
         # u = 0.5 + (self.reported_inner_assorter_margin + self.inner_u*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
-        #     (2 * (self.inner_u - self.reported_inner_assorter_margin))
+        #    (2 * (self.inner_u - self.reported_inner_assorter_margin))
         # self.reported_assorter_mean = 0.5 + self.reported_inner_assorter_margin / (2 * (self.inner_u - self.reported_inner_assorter_margin))
 
         eta = None

@@ -76,6 +76,12 @@ class Assorter(ABC):
             self.u = max(self.u, self.mu + 2*EPSILON)
         self.eta.u = self.u
 
+        if self.u - self.mu == 0 or self.mu == 0:  # TODO delete
+            print('PROBLEMO: ZERO DIVISION INCOMING')
+            print('mu ', self.mu)
+            print('u', self.u)
+            print(self.ballots_counter, ' \ ', self.total_ballots)
+
     def get_margin(self):
         return self.vote_margin
 
