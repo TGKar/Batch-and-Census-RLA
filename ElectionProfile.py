@@ -82,7 +82,7 @@ class ElectionProfile:
                 self.true_seats_won, true_paired_seats_won = self.calculate_reported_results(self.tot_batch.true_tally, self.tot_batch.true_paired_tally)  # TODO remove self.
                 reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
                                                  np.fromiter(self.true_seats_won.values(), dtype=int))
-                print("Drew noised elections")
+                print("Elections Tallies Loaded")
                 reported_matches_truth = True
             #print(self.reported_results)
             #print(sum(self.reported_results.values()))

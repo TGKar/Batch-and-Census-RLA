@@ -20,15 +20,16 @@ class Assorter(ABC):
         :param eta: Potentially adaptive alternative hypothesis. Should be inherited from the "Eta" class.
         :param initial_statistic: Initial value for this assorter's statistic (usually 1)
         """
-        self.batch_counter = 0
         self.u = upper_bound
         self.alpha = risk_limit
         self.T = initial_statistic
-        self.ballots_examined = 0
+        self.ballots_counter = 0
+        self.batch_counter = 0
         self.assorter_total = 0
         self.mu = DEFAULT_MU
         self.eta = eta
         self.total_ballots = election_profile.tot_batch.total_votes
+        self.total_batches = len(election_profile.batches)
         self.vote_margin = vote_margin
         self.weighted_vote_margin = weighted_vote_margin
 
@@ -65,12 +66,12 @@ class Assorter(ABC):
 
 
     def update_mu_and_u(self, ballot_count, assorter_sum):
-        self.ballots_examined += ballot_count
+        self.ballots_counter += ballot_count
         self.assorter_total += assorter_sum * ballot_count
-        if self.total_ballots == self.ballots_examined:
+        if self.total_ballots == self.ballots_counter:
             self.mu = 0.5
         else:
-            self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_examined)
+            self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_counter)
             self.mu = max(self.mu, 0)
             self.u = max(self.u, self.mu + 2*EPSILON)  # I switched this line with the previous but it shouldn't effect anything
         self.eta.u = self.u

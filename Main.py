@@ -4,9 +4,10 @@ from PluralityAuditor import PluralityAuditor
 import numpy as np
 import matplotlib.pyplot as plt
 import Plotter
+from tqdm import tqdm
 
 # Constants
-KNESSET_NUM = 22
+KNESSET_NUM = 25
 APPARENTMENTS = dict()
 APPARENTMENTS[25] = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
 APPARENTMENTS[24] = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")]
@@ -54,14 +55,18 @@ def make_comp_plot(profile, reps=10, alpha=ALPHA, threshold=THRESHOLD):
 
     Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, KNESSET_NUM)
 
-def make_prediction_plots(profile, reps=10, alpha=ALPHA, threshold=THRESHOLD):
-    assertions_list = []
-    for rep in range(reps):
-        auditor = Auditor(profile, alpha, threshold)
-        audit_approves, assertions = auditor.batch_audit()
-        assert audit_approves
-        assertions_list.append(assertions)
-    Plotter.prediction_plots(assertions_list, KNESSET_NUM)
+def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
+    assertions_lists = []
+    for profile in tqdm(profiles):
+        assertions_list = []
+        for rep in range(reps):
+            auditor = Auditor(profile, alpha, threshold)
+            audit_approves, assertions = auditor.batch_audit()
+            assert audit_approves
+            assertions_list.append(assertions)
+        assertions_lists.append(assertions_list)
+
+    Plotter.prediction_plots(assertions_lists)
 
 
 def old_plot(profile, reps=1):
@@ -105,9 +110,11 @@ def old_plot(profile, reps=1):
 
 
 if __name__ == "__main__":
-    election_profile = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False,
-                              redraw_tallies=False)
-    make_prediction_plots(election_profile)
+    election_profiles = []
+    for knesset_i in [22,23,24,25]:
+        election_profiles.append(ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False,
+                              redraw_tallies=False))
+    make_prediction_plots(election_profiles)
 
 
 
