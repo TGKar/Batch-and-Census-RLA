@@ -7,7 +7,7 @@ import Plotter
 from tqdm import tqdm
 
 # Constants
-KNESSET_NUM = 25
+KNESSET_NUM = 23
 APPARENTMENTS = dict()
 APPARENTMENTS[25] = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
 APPARENTMENTS[24] = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")]
@@ -53,6 +53,23 @@ def make_comp_plot(profile, knesset_num, reps=10, alpha=ALPHA, threshold=THRESHO
         batchcomp_assertions_list.append(batchcomp_assertions)
 
     Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, knesset_num)
+
+def make_error_plot(knesset_num, reps=10, alpha=ALPHA, threshold=THRESHOLD):
+    noised_assertions_list = []
+    unnoised_assertions_list = []
+    unnoised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
+    for rep in range(reps):
+        noised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i], noise=True)
+        noised_auditor = Auditor(noised_profile, alpha, threshold)
+        unnoised_auditor = Auditor(unnoised_profile, alpha, threshold)
+
+        noised_audit_approves, noised_assertions = noised_auditor.batch_audit()
+        unnoised_audit_approves, unnoised_assertions = unnoised_auditor.batch_audit()
+        assert unnoised_audit_approves and noised_audit_approves
+        unnoised_assertions_list.append(unnoised_assertions)
+        noised_assertions_list.append(noised_assertions)
+
+    Plotter.assertions_with_error_plots(unnoised_assertions_list, noised_assertions_list, unnoised_profile.tot_batch.total_votes, knesset_num)
 
 
 def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
@@ -111,11 +128,11 @@ def old_plot(profile, reps=1):
 
 if __name__ == "__main__":
     election_profiles = []
-    prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False, redraw_tallies=False)
+    prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
 
     for knesset_i in [22, 23, 24, 25]:
-        prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i], shuffle_true_tallies=False,
-                              redraw_tallies=False)
+        prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
+        #make_error_plot(knesset_i)
         make_comp_plot(prof, knesset_i)
         election_profiles.append(prof)
     make_prediction_plots(election_profiles)

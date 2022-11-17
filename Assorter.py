@@ -59,7 +59,7 @@ class Assorter(ABC):
 
         if self.mu < 0:
             self.T = float('inf')
-        if self.mu > self.u:
+        if self.mu >= self.u:
             self.T = 0
 
         return self.T >= (1 / self.alpha), self.T
@@ -73,7 +73,7 @@ class Assorter(ABC):
         else:
             self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_counter)
             self.mu = max(self.mu, 0)
-            self.u = max(self.u, self.mu + 2*EPSILON)  # I switched this line with the previous but it shouldn't effect anything
+            self.u = max(self.u, self.mu + 2*EPSILON)
         self.eta.u = self.u
 
     def get_margin(self):

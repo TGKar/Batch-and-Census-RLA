@@ -79,6 +79,10 @@ class MoveSeatAssertion(Assorter):
         else:
             assorter_value = 0.5
 
+        if self.u - self.mu == 0 or self.mu == 0:
+            print('PROBLEMO: ZERO DIVISION INCOMING')
+            print('mu ', self.mu)
+            print('u', self.u)
         self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
                   (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
         self.update_mu_and_u(1, assorter_value)
@@ -94,7 +98,7 @@ class MoveSeatAssertion(Assorter):
 
         if self.mu < 0:
             self.T = float('inf')
-        elif self.mu > self.u:
+        elif self.mu >= self.u:
             self.T = 0
 
         # Debugging stuff
