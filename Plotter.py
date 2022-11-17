@@ -100,7 +100,7 @@ def prediction_plots(assertions_lists):
     max_x = np.max(assertion_data_mat[:, [BATCHCOMP_PREDICTION_IND, BATCHCOMP_REQ_BATCHES_IND]])
     plt.plot([0, max_x], [0, max_x],'--')
     plt.legend()
-    plt.title('Share of Batches Audited per Assertion - Prediction vs. ')
+    plt.title('Share of Batches Audited per Assertion')
     plt.xlabel("Prediction")
     plt.ylabel("Actual")
     plt.show()

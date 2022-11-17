@@ -39,21 +39,21 @@ def make_batchcomp_plot(profile, alpha=ALPHA, threshold=THRESHOLD):
         Plotter.assertions_plot(assertions, profile.tot_batch.total_votes)
 """
 
-
-
-def make_comp_plot(profile, reps=10, alpha=ALPHA, threshold=THRESHOLD):
+def make_comp_plot(profile, knesset_num, reps=10, alpha=ALPHA, threshold=THRESHOLD):
     batchcomp_assertions_list = []
     alpha_assertions_list = []
     for rep in range(reps):
         batchcomp_auditor = Auditor(profile, alpha, threshold)
         alpha_auditor = Auditor(profile, alpha, threshold, bathcomp=False)
+
         batchcomp_audit_approves, batchcomp_assertions = batchcomp_auditor.batch_audit()
         alpha_audit_approves, alpha_assertions = alpha_auditor.batch_audit()
         assert alpha_audit_approves and batchcomp_audit_approves
         alpha_assertions_list.append(alpha_assertions)
         batchcomp_assertions_list.append(batchcomp_assertions)
 
-    Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, KNESSET_NUM)
+    Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, knesset_num)
+
 
 def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
     assertions_lists = []
@@ -111,13 +111,11 @@ def old_plot(profile, reps=1):
 
 if __name__ == "__main__":
     election_profiles = []
-    for knesset_i in [22,23,24,25]:
-        election_profiles.append(ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False,
-                              redraw_tallies=False))
+    prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM], shuffle_true_tallies=False, redraw_tallies=False)
+
+    for knesset_i in [22, 23, 24, 25]:
+        prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i], shuffle_true_tallies=False,
+                              redraw_tallies=False)
+        make_comp_plot(prof, knesset_i)
+        election_profiles.append(prof)
     make_prediction_plots(election_profiles)
-
-
-
-
-
-

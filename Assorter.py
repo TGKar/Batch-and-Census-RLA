@@ -87,9 +87,9 @@ class Assorter(ABC):
         x = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin))
         d = self.batch_num
         min_batches = 1
-        max_batches = d
+        max_batches = int(d/(2*x))
         batches = 0
-        inequality = lambda  j: np.log(self.alpha) + (d + 0.5)*np.log(d) + (d/(2*x) - j - 0.5)*np.log(d/(2*x) - j - 1) \
+        inequality = lambda j: np.log(self.alpha) + (d + 0.5)*np.log(d) + (d/(2*x) - j - 0.5)*np.log(d/(2*x) - j - 1) \
                   - (d/(2*x) + 0.5)*np.log(d / (2*x)) - (d - j - 0.5)*np.log(d - j - 1)
         while min_batches + 1 != max_batches:
             batches = int((max_batches + min_batches) / 2)
