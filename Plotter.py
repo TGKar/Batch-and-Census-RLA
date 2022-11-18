@@ -46,7 +46,7 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     max_margin = max(assertion_data_mat[:, MARGIN_IND])
 
     # Plot comparison
-    fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
+    fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
@@ -58,25 +58,21 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     fig.suptitle("Knesset " + str(knesset_num) + ' - Required # of Ballots vs. Assorter Margin')
     axs[0].set_title("ALPHA-Batch")
     axs[1].set_title("Batchcomp")
-    fig.supxlabel("Assertion Margin")
-    fig.supylabel("Required Ballots")
-    plt.show()
 
     # Plot Difference
     diff = assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND] - assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND]
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
-        plt.scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
-        plt.plot([0, max_margin], [0, 0], '--')
-    plt.xlim((-total_voters / 10**5, max_margin + total_voters / 10**5))
-    plt.legend()
-    plt.title("Knesset " + str(knesset_num) + ' - Required # of Ballots Per Assertion: Difference Betewen ALPHA and Batchcomp')
-    plt.xlabel("Assertion Margin")
-    plt.ylabel("Required Ballots")
+        axs[2].scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
+        axs[2].plot([0, max_margin], [0, 0], '--')
+    axs[2].set_title('Difference (ALPHA - Batchcomp)')
+
+    fig.supxlabel("Assertion Margin")
+    fig.supylabel("Required Ballots")
     plt.show()
 
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
-    save_filename = "Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
+    save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
     np.save(save_filename, assertion_data_mat)
 
 
@@ -109,7 +105,7 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     max_margin = max(assertion_data_mat[:, MARGIN_IND])
 
     # Plot comparison
-    fig, axs = plt.subplots(2, 1, sharex=True, sharey=True)
+    fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
@@ -123,21 +119,18 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     axs[1].set_title("With p=0.01 Probability of Counting Error")
     fig.supxlabel("Assertion Margin")
     fig.supylabel("Required Ballots")
-    plt.show()
 
     # Plot Difference
     diff = assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND] - assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND]
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
-        plt.scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
-        plt.plot([0, max_margin], [0, 0], '--')
-    plt.xlim((-total_voters / 10**5, max_margin + total_voters / 10**5))
-    plt.legend()
-    plt.title("Knesset " + str(knesset_num) + ' - Required # of Ballots Per Assertion: Added Overhead From Counting Errors')
+        axs[2].scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
+        axs[2].plot([0, max_margin], [0, 0], '--')
+    axs[2].set_title(
+        "Knesset " + str(knesset_num) + 'Difference')
     plt.xlabel("Assertion Margin")
     plt.ylabel("Required Ballots")
     plt.show()
-
 
 def prediction_plots(assertions_lists):
     # Create a dictionary with every assertion's data across all repeats
