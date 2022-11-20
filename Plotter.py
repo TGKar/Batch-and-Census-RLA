@@ -53,8 +53,10 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
         axs[1].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
     axs[0].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    axs[0].set_xlim((0, max_margin + total_voters / 10**5))
+    #axs[0].set_xlim((0, max_margin + total_voters / 10**5))
     axs[0].legend()
+    axs[0].set_xscale('log')
+
     fig.suptitle("Knesset " + str(knesset_num) + ' - Required # of Ballots vs. Assorter Margin')
     axs[0].set_title("ALPHA-Batch")
     axs[1].set_title("Batchcomp")
@@ -67,7 +69,7 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
         axs[2].plot([0, max_margin], [0, 0], '--')
     axs[2].set_title('Difference (ALPHA - Batchcomp)')
 
-    fig.supxlabel("Assertion Margin")
+    fig.supxlabel("Assertion Margin (Log Scale)")
     fig.supylabel("Required Ballots")
     plt.show()
 

@@ -95,7 +95,7 @@ class CompMoveSeatAssertion(Assorter):
         self.assorter_values = []
         self.plot_x = []
 
-        super().__init__(risk_limit, election_profile, u, eta, vote_margin, weighted_vote_margin)
+        super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=weighted_vote_margin)
 
 
     def audit_ballot(self, ballot):
@@ -191,7 +191,7 @@ class CompMoveSeatAssertion(Assorter):
 
         party_from_ratio = 1 / party_from_seats
         party_to_ratio = 1 / (party_to_seats + 1)
-        vote_margin = (party_from_votes*party_from_ratio - party_to_votes*party_to_ratio) / (party_from_ratio + party_to_ratio)
+        vote_margin = ((party_from_votes*party_from_ratio) - (party_to_votes*party_to_ratio)) / (party_from_ratio + party_to_ratio)
 
         weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
         if party_to_margin < party_from_margin:  # TODO delete

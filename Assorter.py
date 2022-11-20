@@ -89,7 +89,7 @@ class Assorter(ABC):
     def get_assorter_value(self, batch: Batch):
         pass
 
-    def get_batch_prediction(self):
+    def get_batch_prediction(self):  # TODO Make abstract and return NAN for alpha
         x = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin))
         d = self.batch_num
         min_batches = 1

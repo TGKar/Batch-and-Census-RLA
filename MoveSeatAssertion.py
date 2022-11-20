@@ -56,6 +56,7 @@ class MoveSeatAssertion(Assorter):
                          reported_party_from_votes)
         self.reported_assorter_mean = (reported_party_from_votes * u + 0.5 * neutral_votes) / \
                                       self.election_profile.tot_batch.total_votes
+        weighted_vote_margin, vote_margin = self.calc_margins()
         eta = None
         if eta_mode == ADAPTIVE_ETA:
 
@@ -69,7 +70,7 @@ class MoveSeatAssertion(Assorter):
         self.assorter_value = []
         self.plot_x = []
 
-        super().__init__(risk_limit, election_profile, u, eta, self.calc_margin())
+        super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=weighted_vote_margin)
 
     def audit_ballot(self, ballot):
         if ballot in self.party_from.split(' + '):
@@ -125,7 +126,7 @@ class MoveSeatAssertion(Assorter):
             party_to_votes = batch.true_tally[self.party_to]
         return (1 / batch.total_votes) * (self.u*party_from_votes + 0.5*(batch.total_votes - party_from_votes - party_to_votes))
 
-    def calc_margin(self):
+    def calc_margins(self):
         if self.paired:
             party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
             party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from]
@@ -136,10 +137,13 @@ class MoveSeatAssertion(Assorter):
             party_from_seats = self.election_profile.reported_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_seats_won[self.party_to]
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
-        party_to_margin = (party_to_seats + 1) * party_from_votes / party_from_seats - party_to_votes
-        party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats + 1)
+        party_from_ratio = 1 / party_from_seats
+        party_to_ratio = 1 / (party_to_seats + 1)
+        vote_margin = (party_from_votes * party_from_ratio - party_to_votes * party_to_ratio) / (
+                    party_from_ratio + party_to_ratio)
         weighted_margin = party_from_votes / party_from_seats - party_to_votes / (party_to_seats + 1)
-        return weighted_margin, min(party_to_margin, party_from_margin)
+
+        return weighted_margin, vote_margin
 
     # TODO delete
     def plot(self):

@@ -29,7 +29,7 @@ class ThresholdAssertion(Assorter):
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, election_profile.tot_batch.total_votes)
             # print("Reported assorter mean: ", reported_assorter_mean)
-        super().__init__(risk_limit, election_profile, u, eta, vote_margin)
+        super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=vote_margin)
 
     def audit_ballot(self, ballot):
         if ballot == self.party:
