@@ -131,7 +131,7 @@ if __name__ == "__main__":
     election_profiles = []
     prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
 
-    make_error_plot(10)
+    # make_error_plot(10)
 
     for knesset_i in [22, 23, 24, 25]:
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])

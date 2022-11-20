@@ -59,7 +59,9 @@ class Assorter(ABC):
 
         if self.mu < 0:
             self.T = float('inf')
-        if self.mu >= self.u:
+        elif (self.batch_counter == self.total_batches) and (self.assorter_total / self.total_ballots >= 0.5):
+            self.T = float('inf')
+        elif self.mu >= self.u:
             self.T = 0
 
         return self.T >= (1 / self.alpha), self.T

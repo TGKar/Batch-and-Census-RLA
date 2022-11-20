@@ -114,12 +114,12 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
         axs[1].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
     axs[0].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    axs[0].set_xlim((0, max_margin + total_voters / 10**5))
+    axs[0].set_xscale('log')
     axs[0].legend()
     fig.suptitle("Knesset " + str(knesset_num) + ' - Batchcomp Required # of Ballots vs. Assorter Margin')
     axs[0].set_title("Without Counting Errors")
     axs[1].set_title("With Counting Errors")
-    fig.supxlabel("Assertion Margin")
+    fig.supxlabel("Assertion Margin (Log Scale)")
     fig.supylabel("Required Ballots")
 
     # Plot Difference

@@ -52,8 +52,7 @@ class MoveSeatAssertion(Assorter):
             party_to_seats = election_profile.reported_seats_won[party_to]
         u = 0.5 + (party_to_seats + 1)/(2 * party_from_seats)
 
-        neutral_votes = (self.election_profile.tot_batch.total_votes - reported_party_to_votes -
-                         reported_party_from_votes)
+        neutral_votes = self.election_profile.tot_batch.total_votes - reported_party_to_votes - reported_party_from_votes
         self.reported_assorter_mean = (reported_party_from_votes * u + 0.5 * neutral_votes) / \
                                       self.election_profile.tot_batch.total_votes
         weighted_vote_margin, vote_margin = self.calc_margins()
