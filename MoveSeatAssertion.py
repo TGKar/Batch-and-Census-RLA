@@ -88,7 +88,7 @@ class MoveSeatAssertion(Assorter):
         self.update_mu_and_u(1, assorter_value)
         self.eta.calculate_eta(1, assorter_value, self.mu)
         return (self.T >= 1 / self.alpha), self.T
-
+    """
     def audit_batch(self, batch: Batch):
         assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
@@ -111,6 +111,7 @@ class MoveSeatAssertion(Assorter):
         self.plot_x.append(self.eta.total_ballots)
 
         return self.T >= (1 / self.alpha), self.T
+    """
 
     def __str__(self):
         return "Move seat from " + self.party_from + " to " + self.party_to
@@ -126,16 +127,19 @@ class MoveSeatAssertion(Assorter):
 
     def calc_margin(self):
         if self.paired:
-            party_from_price = self.election_profile.tot_batch.reported_paired_tally[self.party_from] / \
-                               self.election_profile.reported_paired_seats_won[self.party_from]
+            party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to]
-            party_to_votes = self.election_profile.tot_batch.true_paired_tally[self.party_to]
+            party_to_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_to]
         else:
-            party_from_price = self.election_profile.tot_batch.reported_tally[self.party_from] / \
-                               self.election_profile.reported_seats_won[self.party_from]
+            party_from_votes = self.election_profile.tot_batch.reported_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_seats_won[self.party_from]
             party_to_seats = self.election_profile.reported_seats_won[self.party_to]
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
-        return party_from_price * (party_to_seats+1) - party_to_votes
+        party_to_margin = (party_to_seats + 1) * party_from_votes / party_from_seats - party_to_votes
+        party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats + 1)
+        weighted_margin = party_from_votes / party_from_seats - party_to_votes / (party_to_seats + 1)
+        return weighted_margin, min(party_to_margin, party_from_margin)
 
     # TODO delete
     def plot(self):

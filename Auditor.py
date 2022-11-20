@@ -112,9 +112,18 @@ class Auditor:
                     print("A WRONG ASSERTION WAS APPROVED!!!")
                 batch_prediction.append(0)  # TODO
                 #batch_prediction.append(assertions[delete_ind - i].get_batch_prediction())
-                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',  assertions[delete_ind - i].vote_margin,'after ballot ', str('{:,}'.format(ballot_counter)),
-                      "True mean:", assorter_true_mean, '. batch count ', batch_counter,
-                      " Prediction: ", batch_prediction[-1])
+                """
+                if assertions[delete_ind - i].type == 3:  # TODO delete later
+                    true_margin = assertions[delete_ind - i].true_vote_margin
+                    closer_margin = assertions[delete_ind - i].closer_margin
+                else:
+                    true_margin = '-'
+                    closer_margin = '-'
+                """
+
+                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with reported margin ',
+                      assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
+                      '. batch count ', batch_counter, " Prediction: ", batch_prediction[-1])
                 batch_prediction_diff.append(batch_prediction[-1] - batch_counter)
 
                 if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
@@ -133,18 +142,17 @@ class Auditor:
             batch_probs[batch_ind] = 0  # Remove audited batch from sampling pool
             if batch_counter + 1 <= len(self.election_profile.batches):
                 batch_probs /= np.sum(batch_probs)  # Normalize the distribution
-        print("Remaining assertions:")
-        for assertion in assertions:
-            print(str(assertion) + ". T:" + str(assertion.T) + '. Margin: ' + str(assertion.vote_margin) +
-                  ". Reported assorter value: " + str(assertion.reported_assorter_mean) + '. Actual mean value: ' +
-                  str(assertion.eta.assorter_sum / assertion.eta.total_ballots) + '. Final eta assorter mean: ' + str(assertion.eta.assorter_sum / assertion.eta.total_ballots))
-            print('Ballots examined: ', str(assertion.eta.total_ballots), '/', str(assertion.eta.total_ballots))
+        if len(assertions) > 0:
+            print("Remaining assertions:")
+            for assertion in assertions:
+                print(str(assertion) + ". T:" + str(assertion.T) + '. Margin: ' + str(assertion.vote_margin) +
+                      ". Reported assorter value: " + str(assertion.reported_assorter_mean) + '. Actual mean value: ' +
+                      str(assertion.eta.assorter_sum / assertion.eta.total_ballots) + '. Final eta assorter mean: ' + str(
+                    assertion.eta.assorter_sum / assertion.eta.total_ballots))
+                print('Ballots examined: ', str(assertion.eta.total_ballots), '/', str(assertion.eta.total_ballots))
 
-
-        print(np.mean(batch_prediction_diff))
-        print(np.std(batch_prediction_diff))
-        #plt.hist(batch_prediction_diff)
-        #plt.show()
+        else:
+            print('Results approved!')
 
         return len(assertions) == 0, finished_assertions
 

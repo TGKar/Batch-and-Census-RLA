@@ -54,22 +54,23 @@ def make_comp_plot(profile, knesset_num, reps=10, alpha=ALPHA, threshold=THRESHO
 
     Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, knesset_num)
 
-def make_error_plot(knesset_num, reps=10, alpha=ALPHA, threshold=THRESHOLD):
-    noised_assertions_list = []
-    unnoised_assertions_list = []
-    unnoised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
-    for rep in range(reps):
-        noised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i], noise=True)
-        noised_auditor = Auditor(noised_profile, alpha, threshold)
-        unnoised_auditor = Auditor(unnoised_profile, alpha, threshold)
+def make_error_plot(reps=10, alpha=ALPHA, threshold=THRESHOLD):
+    for knesset_i in [23, 24]:
+        noised_assertions_list = []
+        unnoised_assertions_list = []
+        unnoised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
+        for rep in range(reps):
+            noised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i], noise=True)
+            noised_auditor = Auditor(noised_profile, alpha, threshold)
+            unnoised_auditor = Auditor(unnoised_profile, alpha, threshold)
 
-        noised_audit_approves, noised_assertions = noised_auditor.batch_audit()
-        unnoised_audit_approves, unnoised_assertions = unnoised_auditor.batch_audit()
-        assert unnoised_audit_approves and noised_audit_approves
-        unnoised_assertions_list.append(unnoised_assertions)
-        noised_assertions_list.append(noised_assertions)
+            noised_audit_approves, noised_assertions = noised_auditor.batch_audit()
+            unnoised_audit_approves, unnoised_assertions = unnoised_auditor.batch_audit()
+            assert unnoised_audit_approves and noised_audit_approves
+            unnoised_assertions_list.append(unnoised_assertions)
+            noised_assertions_list.append(noised_assertions)
 
-    Plotter.assertions_with_error_plots(unnoised_assertions_list, noised_assertions_list, unnoised_profile.tot_batch.total_votes, knesset_num)
+        Plotter.assertions_with_error_plots(unnoised_assertions_list, noised_assertions_list, unnoised_profile.tot_batch.total_votes, knesset_i)
 
 
 def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
@@ -130,9 +131,9 @@ if __name__ == "__main__":
     election_profiles = []
     prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
 
+    #make_error_plot(10)
     for knesset_i in [22, 23, 24, 25]:
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
-        #make_error_plot(knesset_i)
         make_comp_plot(prof, knesset_i, reps=10)
         #election_profiles.append(prof)
     #make_prediction_plots(election_profiles)

@@ -24,7 +24,7 @@ class CompMoveSeatAssertion(Assorter):
         :param mu: Assorter mean under the null hypothesis.
         :param eta_mode: Which alternative hypothesis class to use
         :param mode: If -1, makes sure "party_from" doesn't deserve 2 seats less than it received. If +1, makes sure
-        party_to doesn't deserve 2 extra seats. If 0,
+        party_to doesn't deserve 2 extra seats. If 0, checks for their exact number of seats.
         """
         if mode < -1 or mode > 1:
             print("ILLEGAL ASSERTION MODE")
@@ -67,6 +67,10 @@ class CompMoveSeatAssertion(Assorter):
                                                                             election_profile.tot_batch.total_votes) - 0.5
 
         weighted_vote_margin, vote_margin = self.calc_margins()
+
+        # TODO delete next line
+        _, self.true_vote_margin = self.calc_true_margins()
+
         #u = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin)) + EPSILON
         u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
             (2 * (self.inner_u - self.reported_inner_assorter_margin))
@@ -184,8 +188,34 @@ class CompMoveSeatAssertion(Assorter):
             party_to_votes = self.election_profile.tot_batch.reported_tally[self.party_to]
         party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
         party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
+
+        party_from_ratio = 1 / party_from_seats
+        party_to_ratio = 1 / (party_to_seats + 1)
+        vote_margin = (party_from_votes*party_from_ratio - party_to_votes*party_to_ratio) / (party_from_ratio + party_to_ratio)
+
+        weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
+        if party_to_margin < party_from_margin:  # TODO delete
+            self.closer_margin = 'party to'
+        else:
+            self.closer_margin = 'party_from'
+        return weighted_margin, vote_margin  # min(party_to_margin, party_from_margin)
+
+    def calc_true_margins(self):  # TODO I was here
+        if self.paired:
+            party_from_votes = self.election_profile.tot_batch.true_paired_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from] + min(self.mode, 0)
+            party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to] + max(self.mode, 0)
+            party_to_votes = self.election_profile.tot_batch.true_paired_tally[self.party_to]
+        else:
+            party_from_votes = self.election_profile.tot_batch.true_tally[self.party_from]
+            party_from_seats = self.election_profile.reported_seats_won[self.party_from] + min(self.mode, 0)
+            party_to_seats = self.election_profile.reported_seats_won[self.party_to] + max(self.mode, 0)
+            party_to_votes = self.election_profile.tot_batch.true_tally[self.party_to]
+        party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
+        party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
         weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
         return weighted_margin, min(party_to_margin, party_from_margin)
+
 
     def get_inner_assorter_value(self, party_from_votes, party_to_votes, total_votes):
         assorter_max = 0

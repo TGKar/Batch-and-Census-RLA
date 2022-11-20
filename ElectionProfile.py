@@ -44,8 +44,6 @@ class ElectionProfile:
                         rep_tally, rep_invalid_votes = self.redraw_tally(tally, invalid_votes)
                         if noise:
                             true_tally, true_invalid_votes = self.add_noise(tally, invalid_votes)
-                        else:
-                            true_tally, true_invalid_votes = tally, invalid_votes
                         batch = Batch(i, rep_tally, true_tally, rep_invalid_votes, true_invalid_votes, apparentments)
                     else:
                         if noise:
@@ -197,7 +195,6 @@ class ElectionProfile:
         full_tally = tally.copy()
         full_tally[INVALID_BALLOT] = invalid_votes
         tally_values = np.array(list(full_tally.values()))
-        # TODO sample more efficiently
         sampled_ballots = np.random.choice(list(full_tally.keys()), size=n_ballots, p=tally_values / n_ballots)
         new_tally = dict()
         new_tally.update(zip(full_tally.keys(), np.zeros(len(full_tally.values()), dtype=int)))

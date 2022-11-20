@@ -105,7 +105,7 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     max_margin = max(assertion_data_mat[:, MARGIN_IND])
 
     # Plot comparison
-    fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
+    fig, axs = plt.subplots(3, 1, sharex=True)
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
@@ -114,22 +114,19 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[0].set_xlim((0, max_margin + total_voters / 10**5))
     axs[0].legend()
-    fig.suptitle("Knesset " + str(knesset_num) + ' - Required # of Ballots vs. Assorter Margin')
+    fig.suptitle("Knesset " + str(knesset_num) + ' - Batchcomp Required # of Ballots vs. Assorter Margin')
     axs[0].set_title("Without Counting Errors")
-    axs[1].set_title("With p=0.01 Probability of Counting Error")
+    axs[1].set_title("With Counting Errors")
     fig.supxlabel("Assertion Margin")
     fig.supylabel("Required Ballots")
 
     # Plot Difference
-    diff = assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND] - assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND]
+    diff = assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND] - assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND]
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         axs[2].scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
         axs[2].plot([0, max_margin], [0, 0], '--')
-    axs[2].set_title(
-        "Knesset " + str(knesset_num) + 'Difference')
-    plt.xlabel("Assertion Margin")
-    plt.ylabel("Required Ballots")
+    axs[2].set_title('Difference (With Errors - Without Errors)')
     plt.show()
 
 def prediction_plots(assertions_lists):
