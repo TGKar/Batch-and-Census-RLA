@@ -5,7 +5,7 @@ from abc import ABC, abstractmethod
 from ElectionProfile import ElectionProfile, EPSILON, INVALID_BALLOT
 
 DEFAULT_MU = 0.5
-MAX_ERR = 0.0001
+MAX_ERR = 10**(-10)  # 0.000001
 MAX_DISC_SHARE = 1.0  # Assumed maximal discrepency between reported and true results, as a share of the maximal possible assorter value
 
 class Assorter(ABC):
@@ -75,7 +75,7 @@ class Assorter(ABC):
         else:
             self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_counter)
             self.mu = max(self.mu, 0)
-            self.u = max(self.u, self.mu + 2*EPSILON)
+            self.u = self.eta.value + EPSILON # max(self.u, self.mu + 2*EPSILON)
         self.eta.u = self.u
 
         if self.u - self.mu == 0 or self.mu == 0:  # TODO delete

@@ -7,7 +7,7 @@ from collections import Counter
 INVALID_VOTES_INDEX = 5
 PARTY_INDEX = 6
 INVALID_BALLOT = 'Invalid'
-EPSILON = 10**(-9)  # Min difference between eta and mu
+EPSILON = 10**(-10)  # Min difference between eta and mu
 
 
 class ElectionProfile:
@@ -155,7 +155,7 @@ class ElectionProfile:
                 seats_won[key] = paired_seats_won[key]
         return seats_won, paired_seats_won
 
-    def add_noise(self, tally, invalid_votes, error_ratio=0.008, invalidation_rate=0.002, invalid_to_valid_ratio=0.01):
+    def add_noise(self, tally, invalid_votes, error_ratio=0.01, invalidation_rate=0.02, invalid_to_valid_ratio=0.05):
         """
         Adds error to a tally
         :param tally: Vote tally
