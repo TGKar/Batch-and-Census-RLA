@@ -1,18 +1,18 @@
 import numpy as np
-from AdaptiveEta import AdaptiveEta
+from SetEta import SetEta
 from abc import ABC, abstractmethod
 from CensusProfile import CensusProfile, EPSILON, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND
 
 
 class CensusAssorter(ABC):
-    def __init__(self, risk_limit, state_from, state_to, divider_list, n_state_from, n_state_to,
-                 census_profile: CensusProfile, eta, mode=0):
+    def __init__(self, risk_limit, state_from, state_to, divider_func, state_from_constant, state_to_constant,
+                 census_profile: CensusProfile, max_residents_per_household, mode=0):
         """
 
         :param risk_limit:
         :param state_from:
         :param state_to:
-        :param divider_list:
+        :param divider_func:
         :param n_state_from:
         :param n_state_to:
         :param census_profile:
@@ -22,35 +22,49 @@ class CensusAssorter(ABC):
 
         self.state_from = state_from
         self.state_to = state_to
-        self.divider_list = divider_list
-        self.n_state_from = n_state_from
-        self.n_state_to = n_state_to
+        self.divider_list = divider_func
+        self.state_from_constant = state_from_constant
+        self.state_to_constant = state_to_constant
         self.alpha = risk_limit
         self.mode = mode
+        self.max_residents = max_residents_per_household
         self.T = 1
-        self.u = 0.5 + self.get_inner_assorter_value(census_data)  # TODO write
+
+        self.party_from_reps = 0  # TODO write
+        self.party_to_reps = 0  # TODO write
+
+        self.z = max(divider_func(self.party_to_reps) / (2*divider_func(self.party_from_reps)), 1) * \
+            max_residents_per_household
+        inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
+        self.u = 0.5 + inner_assorter_reported_margin / (2*(z - inner_assorter_reported_margin))
+        self.eta = SetEta(self.u, self.u - EPSILON)
+
         self.household_counter = 0
         self.assorter_total = 0
         self.mu = 0.5
-        self.eta = eta
         self.total_households = census_profile.households_n
         self.margin = self.calc_margin()
-        self.inner_assorter_margin = self.get_inner_assorter_value(census_data) - 0.5  # m_{s_1, s_2} from the thesis
+        self.census_inner_assorter_margin = self.get_inner_assorter_value(census_data) - 0.5  # m_{s_1, s_2} from the thesis
 
         # For debugging
         self.T_list = []
         self.assorter_mean = []
 
 
-    def audit_batch(self, census_residents, pes_residents):
+    def audit_household(self, census_residents, pes_residents):
         self.household_counter += 1
         assorter_value = self.get_assorter_value(census_residents, pes_residents)
-        self.T *= (assorter_value / self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu)
+
+        if self.mu == 0:
+            if assorter_value > 0:
+                self.T = np.inf
+        else:
+            self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                      (self.u - self.mu)
+
         self.update_mu_and_u(assorter_value)
         self.eta.calculate_eta(1, assorter_value, self.mu)  # Prepare eta for next batch
         if self.mu <= 0:
-            print(self, "approved via small mu")
             self.T = float('inf')
         if self.mu > self.u:
             self.T = 0
@@ -61,14 +75,17 @@ class CensusAssorter(ABC):
 
         return self.T >= (1 / self.alpha), self.T
 
-    def get_assorter_value(self, census_residents, pes_residents):
+    def get_assorter_value(self, state, census_residents, pes_residents):
         """
         Calculates the value of this assorter over a given household
+        :param state: State of the audited household
         :param census_residents: Number of residents in the audited household according to the census
         :param pes_residents: Number of residents in the audited household according to the PES
         :return: The value of the assorter
         """
-        return 0  # TODO write
+        discrepancy = self.get_inner_assorter_value(np.array([state, pes_residents])) - \
+                      self.get_inner_assorter_value(np.array([state, census_residents]))
+        return 0.5 + (self.census_inner_assorter_margin + discrepancy) / (2*(self.census_inner_assorter_margin - self.z))
 
 
     def get_inner_assorter_value(self, households):

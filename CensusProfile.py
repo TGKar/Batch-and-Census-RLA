@@ -15,3 +15,5 @@ class CensusProfile:
         """
         self.census_data = census_data
         self.households_n = census_data.shape[1]
+        self.census_allocation = dict()  # TODO write
+        self.pes_allocation = dict()  # TODO write
