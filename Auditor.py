@@ -5,6 +5,7 @@ from CompMoveSeatAssertion import CompMoveSeatAssertion
 from MoveSeatAssertion import MoveSeatAssertion
 from FailedThresholdAssertion import FailedThresholdAssertion
 from ThresholdAssertion import ThresholdAssertion
+from SetEta import SetEta
 import numpy as np
 from MyEta import MY_ETA
 import matplotlib.pyplot as plt

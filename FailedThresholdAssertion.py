@@ -1,5 +1,5 @@
 from Batch import Batch
-from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU
+from ElectionAssorter import Assorter, INVALID_BALLOT, DEFAULT_MU
 from ElectionProfile import ElectionProfile
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta

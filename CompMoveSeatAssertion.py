@@ -1,8 +1,9 @@
 from Batch import Batch
-from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
+from ElectionAssorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
 from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
+from SetEta import SET_ETA, SetEta
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -14,7 +15,7 @@ class CompMoveSeatAssertion(Assorter):
     """
 
     def __init__(self, risk_limit, party_from, party_to, election_profile: ElectionProfile, paired,
-                 eta_mode=ADAPTIVE_ETA, mode=0):
+                 eta_mode=SET_ETA, mode=0):
         """
         :param risk_limit: Risk limit of the audit
         :param party_from: Party that a seat should potentially be taken away from
@@ -86,6 +87,8 @@ class CompMoveSeatAssertion(Assorter):
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, self.election_profile.tot_batch.total_votes)
+        elif eta_mode == SET_ETA:
+            eta = SetEta(u, self.reported_assorter_mean)
         # Next block is for debugging purposes only
         self.inc_T_list = []
         self.T_list = []
@@ -150,11 +153,11 @@ class CompMoveSeatAssertion(Assorter):
 
     def __str__(self):
         if self.mode == 0:
-            return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to
+            return "Batch-comp (total discrepancy) move seat from " + self.party_from + " to " + self.party_to
         elif self.mode == -1:
-            return "Batch-comp (total discrepancy) move sit from " + self.party_from + " (-1) to " + self.party_to
+            return "Batch-comp (total discrepancy) move seat from " + self.party_from + " (-1) to " + self.party_to
         elif self.mode == 1:
-            return "Batch-comp (total discrepancy) move sit from " + self.party_from + " to " + self.party_to + " (+1)"
+            return "Batch-comp (total discrepancy) move seat from " + self.party_from + " to " + self.party_to + " (+1)"
         return "FAULTY ASSERTION: ILLEGAL ASSERTION MODE"
 
     # For debugging

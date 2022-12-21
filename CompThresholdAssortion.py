@@ -1,7 +1,8 @@
 from Batch import Batch
-from Assorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
+from ElectionAssorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
 from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
+from SetEta import SET_ETA, SetEta
 from MyEta import MY_ETA, MyEta
 import numpy as np
 
@@ -11,7 +12,7 @@ class CompThresholdAssertion(Assorter):
     Asserts the hypothesis that a certain party has at least a certain share of the valid votes.
     """
 
-    def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):
+    def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=SET_ETA):
         self.type = 1
         self.party = party
         self.threshold = threshold
@@ -43,6 +44,9 @@ class CompThresholdAssertion(Assorter):
             eta = AdaptiveEta(u, self.reported_assorter_mean, 100000, DEFAULT_MU)
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, election_profile.tot_batch.total_votes)
+        elif eta_mode == SET_ETA:
+            eta = SetEta(u, self.reported_assorter_mean)
+
         super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=vote_margin)
 
     def audit_ballot(self, ballot):

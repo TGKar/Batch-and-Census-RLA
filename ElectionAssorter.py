@@ -66,6 +66,29 @@ class Assorter(ABC):
 
         return self.T >= (1 / self.alpha), self.T
 
+    def audit_batch_no_u(self, batch):
+        self.batch_counter += 1
+        assorter_value = self.get_assorter_value(batch)
+        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                  (self.u - self.mu)
+        #self.T *= assorter_value/self.mu
+        self.update_mu_and_u(batch.total_votes, assorter_value)
+        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
+        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
+
+        # Delete next 2 lines
+        #self.u = self.eta.value + EPSILON
+        #self.eta.u = self.u
+
+        if self.mu < 0:
+            self.T = float('inf')
+        elif (self.batch_counter == self.total_batches) and (self.assorter_total / self.total_ballots >= 0.5):
+            self.T = float('inf')
+        elif self.mu >= self.u:
+            self.T = 0
+
+        return self.T >= (1 / self.alpha), self.T
+
 
     def update_mu_and_u(self, ballot_count, assorter_sum):
         self.ballots_counter += ballot_count
