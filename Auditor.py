@@ -148,7 +148,7 @@ class Auditor:
             for assertion in assertions:
                 print(str(assertion) + ". T:" + str(assertion.T) + '. Margin: ' + str(assertion.vote_margin) +
                       ". Reported assorter value: " + str(assertion.reported_assorter_mean) + '. Actual mean value: ' +
-                      str(assertion.eta.assorter_sum / assertion.eta.total_ballots) + '. Final eta assorter mean: ' + str(
+                      str(assertion.get_assorter_value(self.election_profile.tot_batch)) + '. Final eta assorter mean: ' + str(
                     assertion.eta.assorter_sum / assertion.eta.total_ballots))
                 print('Ballots examined: ', str(assertion.eta.total_ballots), '/', str(assertion.eta.total_ballots))
 

@@ -44,11 +44,17 @@ class Assorter(ABC):
         pass
 
     def audit_batch(self, batch):
+        if str(self) == "Move seat from Meshutefet to Yahadut Hatora + Shas":  # TODO delete
+            #print('now')
+            pass
         self.batch_counter += 1
         assorter_value = self.get_assorter_value(batch)
-        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu)
-        #self.T *= assorter_value/self.mu
+        if self.mu == 0:
+            if assorter_value > 0:
+                self.T = np.inf
+        else:
+            self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
+                      (self.u - self.mu)
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
         #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
@@ -98,14 +104,15 @@ class Assorter(ABC):
         else:
             self.mu = (self.total_ballots*0.5 - self.assorter_total) / (self.total_ballots - self.ballots_counter)
             self.mu = max(self.mu, 0)
-            self.u = self.eta.value + EPSILON # max(self.u, self.mu + 2*EPSILON)
+            self.u = max(self.u, self.mu + 2*EPSILON)
         self.eta.u = self.u
 
-        if self.u - self.mu == 0 or self.mu == 0:  # TODO delete
-            print('PROBLEMO: ZERO DIVISION INCOMING')
-            print('mu ', self.mu)
-            print('u', self.u)
-            print(self.ballots_counter, ' \ ', self.total_ballots)
+        #if self.u - self.mu == 0 or self.mu == 0:  # TODO delete
+        #    print('PROBLEMO: ZERO DIVISION INCOMING')
+        #    print(self)
+        #    print('mu ', self.mu)
+        #    print('u', self.u)
+        #    print(self.ballots_counter, ' \ ', self.total_ballots)
 
     def get_margin(self):
         return self.vote_margin
