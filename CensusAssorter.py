@@ -22,7 +22,7 @@ class CensusAssorter(ABC):
 
         self.state_from = state_from
         self.state_to = state_to
-        self.divider_list = divider_func
+        self.divider_func = divider_func
         self.state_from_constant = state_from_constant
         self.state_to_constant = state_to_constant
         self.alpha = risk_limit
@@ -94,7 +94,11 @@ class CensusAssorter(ABC):
         :param households: 2d numpy array. Each row is a household. First column is state, second is number of residents.
         :return: The mean of the inner assorter (a_{s_1,s_2}) over the given households
         """
-        return 0  # TODO write
+        state_from_residents = households[1] * (self.state_from == households[0])
+        state_to_residents = households[1] * (self.state_to == households[0])
+        representative_ratio = self.divider_func(self.party_to_reps+1) / self.divider_func(self.party_to_reps)
+        constant = 0.5 + representative_ratio*self.state_from_constant/self.total_households - + self.state_to_constant/self.total_households
+        return constant + representative_ratio*state_from_residents - state_to_residents
 
 
     def calc_margin(self):
