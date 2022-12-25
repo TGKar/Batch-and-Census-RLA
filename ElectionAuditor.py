@@ -45,7 +45,7 @@ class Auditor:
         for i, party1 in enumerate(self.election_profile.reported_paired_seats_won.keys()):
             if self.election_profile.reported_paired_seats_won[party1] > 0 and (party1 not in paired_parties):
                 for j in range(i):
-                    party2 = list(self.election_profile.reported_paired_seats_won.keys())[j]
+                    party2 = list(self.election_profile.reported_paired_seats_won.keys())[j]  # TODO change to .keys()
                     if self.election_profile.reported_paired_seats_won[party2] > 0 and (party2 not in paired_parties):
                         # Uncomment to check exact number of seats
                         self.comparison_assertions.append(self.move_seat_assertion(self.risk_limit, party1, party2, self.election_profile, True))

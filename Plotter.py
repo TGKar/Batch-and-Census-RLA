@@ -1,4 +1,4 @@
-from Auditor import Auditor
+from ElectionAuditor import Auditor
 from ElectionAssorter import Assorter
 import matplotlib.pyplot as plt
 import numpy as np

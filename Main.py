@@ -1,5 +1,5 @@
 from ElectionProfile import ElectionProfile
-from Auditor import Auditor
+from ElectionAuditor import Auditor
 from PluralityAuditor import PluralityAuditor
 import numpy as np
 import matplotlib.pyplot as plt
