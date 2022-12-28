@@ -36,7 +36,7 @@ class CensusAssorter(ABC):
         self.z = max(divider_func(self.party_to_reps) / (2*divider_func(self.party_from_reps)), 1) * \
             max_residents_per_household
         inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
-        self.u = 0.5 + inner_assorter_reported_margin / (2*(z - inner_assorter_reported_margin))
+        self.u = 0.5 + inner_assorter_reported_margin / (2*(self.z - inner_assorter_reported_margin))
         self.eta = SetEta(self.u, self.u - EPSILON)
 
         self.household_counter = 0
@@ -51,9 +51,9 @@ class CensusAssorter(ABC):
         self.assorter_mean = []
 
 
-    def audit_household(self, census_residents, pes_residents):
+    def audit_household(self, household):
         self.household_counter += 1
-        assorter_value = self.get_assorter_value(census_residents, pes_residents)
+        assorter_value = self.get_assorter_value(household)
 
         if self.mu == 0:
             if assorter_value > 0:
@@ -75,30 +75,29 @@ class CensusAssorter(ABC):
 
         return self.T >= (1 / self.alpha), self.T
 
-    def get_assorter_value(self, state, census_residents, pes_residents):
+    def get_assorter_value(self, households):
         """
-        Calculates the value of this assorter over a given household
-        :param state: State of the audited household
-        :param census_residents: Number of residents in the audited household according to the census
-        :param pes_residents: Number of residents in the audited household according to the PES
-        :return: The value of the assorter
+        Calculates the mean of this census assorter over a number of households.
+        :param households: 2d numpy array. Each row is a household. The first column is the household's state, second
+        is the number of residents according to the census, third is the number of residents according to the PES.
+        :return: The mean of the assorter (A_{s_1,s_2}) over the given households
         """
-        discrepancy = self.get_inner_assorter_value(np.array([state, pes_residents])) - \
-                      self.get_inner_assorter_value(np.array([state, census_residents]))
+        discrepancy = self.get_inner_assorter_value(households[:, [STATE_IND, PES_RESIDENTS_IND]]) - \
+                      self.get_inner_assorter_value(households[:, [STATE_IND, CENSUS_RESIDENTS_IND]])
         return 0.5 + (self.census_inner_assorter_margin + discrepancy) / (2*(self.census_inner_assorter_margin - self.z))
 
 
     def get_inner_assorter_value(self, households):
         """
-
-        :param households: 2d numpy array. Each row is a household. First column is state, second is number of residents.
+        :param households: 2d numpy array. Each row is a household. The first column is the household's state, second
+        is the number of residents according to the census, third is the number of residents according to the PES.
         :return: The mean of the inner assorter (a_{s_1,s_2}) over the given households
         """
-        state_from_residents = households[1] * (self.state_from == households[0])
-        state_to_residents = households[1] * (self.state_to == households[0])
+        state_from_residents = households[:, 1] * (self.state_from == households[:, 0])
+        state_to_residents = households[:, 1] * (self.state_to == households[:, 0])
         representative_ratio = self.divider_func(self.party_to_reps+1) / self.divider_func(self.party_to_reps)
         constant = 0.5 + representative_ratio*self.state_from_constant/self.total_households - + self.state_to_constant/self.total_households
-        return constant + representative_ratio*state_from_residents - state_to_residents
+        return constant + (representative_ratio*state_from_residents - state_to_residents) / households.shape[0]
 
 
     def calc_margin(self):
