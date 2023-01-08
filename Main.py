@@ -52,7 +52,8 @@ def make_comp_plot(profile, knesset_num, reps=10, alpha=ALPHA, threshold=THRESHO
         alpha_assertions_list.append(alpha_assertions)
         batchcomp_assertions_list.append(batchcomp_assertions)
 
-    Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes, knesset_num)
+    Plotter.assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, profile.tot_batch.total_votes,
+                                        len(profile.batches), knesset_num)
 
 def make_error_plot(reps=10, alpha=ALPHA, threshold=THRESHOLD):
     for knesset_i in [23, 24]:
@@ -70,7 +71,8 @@ def make_error_plot(reps=10, alpha=ALPHA, threshold=THRESHOLD):
             unnoised_assertions_list.append(unnoised_assertions)
             noised_assertions_list.append(noised_assertions)
 
-        Plotter.assertions_with_error_plots(unnoised_assertions_list, noised_assertions_list, unnoised_profile.tot_batch.total_votes, knesset_i)
+        Plotter.assertions_with_error_plots(unnoised_assertions_list, noised_assertions_list, unnoised_profile.tot_batch.total_votes,
+                                            len(unnoised_profile.batches), knesset_i)
 
 
 def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
@@ -136,7 +138,7 @@ if __name__ == "__main__":
     #make_comp_plot(prof, KNESSET_NUM, reps=1)
     for knesset_i in [22, 23, 24]:
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
-        make_comp_plot(prof, knesset_i, reps=1)
+        make_comp_plot(prof, knesset_i, reps=10)
         #election_profiles.append(prof)
     make_error_plot()
     #make_prediction_plots(election_profiles)

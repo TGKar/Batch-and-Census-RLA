@@ -19,7 +19,7 @@ MARGIN_IND = 3
 
 
 
-def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, total_voters, knesset_num):
+def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, total_voters, total_batches, knesset_num):
     set_font()
 
     assertion_data = dict()  # Contains lists of required ballots using ALPHA / batchcomp and the assertion's margin
@@ -53,8 +53,8 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     top_assertions = assertion_data_mat[np.argsort(assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND])[-TOP_ASSERTION_NUM:], :]
     for i in range(top_assertions.shape[0]):
         print("Assertion margin:", top_assertions[i, MARGIN_IND],": Required ballots batchcomp: ",
-              top_assertions[i, BATCHCOMP_REQ_BALLOTS_IND], ". Required ballots ALPHA: ",
-              top_assertions[i, ALPHA_REQ_BALLOTS_IND])
+              str('{:,}'.format(top_assertions[i, BATCHCOMP_REQ_BALLOTS_IND])), ". Required ballots ALPHA: ",
+              str('{:,}'.format(top_assertions[i, ALPHA_REQ_BALLOTS_IND])))
 
     # Plot comparison
     fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
@@ -68,8 +68,8 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     axs[0].legend()
     axs[0].set_xscale('log')
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-    axs.text(0.05, 0.95, str(total_voters) + " Voters", transform=axs.transAxes, fontsize=14,
-            verticalalignment='top', bbox=props)
+    voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(" Batches")
+    axs[0].text(0.75, 0.85, voters_batches_txt, transform=axs[0].transAxes, fontsize=12, verticalalignment='top', bbox=props)
 
 
     fig.suptitle("Knesset " + str(knesset_num) + ' - Required Number of Ballots by Assorter Margin')
@@ -86,14 +86,14 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
 
     fig.supxlabel("Assertion Margin (Log Scale)")
     fig.supylabel("Required Ballots")
-    plt.show()
-
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
+    plt.savefig(str(timestamp) + ' plot.png', bbox_inches='tight')
+    plt.show()
     save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
     np.save(save_filename, assertion_data_mat)
 
 
-def assertions_with_error_plots(assertions_list, noised_assertions_list, total_voters, knesset_num):
+def assertions_with_error_plots(assertions_list, noised_assertions_list, total_voters, total_batches, knesset_num):
     set_font()
 
     assertion_data = dict()  # Contains lists of required ballots using ALPHA / batchcomp and the assertion's margin
@@ -133,6 +133,11 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[0].set_xscale('log')
     axs[0].legend()
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(
+        " Batches")
+    axs[0].text(0.75, 0.85, voters_batches_txt, transform=axs[0].transAxes, fontsize=12, verticalalignment='top',
+                bbox=props)
     fig.suptitle("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin')
     axs[0].set_title("Without Counting Errors")
     axs[1].set_title("With Counting Errors")
@@ -146,6 +151,8 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
         axs[2].scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
         axs[2].plot([0, max_margin], [0, 0], '--')
     axs[2].set_title('Difference (With Errors - Without Errors)')
+    timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
+    plt.savefig(str(timestamp) + ' plot.png', bbox_inches='tight')
     plt.show()
 
 def prediction_plots(assertions_lists):
