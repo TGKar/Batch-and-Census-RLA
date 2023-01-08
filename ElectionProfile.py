@@ -87,7 +87,7 @@ class ElectionProfile:
                 reported_matches_truth = np.all(np.fromiter(self.reported_seats_won.values(), dtype=int) ==
                                                  np.fromiter(self.true_seats_won.values(), dtype=int))
         print("Elections Tallies Loaded")
-        #print(self.reported_results)
+        print(self.reported_seats_won)
         #print(sum(self.reported_results.values()))
 
     """

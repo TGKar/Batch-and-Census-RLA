@@ -1,5 +1,6 @@
 import numpy as np
-from CensusProfile import CensusProfile, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND
+from CensusProfile import CensusProfile, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND, \
+    OUT_OF_PES, IN_PES_SURVEYED, IN_PES_UNSURVEYED
 from CensusAssorter import CensusAssorter
 
 class CensusAuditor:
@@ -66,9 +67,12 @@ class CensusAuditor:
 
 
     def sample_household(self):  # TODO I was here
-        sample_from_pes_prob = self.household_data[:, -1]
-        if np.random.random() >
-        sample_from_pes =
+        unaudited_households = self.household_data[np.where[self.household_data[:, -1] == 0], :]
+        sample_from_pes_prob = np.sum(unaudited_households[:, IN_PES_IND] > 0) / unaudited_households.shape[0]
+        if np.random.random() <= sample_from_pes_prob:  # Sample random household from PES
+            relevant_household_inds =
+        else:  # Sample random household that isn't in H^{PES}
+            pass
 
 
         return 0, 0, 0

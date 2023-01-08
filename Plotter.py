@@ -1,11 +1,13 @@
 from ElectionAuditor import Auditor
 from ElectionAssorter import Assorter
 import matplotlib.pyplot as plt
+from matplotlib import rc
 import numpy as np
 import time, os, fnmatch, shutil
 
 
 ASSERTION_LABELS = ['Passed Threshold', 'Failed Threshold', 'Move Seat Between Parties']
+TOP_ASSERTION_NUM = 3
 
 # Assertion dictionary indexes
 ASSERTION_TYPE_IND = 0
@@ -18,6 +20,8 @@ MARGIN_IND = 3
 
 
 def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, total_voters, knesset_num):
+    set_font()
+
     assertion_data = dict()  # Contains lists of required ballots using ALPHA / batchcomp and the assertion's margin
 
     # Create dictionary of assertions that holds the # of audited ballots for each method
@@ -45,6 +49,13 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     assertion_data_mat[:, [ALPHA_REQ_BALLOTS_IND, BATCHCOMP_REQ_BALLOTS_IND]] /= len(alpha_assertions_list)  # Average over all repetitions
     max_margin = max(assertion_data_mat[:, MARGIN_IND])
 
+    # Print last three assertions
+    top_assertions = assertion_data_mat[np.argsort(assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND])[-TOP_ASSERTION_NUM:], :]
+    for i in range(top_assertions.shape[0]):
+        print("Assertion margin:", top_assertions[i, MARGIN_IND],": Required ballots batchcomp: ",
+              top_assertions[i, BATCHCOMP_REQ_BALLOTS_IND], ". Required ballots ALPHA: ",
+              top_assertions[i, ALPHA_REQ_BALLOTS_IND])
+
     # Plot comparison
     fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
     for i, lab in enumerate(ASSERTION_LABELS):
@@ -56,8 +67,12 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     #axs[0].set_xlim((0, max_margin + total_voters / 10**5))
     axs[0].legend()
     axs[0].set_xscale('log')
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    axs.text(0.05, 0.95, str(total_voters) + " Voters", transform=axs.transAxes, fontsize=14,
+            verticalalignment='top', bbox=props)
 
-    fig.suptitle("Knesset " + str(knesset_num) + ' - Required # of Ballots vs. Assorter Margin')
+
+    fig.suptitle("Knesset " + str(knesset_num) + ' - Required Number of Ballots by Assorter Margin')
     axs[0].set_title("ALPHA-Batch")
     axs[1].set_title("Batchcomp")
 
@@ -79,6 +94,8 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
 
 
 def assertions_with_error_plots(assertions_list, noised_assertions_list, total_voters, knesset_num):
+    set_font()
+
     assertion_data = dict()  # Contains lists of required ballots using ALPHA / batchcomp and the assertion's margin
 
     # Create dictionary of assertions that holds the # of audited ballots for each method
@@ -116,7 +133,7 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[0].set_xscale('log')
     axs[0].legend()
-    fig.suptitle("Knesset " + str(knesset_num) + ' - Batchcomp Required # of Ballots vs. Assorter Margin')
+    fig.suptitle("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin')
     axs[0].set_title("Without Counting Errors")
     axs[1].set_title("With Counting Errors")
     fig.supxlabel("Assertion Margin (Log Scale)")
@@ -132,6 +149,8 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     plt.show()
 
 def prediction_plots(assertions_lists):
+    set_font()
+
     # Create a dictionary with every assertion's data across all repeats
     assertion_data = dict()
     for election_num, assertions_list in enumerate(assertions_lists):
@@ -161,3 +180,8 @@ def prediction_plots(assertions_lists):
     plt.xlabel("Prediction")
     plt.ylabel("Actual")
     plt.show()
+
+
+def set_font():
+    rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
+    rc('text', usetex=True)

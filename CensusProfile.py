@@ -7,6 +7,15 @@ CENSUS_RESIDENTS_IND = 2
 IN_PES_IND = 3
 PES_RESIDENTS_IND = 4
 
+# Possible values of the census_data[:, IN_PES_IND]
+OUT_OF_PES = 0  # Household not included in pes households
+IN_PES_UNSURVEYED = 1  # Household is included in PES households, but was not surveyed during the PES
+IN_PES_SURVEYED = 2  # Household is included in PES and was re-surveyed during it.
+
+# Data file names
+STATE_POP_FILE = 'state_pop.npy'
+HOUSEHOLD_RESIDENTS_P_FILE = 'household_residents_p.npy'
+
 class CensusProfile:
     def __init__(self, census_data, representatives_n, dividers_func, state_constants):
         """
@@ -46,3 +55,11 @@ class CensusProfile:
     @staticmethod
     def sort_dict(d):
         return dict(sorted(d.items(), key=lambda item: item[0]))
+
+    @staticmethod
+    def generate_census_data(noisy_pes=False):
+        states_pop = np.load(STATE_POP_FILE)
+        household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)
+        avg_residents_per_hh = np.mean(household_residents_p * np.arange(len(household_residents_p)))
+        census_
+        for pop in states_pop

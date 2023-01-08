@@ -7,9 +7,9 @@ import Plotter
 from tqdm import tqdm
 
 # Constants
-KNESSET_NUM = 23
+KNESSET_NUM = 25
 APPARENTMENTS = dict()
-APPARENTMENTS[25] = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
+APPARENTMENTS[25] = [("Hamahane Hamamlahti", "Yesh Atid"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")] # ("Meretz", "Avoda"), ("Balad", "Hadash Taal"), ("Yisrael Beytenu", "Raam")
 APPARENTMENTS[24] = [("Avoda", "Meretz"), ("Yemina", "Tikva Hadasha"), ("Yesh Atid", "Yisrael Beytenu"), ("Likud", "Tziyonut Detit"), ("Shas", "Yahadut Hatora")]
 APPARENTMENTS[23] = [('Likud', 'Yemina'), ('Avoda', 'Kahol Lavan'), ('Yahadut Hatora', 'Shas')]
 APPARENTMENTS[22] = [('Kahol Lavan', 'Yisrael Beytenu'), ('Likud', 'Yemina'), ('Avoda', 'Meretz'), ('Yahadut Hatora', 'Shas')]
@@ -129,12 +129,14 @@ def old_plot(profile, reps=1):
 
 if __name__ == "__main__":
     election_profiles = []
-    prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
+    #prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
 
     # make_error_plot(1)
 
+    #make_comp_plot(prof, KNESSET_NUM, reps=1)
     for knesset_i in [22, 23, 24]:
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
         make_comp_plot(prof, knesset_i, reps=1)
         #election_profiles.append(prof)
+    make_error_plot()
     #make_prediction_plots(election_profiles)

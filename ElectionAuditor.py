@@ -123,8 +123,8 @@ class Auditor:
 
                 print("Finished assertion: ", str(assertions[delete_ind - i]), ' with reported margin ',
                       assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
-                      '. batch count ', batch_counter, " Prediction: ", batch_prediction[-1])
-                batch_prediction_diff.append(batch_prediction[-1] - batch_counter)
+                      '. batch count ', batch_counter)  # , " Prediction: ", batch_prediction[-1]
+                # batch_prediction_diff.append(batch_prediction[-1] - batch_counter)
 
                 if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
                     assertions[delete_ind - i].plot()
