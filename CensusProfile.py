@@ -1,4 +1,7 @@
 import numpy as np
+from collections import Counter
+
+REPS_N = 435
 
 EPSILON = 10**(-10)
 STATE_IND = 0
@@ -6,11 +9,6 @@ IN_CENSUS_IND = 1
 CENSUS_RESIDENTS_IND = 2
 IN_PES_IND = 3
 PES_RESIDENTS_IND = 4
-
-# Possible values of the census_data[:, IN_PES_IND]
-OUT_OF_PES = 0  # Household not included in pes households
-IN_PES_UNSURVEYED = 1  # Household is included in PES households, but was not surveyed during the PES
-IN_PES_SURVEYED = 2  # Household is included in PES and was re-surveyed during it.
 
 # Data file names
 STATE_POP_FILE = 'state_pop.npy'
@@ -39,7 +37,7 @@ class CensusProfile:
         # Create dictionary with number of residents at each state
         residents_dict = dict()
         for state in self.state_constants.keys():
-            residents_dict[state] = np.sum(households[np.where(households[:, 0] == state)])
+            residents_dict[state] = np.sum(households[np.where(households[:, 0] == state)]) + self.state_constants[state]
         residents_dict = self.sort_dict(residents_dict)
 
         # Create price table
@@ -57,9 +55,41 @@ class CensusProfile:
         return dict(sorted(d.items(), key=lambda item: item[0]))
 
     @staticmethod
-    def generate_census_data(noisy_pes=False):
-        states_pop = np.load(STATE_POP_FILE)
+    def generate_census_data(noisy_pes=False, household_mismatch=0.005):
+        state_pop = np.load(STATE_POP_FILE)
         household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)
-        avg_residents_per_hh = np.mean(household_residents_p * np.arange(len(household_residents_p)))
-        census_
-        for pop in states_pop
+        mean_residents_per_hh = np.sum(household_residents_p * np.arange(len(household_residents_p)))
+        state_households = (1+household_mismatch) * state_pop / mean_residents_per_hh
+        state_households = state_households.astype(int)
+        household_n = np.sum(state_households)
+
+        # create household_data matrix and fill with household states
+        household_data = np.zeros((household_n, 5), dtype=int)
+        curr_index = 0
+        state_inds = [0]
+        for i in range(len(state_pop)):
+            only_pes_hh_num = int(state_households[i] * household_mismatch / 2)
+            only_cen_hh_num = int(state_households[i] * household_mismatch) - only_pes_hh_num
+            household_data[curr_index:(curr_index + state_households[i]), STATE_IND] = i
+            household_data[curr_index:(curr_index + state_households[i] - only_cen_hh_num), IN_PES_IND] = 1
+            household_data[curr_index:(curr_index + state_households[i] - only_cen_hh_num - only_pes_hh_num), IN_CENSUS_IND] = 1
+            household_data[(curr_index + state_households[i] - only_cen_hh_num):(curr_index + state_households[i]), IN_CENSUS_IND] = 1
+            curr_index += state_households[i]
+            state_inds.append(curr_index)
+
+        # Draw household resident counts
+        household_data[:, CENSUS_RESIDENTS_IND] = np.random.choice(len(household_residents_p), household_n, p=household_residents_p)
+        household_data[:, PES_RESIDENTS_IND] = household_data[:, CENSUS_RESIDENTS_IND]
+        household_data[np.where(household_data[:, IN_CENSUS_IND] == 0), CENSUS_RESIDENTS_IND] = 0
+        household_data[np.where(household_data[:, IN_PES_IND] == 0), PES_RESIDENTS_IND] = 0
+        if noisy_pes:
+            pass  # TODO implement
+
+        # Create state_consts to balance state population discrepancies
+        state_consts = dict()  # state_const - census_state_population = true_state_population
+        for i in range(len(state_pop)):
+            state_consts[i] = state_pop[i] - np.sum(household_data[state_inds[i]:state_inds[i + 1], CENSUS_RESIDENTS_IND])
+            assert state_consts[i] + np.sum(household_data[np.where(household_data[:, STATE_IND] == i), CENSUS_RESIDENTS_IND])
+
+        return CensusProfile(household_data, REPS_N, lambda r: np.sqrt(r * (r+1)), state_consts)
+

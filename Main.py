@@ -1,5 +1,6 @@
 from ElectionProfile import ElectionProfile
 from ElectionAuditor import Auditor
+from CensusProfile import CensusProfile
 from PluralityAuditor import PluralityAuditor
 import numpy as np
 import matplotlib.pyplot as plt
@@ -130,6 +131,9 @@ def old_plot(profile, reps=1):
 
 
 if __name__ == "__main__":
+    CensusProfile.generate_census_data()
+    exit(0)
+
     election_profiles = []
     #prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
 
@@ -140,5 +144,5 @@ if __name__ == "__main__":
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
         make_comp_plot(prof, knesset_i, reps=10)
         #election_profiles.append(prof)
-    make_error_plot()
+    #make_error_plot()
     #make_prediction_plots(election_profiles)

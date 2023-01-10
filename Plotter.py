@@ -58,6 +58,7 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
 
     # Plot comparison
     fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
+    plt.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
@@ -65,7 +66,7 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     axs[0].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     #axs[0].set_xlim((0, max_margin + total_voters / 10**5))
-    axs[0].legend()
+    axs[1].legend(loc='right', prop={'size': 10})
     axs[0].set_xscale('log')
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(" Batches")
@@ -125,6 +126,7 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
 
     # Plot comparison
     fig, axs = plt.subplots(3, 1, sharex=True)
+    plt.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
@@ -132,7 +134,8 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     axs[0].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     axs[0].set_xscale('log')
-    axs[0].legend()
+    axs[1].legend(loc='right', prop={'size': 10})
+
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(
         " Batches")
@@ -182,7 +185,7 @@ def prediction_plots(assertions_lists):
         plt.scatter(assertion_data_mat[slicer, BATCHCOMP_PREDICTION_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
     max_x = np.max(assertion_data_mat[:, [BATCHCOMP_PREDICTION_IND, BATCHCOMP_REQ_BATCHES_IND]])
     plt.plot([0, max_x], [0, max_x],'--')
-    plt.legend()
+    plt.legend(loc='lower left', prop={'size': 10})
     plt.title('Share of Batches Audited per Assertion')
     plt.xlabel("Prediction")
     plt.ylabel("Actual")
@@ -190,5 +193,5 @@ def prediction_plots(assertions_lists):
 
 
 def set_font():
-    rc('font', **{'family': 'serif', 'serif': ['Computer Modern']})
+    rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 17})
     rc('text', usetex=True)
