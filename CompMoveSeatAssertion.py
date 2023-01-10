@@ -1,5 +1,5 @@
 from Batch import Batch
-from ElectionAssorter import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
+from ElectionAssertion import Assorter, INVALID_BALLOT, DEFAULT_MU, MAX_ERR, MAX_DISC_SHARE
 from ElectionProfile import ElectionProfile, EPSILON
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta

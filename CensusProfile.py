@@ -2,13 +2,15 @@ import numpy as np
 from collections import Counter
 
 REPS_N = 435
-
+MAX_RESIDENTS = 8
 EPSILON = 10**(-10)
 STATE_IND = 0
 IN_CENSUS_IND = 1
 CENSUS_RESIDENTS_IND = 2
 IN_PES_IND = 3
 PES_RESIDENTS_IND = 4
+
+US_DIVISOR_FUNC = lambda r: np.sqrt(r * (r+1))
 
 # Data file names
 STATE_POP_FILE = 'state_pop.npy'
@@ -25,8 +27,10 @@ class CensusProfile:
         self.dividers_func = dividers_func
         self.state_constants = self.sort_dict(state_constants)  # Sorting so all dictionaries have matching keys and values
         self.households_n = census_data.shape[1]
-        self.census_allocation = self.calculate_allocation(census_data[[STATE_IND, CENSUS_RESIDENTS_IND], :])
-        self.pes_allocation = self.calculate_allocation(census_data[[STATE_IND, PES_RESIDENTS_IND], :])
+        self.census_allocation = self.calculate_allocation(census_data[:, [STATE_IND, CENSUS_RESIDENTS_IND]])
+        self.pes_allocation = self.calculate_allocation(census_data[:, [STATE_IND, PES_RESIDENTS_IND]])
+        assert(np.allclose(list(self.census_allocation.values()), list(self.pes_allocation.values())))
+
 
     def calculate_allocation(self, households):
         """
@@ -37,13 +41,15 @@ class CensusProfile:
         # Create dictionary with number of residents at each state
         residents_dict = dict()
         for state in self.state_constants.keys():
-            residents_dict[state] = np.sum(households[np.where(households[:, 0] == state)]) + self.state_constants[state]
+            residents_dict[state] = np.sum(households[np.where(households[:, 0] == state), 1]) + self.state_constants[state]
         residents_dict = self.sort_dict(residents_dict)
 
         # Create price table
+        state_pops_list = np.array(list(residents_dict.values()), dtype=np.float)
+        state_consts_list = np.array(list(self.state_constants.values()), dtype=np.float)
         dividers = np.vectorize(self.dividers_func)(np.arange(1, self.representatives_n + 1))
-        price_table = np.array(list(residents_dict.values()), dtype=np.float).reshape(-1, 1) / dividers.reshape(1, -1)
-        price_table += np.array(self.state_constants.values()).reshape(-1, 1)
+        price_table = state_pops_list.reshape(-1, 1) / dividers.reshape(1, -1)
+        price_table += state_consts_list.reshape(-1, 1)
 
         # Calculate and return each state's number of representatives
         price_rank_table = price_table.ravel().argsort().argsort().reshape(price_table.shape)
@@ -91,5 +97,5 @@ class CensusProfile:
             state_consts[i] = state_pop[i] - np.sum(household_data[state_inds[i]:state_inds[i + 1], CENSUS_RESIDENTS_IND])
             assert state_consts[i] + np.sum(household_data[np.where(household_data[:, STATE_IND] == i), CENSUS_RESIDENTS_IND])
 
-        return CensusProfile(household_data, REPS_N, lambda r: np.sqrt(r * (r+1)), state_consts)
+        return CensusProfile(household_data, REPS_N, US_DIVISOR_FUNC, state_consts)
 

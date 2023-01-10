@@ -1,17 +1,18 @@
 from Batch import Batch
-from ElectionAssorter import Assorter, INVALID_BALLOT, DEFAULT_MU
+from ElectionAssertion import Assorter, INVALID_BALLOT, DEFAULT_MU
 from ElectionProfile import ElectionProfile
 from AdaptiveEta import AdaptiveEta, ADAPTIVE_ETA
 from MyEta import MY_ETA, MyEta
 
 TYPE = 2
 
+
 class FailedThresholdAssertion(Assorter):
     """
     Asserts the hypothesis that a certain party has at most a certain share of the valid votes.
     """
 
-    def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):  # TODO Support more eta types
+    def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):
         self.party = party
         self.threshold = threshold
         self.mu = DEFAULT_MU

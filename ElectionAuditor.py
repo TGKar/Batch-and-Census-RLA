@@ -1,5 +1,5 @@
 from ElectionProfile import ElectionProfile
-from CompThresholdAssortion import CompThresholdAssertion
+from CompThresholdAssertion import CompThresholdAssertion
 from CompFailedThresholdAssertion import CompFailedThresholdAssertion
 from CompMoveSeatAssertion import CompMoveSeatAssertion
 from MoveSeatAssertion import MoveSeatAssertion

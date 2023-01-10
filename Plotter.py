@@ -1,5 +1,5 @@
 from ElectionAuditor import Auditor
-from ElectionAssorter import Assorter
+from ElectionAssertion import Assorter
 import matplotlib.pyplot as plt
 from matplotlib import rc
 import numpy as np
