@@ -1,7 +1,7 @@
 import numpy as np
 from CensusProfile import CensusProfile, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND
 from CensusAssorter import CensusAssorter
-
+from tqdm import tqdm
 class CensusAuditor:
     def __init__(self, census_profile: CensusProfile, risk_limit, divisor_func, max_residents):
         self.census_profile = census_profile
@@ -9,7 +9,7 @@ class CensusAuditor:
         self.household_data = np.copy(census_profile.census_data)
 
         self.assertions = []
-        for i, state1 in enumerate(self.census_profile.census_allocation.keys()):
+        for i, state1 in tqdm(enumerate(self.census_profile.census_allocation.keys())):
             for j in range(i):
                 state2 = list(self.census_profile.census_allocation.keys())[j]
                 if self.census_profile.census_allocation[state1] > 0:

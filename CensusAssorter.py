@@ -3,6 +3,7 @@ from SetEta import SetEta
 from abc import ABC, abstractmethod
 from CensusProfile import CensusProfile, EPSILON, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND
 
+MAX_ERR = 10**(-15)
 
 class CensusAssorter(ABC):
     def __init__(self, risk_limit, state_from, state_to, divisor_func, census_profile: CensusProfile,
@@ -18,7 +19,7 @@ class CensusAssorter(ABC):
         :param census_profile:
         :param eta:
         """
-        census_data = census_profile.census_data[[STATE_IND, CENSUS_RESIDENTS_IND], :]
+        census_data = census_profile.census_data[:, [STATE_IND, CENSUS_RESIDENTS_IND]]
 
         self.state_from = state_from
         self.state_to = state_to
@@ -33,10 +34,12 @@ class CensusAssorter(ABC):
         self.households_n = census_profile.households_n
         self.state_from_reps = census_profile.census_allocation[state_from]
         self.state_to_reps = census_profile.census_allocation[state_to]
-
+        assert (self.state_from_reps > 0)
         self.c, self.z = self.calculate_constants()
         inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
-        self.u = 0.5 + inner_assorter_reported_margin / (2*(self.z - inner_assorter_reported_margin))
+        if inner_assorter_reported_margin > 0:
+            inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
+        self.u = 0.5 + (inner_assorter_reported_margin + MAX_ERR) / (2*(self.z - inner_assorter_reported_margin))
         self.eta = SetEta(self.u, self.u - EPSILON)
 
         self.household_counter = 0
@@ -95,12 +98,14 @@ class CensusAssorter(ABC):
         is the number of residents according to the census, third is the number of residents according to the PES.
         :return: The mean of the inner assorter (a_{s_1,s_2}) over the given households
         """
-        state_from_residents = households[:, 1] * (self.state_from == households[:, 0])
-        state_to_residents = households[:, 1] * (self.state_to == households[:, 0])
-        state_from_divisor = 1 / self.divisor_func(self.state_from_reps)
-        state_to_divisor = 1 / self.divisor_func(self.state_to_reps + 1)
-        return (state_from_residents / (self.c*state_from_divisor)) + \
-               ((self.max_residents - state_to_residents) / (self.c*state_to_divisor))
+        state_from_residents = households[:, 1] * (households[:, 0] == self.state_from)
+        state_to_residents = households[:, 1] * (households[:, 0] == self.state_to)
+        state_from_divisor = self.divisor_func(self.state_from_reps)
+        state_to_divisor = self.divisor_func(self.state_to_reps + 1)
+        to_return = np.mean((state_from_residents / (self.c*state_from_divisor)) + \
+               ((self.max_residents - state_to_residents) / (self.c*state_to_divisor)))
+        return np.mean((state_from_residents / (self.c*state_from_divisor)) + \
+               ((self.max_residents - state_to_residents) / (self.c*state_to_divisor)))
 
     def calc_margin(self):
         return 0  # TODO write
@@ -116,7 +121,7 @@ class CensusAssorter(ABC):
         self.eta.u = self.u
 
     def calculate_constants(self):
-        state_from_d = self.divisor_func(self.state_from)
+        state_from_d = self.divisor_func(self.state_from_reps)
         state_to_d = self.divisor_func(self.state_to_reps + 1)
         c = 2 * ((self.max_residents/state_to_d) + (self.state_to_constant / (self.households_n * state_to_d))
                  - (self.state_from_constant / (self.households_n * state_from_d)))

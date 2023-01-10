@@ -132,15 +132,18 @@ def old_plot(profile, reps=1):
     print("Wrong rejections:", wrong_rejections)
 
 def census_audit():
+    """
+    with open('my_census_profile.pkl', 'wb') as output_file:
+        census_profile = CensusProfile.generate_census_data()
+        pickle.dump(census_profile, output_file, pickle.HIGHEST_PROTOCOL)
+    print('done')
+    exit(0)
+    """
 
-    #with open('my_census_profile.pkl', 'wb') as output_file:
-    #    census_profile = CensusProfile.generate_census_data()
-    #    pickle.dump(census_profile, output_file, pickle.HIGHEST_PROTOCOL)
-    #print('done')
-    #exit(0)
     with open('my_census_profile.pkl', 'rb') as census_file:
         census_profile = pickle.load(census_file)
-    print('load file')
+
+    print('loaded census data')
     #np.save('random census profile.npy', census_profile)
     #np.load('random census profile.npy', census_profile)
     auditor = CensusAuditor(census_profile, 10**(-10), US_DIVISOR_FUNC, MAX_RESIDENTS)

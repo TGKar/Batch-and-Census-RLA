@@ -10,11 +10,14 @@ CENSUS_RESIDENTS_IND = 2
 IN_PES_IND = 3
 PES_RESIDENTS_IND = 4
 
-US_DIVISOR_FUNC = lambda r: np.sqrt(r * (r+1))
+#US_DIVISOR_FUNC = lambda r: np.sqrt(r * (r+1))
 
 # Data file names
-STATE_POP_FILE = 'state_pop.npy'
+STATE_POP_FILE = 'state_pop_small.npy'  # 'state_pop.npy'
 HOUSEHOLD_RESIDENTS_P_FILE = 'household_residents_p.npy'
+
+def US_DIVISOR_FUNC(r):
+    return np.sqrt(r * (r+1))
 
 class CensusProfile:
     def __init__(self, census_data, representatives_n, dividers_func, state_constants):
@@ -26,7 +29,7 @@ class CensusProfile:
         self.representatives_n = representatives_n
         self.dividers_func = dividers_func
         self.state_constants = self.sort_dict(state_constants)  # Sorting so all dictionaries have matching keys and values
-        self.households_n = census_data.shape[1]
+        self.households_n = census_data.shape[0]
         self.census_allocation = self.calculate_allocation(census_data[:, [STATE_IND, CENSUS_RESIDENTS_IND]])
         self.pes_allocation = self.calculate_allocation(census_data[:, [STATE_IND, PES_RESIDENTS_IND]])
         assert(np.allclose(list(self.census_allocation.values()), list(self.pes_allocation.values())))

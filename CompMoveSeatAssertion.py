@@ -48,7 +48,6 @@ class CompMoveSeatAssertion(Assorter):
             party_from_reported_votes = election_profile.tot_batch.reported_tally[party_from]
             party_to_reported_votes = election_profile.tot_batch.reported_tally[party_to]
 
-
         self.inner_u = 0
         for batch in election_profile.batches:
             if paired:
