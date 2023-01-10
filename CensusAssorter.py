@@ -32,9 +32,10 @@ class CensusAssorter(ABC):
         self.T = 1
         self.T_max = 1
         self.households_n = census_profile.households_n
-        self.state_from_reps = census_profile.census_allocation[state_from]
-        self.state_to_reps = census_profile.census_allocation[state_to]
-        assert (self.state_from_reps > 0)
+        self.state_from_reps = census_profile.census_allocation[state_from] + min(mode, 0)
+        self.state_to_reps = census_profile.census_allocation[state_to] + max(mode, 0)
+        assert self.state_to_reps >= 0
+        assert self.state_from_reps > 0
         self.c, self.z = self.calculate_constants()
         inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
         if inner_assorter_reported_margin < 0:
@@ -48,6 +49,8 @@ class CensusAssorter(ABC):
         self.households_n = census_profile.households_n
         self.margin = self.calc_margin()
         self.census_inner_assorter_margin = self.get_inner_assorter_value(census_data) - 0.5  # m_{s_1, s_2} from the thesis
+        if self.census_inner_assorter_margin < 0:
+            self.get_inner_assorter_value(census_data) - 0.5
 
         # For debugging
         self.T_list = []
@@ -57,8 +60,12 @@ class CensusAssorter(ABC):
         self.household_counter += 1
 
         if not (self.T <= 0 or self.T == np.inf):  # If assertion is not proved right / proved wrong yet
-
+            if household.ndim == 1:
+                household = household.reshape((1, -1))
             assorter_value = self.get_assorter_value(household)
+            if assorter_value < 0.5 and (household[0, CENSUS_RESIDENTS_IND] == household[0, PES_RESIDENTS_IND]):
+                print(self, ' assorter value < 0.5')
+                self.get_assorter_value(household)
 
             if self.mu == 0:
                 if assorter_value > 0:
@@ -102,8 +109,6 @@ class CensusAssorter(ABC):
         state_to_residents = households[:, 1] * (households[:, 0] == self.state_to)
         state_from_divisor = self.divisor_func(self.state_from_reps)
         state_to_divisor = self.divisor_func(self.state_to_reps + 1)
-        to_return = np.mean((state_from_residents / (self.c*state_from_divisor)) + \
-               ((self.max_residents - state_to_residents) / (self.c*state_to_divisor)))
         return np.mean((state_from_residents / (self.c*state_from_divisor)) + \
                ((self.max_residents - state_to_residents) / (self.c*state_to_divisor)))
 
@@ -130,9 +135,9 @@ class CensusAssorter(ABC):
 
     def __str__(self):
         if self.mode == 0:
-            return "Census move representative from " + self.state_from + " to " + self.state_to
+            return "Census move representative from " + str(self.state_from) + " to " + str(self.state_to)
         elif self.mode < 0:
-            return "Census move representative from " + self.state_to + " (" + str(self.mode) + ") to " + self.state_to
+            return "Census move representative from " + str(self.state_to) + " (" + str(self.mode) + ") to " + str(self.state_to)
         else:
-            return "Census move representative from " + self.state_from + " to " + self.state_to + " (" + \
+            return "Census move representative from " + str(self.state_from) + " to " + str(self.state_to) + " (" + \
                    str(self.mode) + ")"
