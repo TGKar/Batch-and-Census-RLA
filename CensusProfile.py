@@ -13,7 +13,7 @@ PES_RESIDENTS_IND = 4
 #US_DIVISOR_FUNC = lambda r: np.sqrt(r * (r+1))
 
 # Data file names
-STATE_POP_FILE = 'state_pop_small.npy'  # 'state_pop.npy'
+STATE_POP_FILE = 'state_pop.npy'
 HOUSEHOLD_RESIDENTS_P_FILE = 'household_residents_p.npy'
 
 def US_DIVISOR_FUNC(r):
@@ -65,7 +65,7 @@ class CensusProfile:
 
     @staticmethod
     def generate_census_data(noisy_pes=False, household_mismatch=0.005):
-        state_pop = np.load(STATE_POP_FILE)[:10]  # todo delete slicing
+        state_pop = np.array(np.load(STATE_POP_FILE) / 1000, dtype=int)  # todo delete slicing
         household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)
         mean_residents_per_hh = np.sum(household_residents_p * np.arange(len(household_residents_p)))
         state_households = (1+household_mismatch) * state_pop / mean_residents_per_hh

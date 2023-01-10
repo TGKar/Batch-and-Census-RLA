@@ -91,6 +91,13 @@ def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
 
     Plotter.prediction_plots(assertions_lists)
 
+def make_census_plot(census_profiles, allowed_seat_disc):
+    alpha_lists = []
+    for profile in census_profiles:
+        alpha_lists.append([])
+        auditor = CensusAuditor(profile, 10 ** (-10), US_DIVISOR_FUNC, MAX_RESIDENTS, allowed_seat_disc=allowed_seat_disc)
+        alpha_lists.append(auditor.audit())
+    Plotter.census_plot(alpha_lists, allowed_seat_disc)
 
 def old_plot(profile, reps=1):
     correct_approvals = 0
@@ -146,12 +153,13 @@ def census_audit():
     #print('loaded census data')
     #np.save('random census profile.npy', census_profile)
     #np.load('random census profile.npy', census_profile)
-    auditor = CensusAuditor(census_profile, 10 ** (-10), US_DIVISOR_FUNC, MAX_RESIDENTS, allowed_sit_disc=1)
-    auditor.audit()
+    print(census_profile.census_allocation)
+    auditor = CensusAuditor(census_profile, 10 ** (-10), US_DIVISOR_FUNC, MAX_RESIDENTS, allowed_seat_disc=20)
+    alpha = auditor.audit()
 
 if __name__ == "__main__":
-
-    census_audit()
+    census_profile = CensusProfile.generate_census_data()
+    make_census_plot([census_profile], 10)
     exit(0)
 
     election_profiles = []

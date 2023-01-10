@@ -192,6 +192,14 @@ def prediction_plots(assertions_lists):
     plt.show()
 
 
+def census_plot(alpha_lists, allowed_seat_disc):
+    alpha = np.mean(alpha_lists, axis=0)
+    plt.plot(np.arange(1, len(alpha) + 1), alpha)
+    plt.xlabel('Households Examined')
+    plt.ylabel('Risk-Limit')
+    plt.title('Risk-Limit by Households Examined - Up to ' + str(allowed_seat_disc) + ' Seat Discrepancy')
+    plt.show()
+
 def set_font():
     rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 17})
     rc('text', usetex=True)
