@@ -37,7 +37,7 @@ class CensusAssorter(ABC):
         assert (self.state_from_reps > 0)
         self.c, self.z = self.calculate_constants()
         inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
-        if inner_assorter_reported_margin > 0:
+        if inner_assorter_reported_margin < 0:
             inner_assorter_reported_margin = self.get_inner_assorter_value(census_data) - 0.5
         self.u = 0.5 + (inner_assorter_reported_margin + MAX_ERR) / (2*(self.z - inner_assorter_reported_margin))
         self.eta = SetEta(self.u, self.u - EPSILON)

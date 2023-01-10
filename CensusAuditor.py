@@ -9,7 +9,7 @@ class CensusAuditor:
         self.household_data = np.copy(census_profile.census_data)
 
         self.assertions = []
-        for i, state1 in tqdm(enumerate(self.census_profile.census_allocation.keys())):
+        for i, state1 in enumerate(self.census_profile.census_allocation.keys()):
             for j in range(i):
                 state2 = list(self.census_profile.census_allocation.keys())[j]
                 if self.census_profile.census_allocation[state1] > 0:
@@ -20,7 +20,8 @@ class CensusAuditor:
                                                           census_profile, max_residents))
 
     def audit(self):
-        np.shuffle(self.household_data)
+        print("Auditing...")
+        np.random.shuffle(self.household_data)
         alpha_list = []
 
         for i, hh in enumerate(self.household_data):

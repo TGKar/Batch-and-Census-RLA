@@ -52,7 +52,7 @@ class CensusProfile:
         state_consts_list = np.array(list(self.state_constants.values()), dtype=np.float)
         dividers = np.vectorize(self.dividers_func)(np.arange(1, self.representatives_n + 1))
         price_table = state_pops_list.reshape(-1, 1) / dividers.reshape(1, -1)
-        price_table += state_consts_list.reshape(-1, 1)
+        # price_table += state_consts_list.reshape(-1, 1)
 
         # Calculate and return each state's number of representatives
         price_rank_table = price_table.ravel().argsort().argsort().reshape(price_table.shape)
