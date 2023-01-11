@@ -1,6 +1,6 @@
 import numpy as np
 from CensusProfile import CensusProfile, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND
-from CensusAssorter import CensusAssorter
+from CensusAssertion import CensusAssorter
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 
@@ -36,6 +36,16 @@ class CensusAuditor:
                         if state2_reps > allowed_seat_disc:
                             self.assertions.append(CensusAssorter(risk_limit, state2, state1, divisor_func,
                                                                   census_profile, max_residents, mode=-allowed_seat_disc))
+
+        # TODO delete
+        margins = []
+        assorter_values = []
+        for assertion in self.assertions:
+            margins.append(assertion.resident_margin)
+            assorter_values.append(assertion.exp_assorter_val)
+        plt.scatter(margins, assorter_values)
+        plt.show()
+
 
 
     def audit(self):

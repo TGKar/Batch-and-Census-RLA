@@ -37,17 +37,25 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
                 assertion_data[name][MARGIN_IND] = assertion.vote_margin
             assertion_data[name][ALPHA_REQ_BALLOTS_IND] += assertion.ballots_counter
 
+    bc_req_ballots = dict()  # Helps calculate the variance of batchcomp per assertion
     for batchcomp_assertions in batchcomp_assertions_list:
         for assertion in batchcomp_assertions:
             if assertion.type == 1 or assertion.type == 2:
                 name = (assertion.party, '-')
             else:
                 name = (assertion.party_from, assertion.party_to)
+            if name not in bc_req_ballots:
+                bc_req_ballots[name] = []
             assertion_data[name][BATCHCOMP_REQ_BALLOTS_IND] += assertion.ballots_counter
+            bc_req_ballots[name].append(assertion.ballots_counter)
 
     assertion_data_mat = np.array(list(assertion_data.values()))
     assertion_data_mat[:, [ALPHA_REQ_BALLOTS_IND, BATCHCOMP_REQ_BALLOTS_IND]] /= len(alpha_assertions_list)  # Average over all repetitions
     max_margin = max(assertion_data_mat[:, MARGIN_IND])
+
+    # Calculate per assertion req ballots variance
+    assertions_var = np.std(list(bc_req_ballots.values()), axis=-1)
+    print("Mean SD: ", np.mean(assertions_var), " with max SD: ", np.max(assertions_var))
 
     # Print last three assertions
     top_assertions = assertion_data_mat[np.argsort(assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND])[-TOP_ASSERTION_NUM:], :]
@@ -57,38 +65,57 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
               str('{:,}'.format(top_assertions[i, ALPHA_REQ_BALLOTS_IND])))
 
     # Plot comparison
-    fig, axs = plt.subplots(3, 1, sharex=True, sharey=True)
-    plt.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+    fig_alpha, ax_alpha = plt.subplots()
+    fig_bc, ax_bc = plt.subplots()
+    fig_diff, ax_diff = plt.subplots()
+    fig_alpha.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+    fig_bc.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+    fig_diff.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
-        axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
-        axs[1].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
-    axs[0].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
+        ax_alpha.scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
+        ax_bc.scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
+    ax_alpha.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
+    ax_bc.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     #axs[0].set_xlim((0, max_margin + total_voters / 10**5))
-    axs[1].legend(loc='right', prop={'size': 10})
-    axs[0].set_xscale('log')
+
+    ax_bc.set_xscale('log')
+    ax_alpha.set_xscale('log')
+    ax_diff.set_xscale('log')
+
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(" Batches")
-    axs[0].text(0.75, 0.85, voters_batches_txt, transform=axs[0].transAxes, fontsize=12, verticalalignment='top', bbox=props)
+    ax_alpha.text(0.78, 0.85, voters_batches_txt, transform=ax_alpha.transAxes, fontsize=15, verticalalignment='top', bbox=props)
+    ax_bc.text(0.78, 0.85, voters_batches_txt, transform=ax_alpha.transAxes, fontsize=15, verticalalignment='top', bbox=props)
+    ax_diff.text(0.78, 0.85, voters_batches_txt, transform=ax_alpha.transAxes, fontsize=15, verticalalignment='top', bbox=props)
 
-
-    fig.suptitle("Knesset " + str(knesset_num) + ' - Required Number of Ballots by Assorter Margin')
-    axs[0].set_title("ALPHA-Batch")
-    axs[1].set_title("Batchcomp")
+    ax_alpha.set_title("Knesset " + str(knesset_num) + ' - ALPHA-Batch Required Number of Ballots by Assorter Margin')
+    ax_bc.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin')
+    ax_diff.set_title("Knesset " + str(knesset_num) + ' - Difference in Required Ballots (ALPHA Batch - Batchcomp)')
 
     # Plot Difference
     diff = assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND] - assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND]
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
-        axs[2].scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
-        axs[2].plot([0, max_margin], [0, 0], '--')
-    axs[2].set_title('Difference (ALPHA - Batchcomp)')
+        ax_diff.scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
+    ax_diff.plot([0, max_margin], [0, 0], '--', label='0')
 
-    fig.supxlabel("Assertion Margin (Log Scale)")
-    fig.supylabel("Required Ballots")
+
+    ax_alpha.set_xlabel("Assertion Margin (Log Scale)")
+    ax_alpha.set_ylabel("Required Ballots")
+    ax_bc.set_xlabel("Assertion Margin (Log Scale)")
+    ax_bc.set_ylabel("Required Ballots")
+    ax_diff.set_xlabel("Assertion Margin (Log Scale)")
+    ax_diff.set_ylabel("Required Ballots")
+    ax_alpha.legend(loc='right', prop={'size': 15})
+    ax_bc.legend(loc='right', prop={'size': 15})
+    ax_diff.legend(loc='right', prop={'size': 15})
+
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
-    plt.savefig(str(timestamp) + ' plot.png', bbox_inches='tight')
+    fig_alpha.savefig(str(timestamp) + ' plot alpha.png', bbox_inches='tight')
+    fig_bc.savefig(str(timestamp) + ' plot bc.png', bbox_inches='tight')
+    fig_diff.savefig(str(timestamp) + ' plot alpha-bc diff.png', bbox_inches='tight')
     plt.show()
     save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
     np.save(save_filename, assertion_data_mat)
@@ -125,37 +152,59 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     max_margin = max(assertion_data_mat[:, MARGIN_IND])
 
     # Plot comparison
-    fig, axs = plt.subplots(3, 1, sharex=True)
-    plt.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+    fig_errors, ax_errors = plt.subplots()
+    fig_accurate, ax_accurate = plt.subplots()
+    fig_diff, ax_diff = plt.subplots()
+
+
+    fig_errors.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+    fig_accurate.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+    fig_diff.subplots_adjust(left=0.07, bottom=0.11, top=0.88, right=0.98, hspace=0.28)
+
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
-        axs[0].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
-        axs[1].scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
-    axs[0].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    axs[1].plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    axs[0].set_xscale('log')
-    axs[1].legend(loc='right', prop={'size': 10})
+        ax_accurate.scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, ALPHA_REQ_BALLOTS_IND], label=lab)
+        ax_errors.scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
+    ax_accurate.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
+    ax_errors.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
+    ax_errors.legend(loc='right', prop={'size': 10})
 
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(
         " Batches")
-    axs[0].text(0.75, 0.85, voters_batches_txt, transform=axs[0].transAxes, fontsize=12, verticalalignment='top',
+    ax_errors.text(0.75, 0.85, voters_batches_txt, transform=ax_errors.transAxes, fontsize=12, verticalalignment='top',
                 bbox=props)
-    fig.suptitle("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin')
-    axs[0].set_title("Without Counting Errors")
-    axs[1].set_title("With Counting Errors")
-    fig.supxlabel("Assertion Margin (Log Scale)")
-    fig.supylabel("Required Ballots")
+    ax_accurate.text(0.75, 0.85, voters_batches_txt, transform=ax_accurate.transAxes, fontsize=12, verticalalignment='top',
+                   bbox=props)
+    ax_errors.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin With Counting Errors')
+    ax_accurate.set_title("Knesset " + str(knesset_num) + " - Batchcomp Required Number of Ballots by Assorter Margin Without Counting Errors")
+    ax_errors.xlabel("Assertion Margin (Log Scale)")
+    ax_accurate.xlabel("Assertion Margin (Log Scale)")
+    ax_diff.xlabel("Assertion Margin (Log Scale)")
+    ax_errors.ylabel("Required Ballots")
+    ax_accurate.ylabel("Required Ballots")
+    ax_diff.ylabel("Required Ballots")
+    ax_accurate.set_xscale('log')
+    ax_errors.set_xscale('log')
+    ax_diff.set_xscale('log')
 
     # Plot Difference
     diff = assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND] - assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND]
     for i, lab in enumerate(ASSERTION_LABELS):
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
-        axs[2].scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
-        axs[2].plot([0, max_margin], [0, 0], '--')
-    axs[2].set_title('Difference (With Errors - Without Errors)')
+        ax_diff.scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
+    ax_diff.plot([0, max_margin], [0, 0], '--', label='0')
+    ax_diff.set_title('Difference (With Errors - Without Errors)')
+
+    ax_accurate.legend()
+    ax_errors.legend()
+    ax_diff.legend()
+
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
-    plt.savefig(str(timestamp) + ' plot.png', bbox_inches='tight')
+    ax_accurate.savefig(str(timestamp) + ' plot accurate.png', bbox_inches='tight')
+    ax_errors.savefig(str(timestamp) + ' plot errors.png', bbox_inches='tight')
+    ax_diff.savefig(str(timestamp) + ' plot diff.png', bbox_inches='tight')
+
     plt.show()
 
 def prediction_plots(assertions_lists):
@@ -185,7 +234,7 @@ def prediction_plots(assertions_lists):
         plt.scatter(assertion_data_mat[slicer, BATCHCOMP_PREDICTION_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
     max_x = np.max(assertion_data_mat[:, [BATCHCOMP_PREDICTION_IND, BATCHCOMP_REQ_BATCHES_IND]])
     plt.plot([0, max_x], [0, max_x],'--')
-    plt.legend(loc='lower left', prop={'size': 10})
+    plt.legend(loc='lower left', prop={'size': 12})
     plt.title('Share of Batches Audited per Assertion')
     plt.xlabel("Prediction")
     plt.ylabel("Actual")

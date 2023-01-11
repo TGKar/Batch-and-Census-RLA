@@ -138,29 +138,11 @@ def old_plot(profile, reps=1):
     print("Wrong approvals:", wrong_approvals)
     print("Wrong rejections:", wrong_rejections)
 
-def census_audit():
-
-    with open('my_census_profile.pkl', 'wb') as output_file:
-        census_profile = CensusProfile.generate_census_data()
-        pickle.dump(census_profile, output_file, pickle.HIGHEST_PROTOCOL)
-    print('Generated census data')
-    #exit(0)
-
-
-    #with open('my_census_profile.pkl', 'rb') as census_file:
-    #    census_profile = pickle.load(census_file)
-
-    #print('loaded census data')
-    #np.save('random census profile.npy', census_profile)
-    #np.load('random census profile.npy', census_profile)
-    print(census_profile.census_allocation)
-    auditor = CensusAuditor(census_profile, 10 ** (-10), US_DIVISOR_FUNC, MAX_RESIDENTS, allowed_seat_disc=20)
-    alpha = auditor.audit()
 
 if __name__ == "__main__":
-    census_profile = CensusProfile.generate_census_data()
-    make_census_plot([census_profile], 10)
-    exit(0)
+    #census_profile = CensusProfile.generate_census_data()
+    #make_census_plot([census_profile], 3)
+    #exit(0)
 
     election_profiles = []
     #prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
@@ -172,5 +154,5 @@ if __name__ == "__main__":
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
         make_comp_plot(prof, knesset_i, reps=10)
         #election_profiles.append(prof)
-    #make_error_plot()
+    make_error_plot()
     #make_prediction_plots(election_profiles)
