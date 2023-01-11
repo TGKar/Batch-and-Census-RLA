@@ -150,9 +150,9 @@ if __name__ == "__main__":
     # make_error_plot(1)
 
     #make_comp_plot(prof, KNESSET_NUM, reps=1)
-    for knesset_i in [22, 23, 24]:
-        prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
-        make_comp_plot(prof, knesset_i, reps=10)
+    #for knesset_i in [22, 23, 24]:
+    #    prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
+    #    make_comp_plot(prof, knesset_i, reps=10)
         #election_profiles.append(prof)
     make_error_plot()
     #make_prediction_plots(election_profiles)

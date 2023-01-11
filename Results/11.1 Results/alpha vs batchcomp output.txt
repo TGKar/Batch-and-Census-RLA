@@ -1,0 +1,1232 @@
+C:\Users\barkr\AppData\Local\Programs\Python\Python39\python.exe "C:/Users/barkr/Documents/Uni/Thesis/Israeli Batch RLA/Main.py"
+Elections Tallies Loaded
+{'Avoda': 6, 'Yahadut Hatora': 7, 'Meshutefet': 13, '1': 0, '2': 0, '3': 0, '4': 0, 'Yemina': 7, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, 'Otzma Yehudit': 0, 'Yisrael Beytenu': 8, 'Likud': 32, 'Meretz': 5, '12': 0, '13': 0, '14': 0, 'Kahol Lavan': 33, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, 'Shas': 9}
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,258 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,258 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  17,196 . batch count  40
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  23,726 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  27,369 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  40,883 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  40,883 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  40,883 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  41,465 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  41,980 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  41,980 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  42,244 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  42,539 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  46,115 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  46,970 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  47,215 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  60,642 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  66,073 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  94,864 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  132,731 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  163,912 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  172,688 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  187,559 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  199,864 . batch count  453
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  207,784 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  219,707 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  227,883 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  251,436 . batch count  565
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  256,173 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  259,774 . batch count  583
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  262,255 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  268,364 . batch count  601
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  321,996 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  325,245 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  333,851 . batch count  742
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  378,576 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  378,885 . batch count  850
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  399,993 . batch count  894
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  412,875 . batch count  925
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  414,326 . batch count  927
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  448,141 . batch count  1002
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  492,109 . batch count  1106
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  597,651 . batch count  1337
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  779,849 . batch count  1752
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,034,184 . batch count  2326
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,515,115 . batch count  3418
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,135 . batch count  10900
+Results approved!
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  1,578 . batch count  3
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  1,672 . batch count  4
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  30,198 . batch count  72
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  35,252 . batch count  83
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  39,050 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  39,573 . batch count  93
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  39,573 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  39,573 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  39,573 . batch count  93
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  39,573 . batch count  93
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  40,168 . batch count  95
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  40,168 . batch count  95
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  40,168 . batch count  95
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  40,845 . batch count  97
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  50,577 . batch count  119
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  62,396 . batch count  147
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  65,259 . batch count  152
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  72,686 . batch count  168
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  128,307 . batch count  296
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  272,571 . batch count  620
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  357,417 . batch count  805
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  1,261,262 . batch count  2850
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  1,308,464 . batch count  2955
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  1,889,245 . batch count  4312
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,089,744 . batch count  4777
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  2,779,378 . batch count  6437
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,891,501 . batch count  6712
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,904,783 . batch count  6742
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,104,831 . batch count  7230
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,160,140 . batch count  7365
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,261,672 . batch count  7620
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,335,651 . batch count  7807
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,448,260 . batch count  8096
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,458,955 . batch count  8125
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,533,388 . batch count  8316
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,631,341 . batch count  8562
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,768,639 . batch count  8912
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,784,474 . batch count  8951
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,790,840 . batch count  8968
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,829,647 . batch count  9071
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,901,471 . batch count  9261
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,101,528 . batch count  9797
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,123,391 . batch count  9854
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,230,087 . batch count  10153
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,297,388 . batch count  10350
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,309,414 . batch count  10384
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,356,584 . batch count  10523
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,415,869 . batch count  10706
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,098 . batch count  10899
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,705 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,705 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  17,980 . batch count  40
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  23,763 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  28,444 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  40,726 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  40,726 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  40,726 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  41,178 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  41,596 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  41,596 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  41,904 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  42,358 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  45,367 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  46,285 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  46,679 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  61,722 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  67,857 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  97,815 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  137,325 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  168,143 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  177,391 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  192,235 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  203,776 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  211,478 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  224,226 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  231,320 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  252,520 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  258,795 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  261,844 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  264,672 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  270,108 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  321,090 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  323,115 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  333,167 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  382,190 . batch count  848
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  382,830 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  401,038 . batch count  894
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  415,033 . batch count  925
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  415,882 . batch count  927
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  450,101 . batch count  1002
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  495,518 . batch count  1105
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  596,284 . batch count  1337
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  775,986 . batch count  1751
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,026,523 . batch count  2326
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,504,303 . batch count  3421
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,075 . batch count  10898
+Results approved!
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  1,259 . batch count  3
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  2,229 . batch count  5
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  15,765 . batch count  34
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  21,546 . batch count  48
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  39,296 . batch count  92
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  39,707 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  39,707 . batch count  93
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  39,707 . batch count  93
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  40,012 . batch count  94
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  40,012 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  40,012 . batch count  94
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  40,012 . batch count  94
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  40,012 . batch count  94
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  40,941 . batch count  96
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  41,425 . batch count  97
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  42,757 . batch count  100
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  52,697 . batch count  121
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  52,697 . batch count  121
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  57,993 . batch count  132
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  93,771 . batch count  209
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  231,025 . batch count  513
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  316,450 . batch count  707
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  568,958 . batch count  1276
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  1,937,537 . batch count  4416
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  2,142,649 . batch count  4888
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  2,351,485 . batch count  5389
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,426,527 . batch count  5571
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,638,493 . batch count  6085
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,658,236 . batch count  6134
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  2,994,421 . batch count  6963
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,197,087 . batch count  7445
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,238,459 . batch count  7551
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,346,816 . batch count  7823
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,366,901 . batch count  7874
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,460,714 . batch count  8108
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,556,710 . batch count  8356
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,590,976 . batch count  8440
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,623,303 . batch count  8518
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,661,572 . batch count  8617
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,727,235 . batch count  8782
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,794,070 . batch count  8957
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,794,070 . batch count  8957
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  4,011,034 . batch count  9539
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,060,752 . batch count  9673
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,082,108 . batch count  9735
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,135,647 . batch count  9880
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,209,485 . batch count  10090
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,351,009 . batch count  10496
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,374,528 . batch count  10568
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,413,524 . batch count  10691
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,168 . batch count  10901
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,590 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,590 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  18,482 . batch count  39
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  25,322 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  29,424 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,067 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,067 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,067 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  41,499 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  41,794 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  41,794 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  42,792 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,292 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  46,321 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  47,672 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  48,007 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  61,523 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  67,894 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  98,684 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  137,649 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  169,361 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  179,023 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  193,646 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  206,403 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  213,963 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  227,184 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  234,425 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  255,907 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  260,509 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  263,477 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  266,074 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  271,356 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  323,652 . batch count  717
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  326,795 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  334,369 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  383,645 . batch count  848
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  383,995 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  402,903 . batch count  893
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  415,887 . batch count  924
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  416,953 . batch count  927
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  447,785 . batch count  1001
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  494,590 . batch count  1105
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  597,482 . batch count  1336
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  785,967 . batch count  1750
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,043,787 . batch count  2323
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,517,245 . batch count  3413
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,097 . batch count  10899
+Results approved!
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  3,155 . batch count  7
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  3,155 . batch count  7
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  6,232 . batch count  14
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  20,660 . batch count  46
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  34,133 . batch count  77
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  40,206 . batch count  92
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  40,682 . batch count  93
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  40,682 . batch count  93
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  40,682 . batch count  93
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  40,682 . batch count  93
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  40,682 . batch count  93
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  40,682 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,040 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,040 . batch count  94
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  41,040 . batch count  94
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  41,289 . batch count  95
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  42,518 . batch count  98
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,455 . batch count  101
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  52,320 . batch count  119
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  86,032 . batch count  194
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  103,893 . batch count  232
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  180,219 . batch count  407
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  227,975 . batch count  511
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  253,703 . batch count  573
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  1,518,338 . batch count  3436
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  1,666,606 . batch count  3780
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,715,489 . batch count  6272
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  2,799,255 . batch count  6475
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,812,047 . batch count  6508
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  2,821,237 . batch count  6528
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  2,898,937 . batch count  6724
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  3,035,368 . batch count  7064
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,067,021 . batch count  7142
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  3,092,375 . batch count  7205
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,171,709 . batch count  7402
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,190,917 . batch count  7448
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,442,262 . batch count  8079
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,514,654 . batch count  8266
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,541,622 . batch count  8336
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,592,240 . batch count  8458
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,780,833 . batch count  8947
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,848,291 . batch count  9120
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,852,143 . batch count  9129
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,908,552 . batch count  9270
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,131,782 . batch count  9880
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,157,990 . batch count  9950
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,241,099 . batch count  10181
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,267,296 . batch count  10258
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,282,894 . batch count  10303
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,402,917 . batch count  10658
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,425,829 . batch count  10736
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,156 . batch count  10900
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,251 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,251 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  17,892 . batch count  40
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  24,637 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  29,649 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,860 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,860 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,860 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  42,279 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  42,870 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  42,870 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  43,234 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,737 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  47,467 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  48,205 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  48,705 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  64,051 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  68,889 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  98,858 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  135,154 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  166,023 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  174,767 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  188,784 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  201,714 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  211,572 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  225,076 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  233,236 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  255,774 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  261,484 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  264,024 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  266,080 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  271,499 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  324,894 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  327,251 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  334,852 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  384,338 . batch count  848
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  384,814 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  404,511 . batch count  893
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  417,487 . batch count  924
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  418,679 . batch count  927
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  449,784 . batch count  1001
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  495,446 . batch count  1105
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  601,091 . batch count  1336
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  785,276 . batch count  1750
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,044,706 . batch count  2323
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,519,845 . batch count  3414
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,150 . batch count  10900
+Results approved!
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  1,059 . batch count  3
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  1,779 . batch count  5
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  23,005 . batch count  49
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  30,938 . batch count  67
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  39,953 . batch count  86
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  42,865 . batch count  92
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  43,164 . batch count  93
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  43,164 . batch count  93
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  43,164 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  43,164 . batch count  93
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  43,164 . batch count  93
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  43,164 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  43,497 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  43,497 . batch count  94
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  43,894 . batch count  95
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  44,758 . batch count  97
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  45,180 . batch count  98
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  45,180 . batch count  98
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  80,317 . batch count  173
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  94,117 . batch count  204
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  139,946 . batch count  301
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  174,254 . batch count  378
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  308,841 . batch count  681
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  333,119 . batch count  734
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  1,607,877 . batch count  3639
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  2,564,022 . batch count  5913
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  2,585,225 . batch count  5963
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  2,857,141 . batch count  6627
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  2,969,226 . batch count  6906
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  2,983,288 . batch count  6939
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  2,985,061 . batch count  6944
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,031,773 . batch count  7059
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  3,065,921 . batch count  7140
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  3,185,746 . batch count  7442
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  3,336,066 . batch count  7813
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  3,356,246 . batch count  7862
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,376,101 . batch count  7913
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,524,759 . batch count  8285
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,592,488 . batch count  8459
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,676,586 . batch count  8675
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,766,287 . batch count  8906
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,943,774 . batch count  9369
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,969,725 . batch count  9439
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,976,531 . batch count  9457
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,150,333 . batch count  9926
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,154,312 . batch count  9937
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,160,895 . batch count  9955
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,274,467 . batch count  10279
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,283,283 . batch count  10304
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,354,389 . batch count  10510
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,412,215 . batch count  10690
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,156 . batch count  10900
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,564 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,564 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  18,597 . batch count  39
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  25,340 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  29,850 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  43,292 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  43,292 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  43,292 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  43,611 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  44,147 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  44,147 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  44,489 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  44,694 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  47,694 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  49,169 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  49,640 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  64,139 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  69,871 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  101,203 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  139,098 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  167,259 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  176,030 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  192,013 . batch count  424
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  205,336 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  214,228 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  225,820 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  233,492 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  255,559 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  261,027 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  264,436 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  266,568 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  273,261 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  327,827 . batch count  717
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  330,772 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  338,536 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  385,560 . batch count  848
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  386,034 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  406,504 . batch count  893
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  420,190 . batch count  924
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  420,900 . batch count  926
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  454,909 . batch count  1001
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  500,860 . batch count  1104
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  599,092 . batch count  1336
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  781,756 . batch count  1750
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,029,347 . batch count  2324
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,508,940 . batch count  3417
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,150 . batch count  10900
+Results approved!
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  1,736 . batch count  3
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  3,231 . batch count  6
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  10,876 . batch count  26
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  26,024 . batch count  59
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  26,024 . batch count  59
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  41,631 . batch count  91
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,839 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,839 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,839 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,839 . batch count  92
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  42,841 . batch count  93
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  43,387 . batch count  94
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  43,387 . batch count  94
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  43,387 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  43,387 . batch count  94
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  43,387 . batch count  94
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  44,060 . batch count  96
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  44,577 . batch count  97
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  44,974 . batch count  98
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  47,923 . batch count  104
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  49,323 . batch count  108
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  66,685 . batch count  146
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  212,931 . batch count  464
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  244,589 . batch count  531
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  395,899 . batch count  868
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  1,097,081 . batch count  2466
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  1,135,366 . batch count  2549
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  1,411,321 . batch count  3175
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,193,294 . batch count  5015
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,314,948 . batch count  5302
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  2,616,417 . batch count  6030
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,822,127 . batch count  6525
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,174,551 . batch count  7394
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,187,552 . batch count  7426
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,188,443 . batch count  7428
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,257,730 . batch count  7599
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,372,640 . batch count  7888
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,409,176 . batch count  7982
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,513,480 . batch count  8244
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,660,847 . batch count  8624
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,684,782 . batch count  8686
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,708,777 . batch count  8750
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,860,414 . batch count  9151
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,927,807 . batch count  9335
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,937,405 . batch count  9361
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,134,844 . batch count  9898
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,144,237 . batch count  9923
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,155,987 . batch count  9954
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,259,382 . batch count  10242
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,330,397 . batch count  10449
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,410,534 . batch count  10683
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,419,618 . batch count  10711
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,150 . batch count  10900
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,940 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,940 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  18,907 . batch count  39
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  26,796 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  31,495 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  42,996 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  42,996 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  42,996 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  43,453 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  43,900 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  43,900 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  44,291 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  44,615 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  47,116 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  48,117 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  48,464 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  61,783 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  67,441 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  97,599 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  134,886 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  164,058 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  172,888 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  187,345 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  199,532 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  208,094 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  221,492 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  228,864 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  248,886 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  253,586 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  256,683 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  258,797 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  264,814 . batch count  601
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  313,909 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  316,031 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  324,989 . batch count  742
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  374,066 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  374,587 . batch count  850
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  393,751 . batch count  894
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  407,408 . batch count  926
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  408,229 . batch count  928
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  442,216 . batch count  1003
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  487,778 . batch count  1106
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  593,379 . batch count  1338
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  778,410 . batch count  1752
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,037,534 . batch count  2326
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,514,079 . batch count  3418
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,091 . batch count  10898
+Results approved!
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  2,183 . batch count  4
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  2,546 . batch count  5
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  5,262 . batch count  11
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  25,708 . batch count  59
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  40,096 . batch count  88
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,735 . batch count  92
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  42,738 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  42,955 . batch count  94
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  42,955 . batch count  94
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  43,894 . batch count  96
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  44,276 . batch count  97
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  44,797 . batch count  98
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  44,797 . batch count  98
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  48,579 . batch count  107
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  50,715 . batch count  112
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  86,593 . batch count  193
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  223,663 . batch count  500
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  278,877 . batch count  618
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  426,831 . batch count  954
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  2,275,582 . batch count  5227
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  2,688,353 . batch count  6228
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,782,950 . batch count  6461
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,893,966 . batch count  6733
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,963,558 . batch count  6893
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  3,087,852 . batch count  7194
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,096,796 . batch count  7213
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  3,144,047 . batch count  7327
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,149,642 . batch count  7341
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,169,695 . batch count  7393
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,221,966 . batch count  7520
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,351,851 . batch count  7842
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,415,378 . batch count  8003
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,419,057 . batch count  8011
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,555,031 . batch count  8355
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,599,659 . batch count  8472
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,690,186 . batch count  8704
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,757,920 . batch count  8881
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,836,632 . batch count  9086
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,944,935 . batch count  9373
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,093,328 . batch count  9770
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,118,844 . batch count  9840
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,196,308 . batch count  10054
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,284,690 . batch count  10305
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,389,802 . batch count  10627
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,403,305 . batch count  10667
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,422,088 . batch count  10727
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,135 . batch count  10900
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  5,135 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  5,135 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  18,709 . batch count  39
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  25,162 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  29,246 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  40,794 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  40,794 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  40,794 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  41,349 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  42,332 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  42,332 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  42,954 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,354 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  46,061 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  46,901 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  47,284 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  62,813 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  68,319 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  96,908 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  134,685 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  163,473 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  172,362 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  186,259 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  198,624 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  206,827 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  219,452 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  225,924 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  247,046 . batch count  565
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  250,938 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  254,292 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  256,270 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  262,241 . batch count  601
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  311,793 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  314,723 . batch count  724
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  321,901 . batch count  742
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  371,315 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  371,856 . batch count  850
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  391,935 . batch count  895
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  405,704 . batch count  926
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  406,572 . batch count  928
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  441,388 . batch count  1003
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  489,214 . batch count  1107
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  593,727 . batch count  1338
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  777,599 . batch count  1753
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,029,810 . batch count  2328
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,507,848 . batch count  3422
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,091 . batch count  10898
+Results approved!
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  1,067 . batch count  3
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  1,067 . batch count  3
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  18,896 . batch count  40
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  22,715 . batch count  49
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  42,723 . batch count  92
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  42,723 . batch count  92
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  43,139 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  43,139 . batch count  93
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  43,139 . batch count  93
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  43,139 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  43,449 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  43,449 . batch count  94
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  43,449 . batch count  94
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,698 . batch count  95
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  43,698 . batch count  95
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  45,154 . batch count  98
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  45,154 . batch count  98
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  53,649 . batch count  119
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  62,646 . batch count  140
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  189,067 . batch count  416
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  282,567 . batch count  618
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  359,888 . batch count  791
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  935,435 . batch count  2082
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  1,181,243 . batch count  2646
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  1,775,280 . batch count  4036
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,129,611 . batch count  4857
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  2,493,382 . batch count  5723
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  2,635,430 . batch count  6059
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  2,828,791 . batch count  6536
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  2,857,061 . batch count  6606
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,865,442 . batch count  6625
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,919,847 . batch count  6755
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,113,937 . batch count  7234
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,136,672 . batch count  7291
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,220,753 . batch count  7503
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,257,368 . batch count  7596
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,489,758 . batch count  8179
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,757,625 . batch count  8878
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,974,394 . batch count  9449
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,977,870 . batch count  9458
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  4,082,526 . batch count  9740
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  4,109,336 . batch count  9815
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,122,882 . batch count  9850
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,136,097 . batch count  9884
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,175,789 . batch count  9994
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,274,841 . batch count  10266
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,354,671 . batch count  10507
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,356,988 . batch count  10514
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,400,731 . batch count  10649
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,156 . batch count  10900
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,673 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,673 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  18,513 . batch count  40
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  24,893 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  29,754 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,620 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,620 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,620 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  41,973 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  42,261 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  42,261 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  42,818 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,821 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  46,613 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  48,016 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  48,540 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  62,654 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  68,705 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  98,933 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  137,257 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  167,309 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  176,893 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  193,298 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  204,636 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  213,100 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  226,261 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  233,524 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  255,837 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  260,317 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  263,490 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  265,885 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  273,234 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  325,606 . batch count  717
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  328,137 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  336,252 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  387,855 . batch count  848
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  388,290 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  408,120 . batch count  893
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  422,114 . batch count  924
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  422,713 . batch count  926
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  456,443 . batch count  1001
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  501,969 . batch count  1104
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  608,315 . batch count  1335
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  796,227 . batch count  1748
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,043,656 . batch count  2320
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,523,692 . batch count  3410
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,130 . batch count  10900
+Results approved!
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  1,102 . batch count  3
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  1,485 . batch count  4
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  20,954 . batch count  46
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  31,576 . batch count  69
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  39,009 . batch count  87
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,313 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,313 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,313 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,313 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,313 . batch count  92
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,893 . batch count  93
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,311 . batch count  94
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  42,311 . batch count  94
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  42,311 . batch count  94
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  42,758 . batch count  95
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  43,676 . batch count  97
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  43,676 . batch count  97
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  43,947 . batch count  98
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  51,101 . batch count  112
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  100,787 . batch count  223
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  157,020 . batch count  344
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  168,875 . batch count  368
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  225,425 . batch count  493
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  306,471 . batch count  671
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  2,202,806 . batch count  5030
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  2,275,251 . batch count  5202
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  2,321,705 . batch count  5313
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  2,670,278 . batch count  6151
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,699,679 . batch count  6221
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  2,775,071 . batch count  6399
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,906,158 . batch count  6726
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  3,053,953 . batch count  7092
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,063,988 . batch count  7118
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,192,850 . batch count  7438
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,208,098 . batch count  7475
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  3,219,510 . batch count  7503
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,249,229 . batch count  7578
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,273,063 . batch count  7638
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,525,328 . batch count  8263
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,731,852 . batch count  8795
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,866,460 . batch count  9152
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,871,333 . batch count  9164
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  4,062,845 . batch count  9669
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,083,161 . batch count  9722
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,115,305 . batch count  9808
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  4,201,869 . batch count  10057
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,240,668 . batch count  10168
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,262,033 . batch count  10231
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,348,875 . batch count  10483
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,387,972 . batch count  10608
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,408,491 . batch count  10674
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,168 . batch count  10901
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,284 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,284 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  17,871 . batch count  40
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  23,503 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  27,649 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  42,099 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  42,099 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  42,099 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  42,383 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  42,897 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  42,897 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  43,438 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  43,951 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  47,289 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  48,112 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  48,466 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  61,531 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  67,706 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  97,959 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  136,953 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  166,701 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  176,447 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  190,728 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  203,104 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  211,477 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  222,662 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  231,158 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  251,267 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  256,044 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  258,842 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  260,889 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  266,618 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  320,368 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  322,243 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  331,058 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  378,684 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  379,014 . batch count  850
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  397,671 . batch count  894
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  411,992 . batch count  925
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  413,035 . batch count  927
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  445,814 . batch count  1002
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  492,589 . batch count  1105
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  594,487 . batch count  1337
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  776,201 . batch count  1752
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,031,405 . batch count  2326
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,507,250 . batch count  3421
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,073 . batch count  10898
+Results approved!
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  2,830 . batch count  6
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  3,199 . batch count  7
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  31,730 . batch count  72
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  41,346 . batch count  92
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  41,756 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  41,756 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  41,756 . batch count  93
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  41,756 . batch count  93
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  41,756 . batch count  93
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  42,136 . batch count  94
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  42,136 . batch count  94
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  42,136 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  42,136 . batch count  94
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  42,136 . batch count  94
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  42,650 . batch count  95
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  43,465 . batch count  97
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  45,475 . batch count  102
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  46,351 . batch count  104
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  46,351 . batch count  104
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  89,330 . batch count  192
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  128,236 . batch count  280
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  152,548 . batch count  334
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  200,148 . batch count  441
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  215,330 . batch count  474
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  1,352,171 . batch count  3039
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  1,430,948 . batch count  3216
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  1,827,010 . batch count  4167
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  2,328,090 . batch count  5346
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  2,683,509 . batch count  6211
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  2,804,057 . batch count  6506
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  2,916,893 . batch count  6771
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  3,009,756 . batch count  6997
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  3,072,776 . batch count  7148
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  3,078,284 . batch count  7161
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,153,228 . batch count  7344
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,186,468 . batch count  7429
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,219,052 . batch count  7510
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,299,181 . batch count  7714
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,434,710 . batch count  8048
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,667,070 . batch count  8635
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,912,883 . batch count  9291
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,951,955 . batch count  9402
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  4,067,300 . batch count  9699
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  4,104,813 . batch count  9803
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,111,605 . batch count  9823
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,150,962 . batch count  9930
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,184,999 . batch count  10026
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,243,534 . batch count  10186
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,360,282 . batch count  10531
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,380,625 . batch count  10589
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,393,416 . batch count  10630
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,133 . batch count  10900
+Results approved!
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Likud  with reported margin  969420.8049999999 after ballot  4,734 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  4,734 . batch count  10
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meshutefet  with reported margin  326014.805 after ballot  17,649 . batch count  39
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  24,613 . batch count  54
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Shas  with reported margin  186002.805 after ballot  28,825 . batch count  63
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 3  with reported margin  144196.195 after ballot  43,890 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 10  with reported margin  144196.195 after ballot  43,890 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 14  with reported margin  144196.195 after ballot  43,890 . batch count  91
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 1  with reported margin  143003.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 2  with reported margin  143460.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 5  with reported margin  143762.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 7  with reported margin  143586.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 8  with reported margin  143654.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 9  with reported margin  143699.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 12  with reported margin  143163.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 13  with reported margin  142651.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 15  with reported margin  142960.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 17  with reported margin  143471.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 18  with reported margin  143604.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 19  with reported margin  142723.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 20  with reported margin  143268.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 21  with reported margin  143202.195 after ballot  44,892 . batch count  92
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 16  with reported margin  141143.195 after ballot  45,488 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 22  with reported margin  141801.195 after ballot  45,488 . batch count  93
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 6  with reported margin  139838.195 after ballot  45,930 . batch count  94
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 11  with reported margin  138250.195 after ballot  46,330 . batch count  95
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: 4  with reported margin  129391.195 after ballot  49,306 . batch count  102
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yemina  with reported margin  116458.805 after ballot  50,348 . batch count  104
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  50,702 . batch count  105
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  65,244 . batch count  137
+Finished assertion:  Batch-comp (total discrepancy) passed threshold: Avoda  with reported margin  68585.805 after ballot  70,959 . batch count  150
+Finished assertion:  Batch-comp (total discrepancy) didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  101,465 . batch count  217
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  137,228 . batch count  303
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  165,286 . batch count  370
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  173,586 . batch count  391
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  188,857 . batch count  425
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  201,454 . batch count  452
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  210,884 . batch count  471
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  223,779 . batch count  499
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  230,676 . batch count  516
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  252,391 . batch count  564
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  257,218 . batch count  575
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  260,160 . batch count  582
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  262,262 . batch count  587
+Finished assertion:  Batch-comp (total discrepancy) move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  267,789 . batch count  600
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  319,021 . batch count  718
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  321,304 . batch count  723
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  328,180 . batch count  741
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud to Yemina  with reported margin  14199.4 after ballot  380,587 . batch count  849
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  381,031 . batch count  850
+Finished assertion:  Batch-comp (total discrepancy) move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  399,738 . batch count  894
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  412,241 . batch count  925
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  412,943 . batch count  927
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  445,311 . batch count  1002
+Finished assertion:  Batch-comp (total discrepancy) move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  491,302 . batch count  1105
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  600,666 . batch count  1337
+Finished assertion:  Batch-comp (total discrepancy) move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  786,994 . batch count  1751
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  1,042,525 . batch count  2324
+Finished assertion:  Batch-comp (total discrepancy) move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  1,514,637 . batch count  3415
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Finished assertion:  Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,131 . batch count  10900
+Results approved!
+Finished assertion:  Passed threshold: Likud  with reported margin  969420.8049999999 after ballot  1,449 . batch count  3
+Finished assertion:  Passed threshold: Kahol Lavan  with reported margin  1007017.8049999999 after ballot  1,449 . batch count  3
+Finished assertion:  Passed threshold: Meshutefet  with reported margin  326014.805 after ballot  7,867 . batch count  19
+Finished assertion:  Passed threshold: Shas  with reported margin  186002.805 after ballot  25,111 . batch count  55
+Finished assertion:  Passed threshold: Yahadut Hatora  with reported margin  124578.805 after ballot  36,866 . batch count  78
+Finished assertion:  Didn't pass threshold: 3  with reported margin  144196.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 5  with reported margin  143762.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 7  with reported margin  143586.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 8  with reported margin  143654.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 9  with reported margin  143699.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 10  with reported margin  144196.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 12  with reported margin  143163.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 14  with reported margin  144196.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 17  with reported margin  143471.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 18  with reported margin  143604.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 20  with reported margin  143268.195 after ballot  43,032 . batch count  92
+Finished assertion:  Didn't pass threshold: 2  with reported margin  143460.195 after ballot  43,539 . batch count  93
+Finished assertion:  Didn't pass threshold: 13  with reported margin  142651.195 after ballot  43,539 . batch count  93
+Finished assertion:  Didn't pass threshold: 15  with reported margin  142960.195 after ballot  43,539 . batch count  93
+Finished assertion:  Didn't pass threshold: 21  with reported margin  143202.195 after ballot  43,539 . batch count  93
+Finished assertion:  Didn't pass threshold: 1  with reported margin  143003.195 after ballot  43,995 . batch count  94
+Finished assertion:  Didn't pass threshold: 19  with reported margin  142723.195 after ballot  43,995 . batch count  94
+Finished assertion:  Didn't pass threshold: 22  with reported margin  141801.195 after ballot  43,995 . batch count  94
+Finished assertion:  Didn't pass threshold: 16  with reported margin  141143.195 after ballot  44,582 . batch count  95
+Finished assertion:  Didn't pass threshold: 6  with reported margin  139838.195 after ballot  45,372 . batch count  97
+Finished assertion:  Didn't pass threshold: 11  with reported margin  138250.195 after ballot  47,084 . batch count  101
+Finished assertion:  Passed threshold: Yisrael Beytenu  with reported margin  165957.805 after ballot  49,194 . batch count  106
+Finished assertion:  Didn't pass threshold: 4  with reported margin  129391.195 after ballot  52,797 . batch count  114
+Finished assertion:  Passed threshold: Yemina  with reported margin  116458.805 after ballot  94,466 . batch count  208
+Finished assertion:  Passed threshold: Avoda  with reported margin  68585.805 after ballot  164,081 . batch count  363
+Finished assertion:  Didn't pass threshold: Otzma Yehudit  with reported margin  60587.19500000001 after ballot  223,421 . batch count  498
+Finished assertion:  Passed threshold: Meretz  with reported margin  48298.80499999999 after ballot  363,478 . batch count  810
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Likud + Yemina  with reported margin  35189.42857142854 after ballot  2,267,718 . batch count  5207
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Kahol Lavan + Yisrael Beytenu  with reported margin  30603.79310344827 after ballot  2,306,042 . batch count  5295
+Finished assertion:  Move seat from Yemina to Likud  with reported margin  20157.400000000012 after ballot  2,577,827 . batch count  5944
+Finished assertion:  Move seat from Yisrael Beytenu to Kahol Lavan  with reported margin  31798.1904761905 after ballot  2,739,684 . batch count  6326
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Avoda + Meretz  with reported margin  25116.28571428575 after ballot  2,852,039 . batch count  6597
+Finished assertion:  Move seat from Yahadut Hatora + Shas to Meshutefet  with reported margin  28742.0 after ballot  3,031,444 . batch count  7035
+Finished assertion:  Move seat from Yahadut Hatora to Shas  with reported margin  22138.647058823528 after ballot  3,061,033 . batch count  7107
+Finished assertion:  Move seat from Meretz to Avoda  with reported margin  23629.58333333334 after ballot  3,154,238 . batch count  7338
+Finished assertion:  Move seat from Meshutefet to Likud + Yemina  with reported margin  17790.641509433925 after ballot  3,237,456 . batch count  7543
+Finished assertion:  Move seat from Avoda + Meretz to Likud + Yemina  with reported margin  21452.705882352944 after ballot  3,257,400 . batch count  7597
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Likud + Yemina  with reported margin  26044.04938271608 after ballot  3,318,246 . batch count  7748
+Finished assertion:  Move seat from Avoda + Meretz to Kahol Lavan + Yisrael Beytenu  with reported margin  17860.113207547194 after ballot  3,367,731 . batch count  7870
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Avoda + Meretz  with reported margin  17359.603773584993 after ballot  3,392,991 . batch count  7930
+Finished assertion:  Move seat from Meshutefet to Kahol Lavan + Yisrael Beytenu  with reported margin  13655.963636363622 after ballot  3,554,185 . batch count  8340
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Meshutefet  with reported margin  21463.654545454596 after ballot  3,579,194 . batch count  8407
+Finished assertion:  Move seat from Avoda + Meretz to Meshutefet  with reported margin  20062.28000000002 after ballot  3,587,069 . batch count  8425
+Finished assertion:  Move seat from Likud + Yemina to Avoda + Meretz  with reported margin  13440.411764705894 after ballot  3,670,258 . batch count  8641
+Finished assertion:  Move seat from Meshutefet to Avoda + Meretz  with reported margin  14957.240000000025 after ballot  3,683,472 . batch count  8677
+Finished assertion:  Move seat from Likud + Yemina to Meshutefet  with reported margin  17010.924528301854 after ballot  3,735,255 . batch count  8819
+Finished assertion:  Move seat from Likud to Yemina  with reported margin  14199.4 after ballot  3,896,695 . batch count  9242
+Finished assertion:  Move seat from Likud + Yemina to Kahol Lavan + Yisrael Beytenu  with reported margin  8963.851851851774 after ballot  4,016,163 . batch count  9569
+Finished assertion:  Move seat from Shas to Yahadut Hatora  with reported margin  13095.117647058807 after ballot  4,099,457 . batch count  9795
+Finished assertion:  Move seat from Avoda to Meretz  with reported margin  10143.499999999993 after ballot  4,151,840 . batch count  9938
+Finished assertion:  Move seat from Avoda + Meretz to Yahadut Hatora + Shas  with reported margin  10749.821428571475 after ballot  4,225,882 . batch count  10138
+Finished assertion:  Move seat from Kahol Lavan to Yisrael Beytenu  with reported margin  2996.2857142857247 after ballot  4,354,217 . batch count  10514
+Finished assertion:  Move seat from Meshutefet to Yahadut Hatora + Shas  with reported margin  6897.500000000016 after ballot  4,355,213 . batch count  10516
+Finished assertion:  Move seat from Kahol Lavan + Yisrael Beytenu to Yahadut Hatora + Shas  with reported margin  4919.344827586301 after ballot  4,407,762 . batch count  10679
+Finished assertion:  Move seat from Likud + Yemina to Yahadut Hatora + Shas  with reported margin  47.107142857141426 after ballot  4,465,156 . batch count  10900
+Results approved!
+Mean SD:  2340.4615304789477  with max SD:  6599.7718756029735
+Assertion margin: 4919.344827586301 : Required ballots batchcomp:  1,036,347.7 . Required ballots ALPHA:  4,411,045.9
+Assertion margin: 2996.2857142857247 : Required ballots batchcomp:  1,513,295.4 . Required ballots ALPHA:  4,348,227.1
+Assertion margin: 47.107142857141426 : Required ballots batchcomp:  4,465,112.3 . Required ballots ALPHA:  4,465,147.6

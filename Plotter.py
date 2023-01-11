@@ -110,7 +110,7 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     ax_diff.set_ylabel("Required Ballots")
     ax_alpha.legend(loc='right', prop={'size': 15})
     ax_bc.legend(loc='right', prop={'size': 15})
-    ax_diff.legend(loc='right', prop={'size': 15})
+    ax_diff.legend(loc='lower right', prop={'size': 15})
 
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
     fig_alpha.savefig(str(timestamp) + ' plot alpha.png', bbox_inches='tight')
@@ -167,26 +167,8 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
         ax_errors.scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
     ax_accurate.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     ax_errors.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    ax_errors.legend(loc='right', prop={'size': 10})
 
-    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
-    voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(
-        " Batches")
-    ax_errors.text(0.75, 0.85, voters_batches_txt, transform=ax_errors.transAxes, fontsize=12, verticalalignment='top',
-                bbox=props)
-    ax_accurate.text(0.75, 0.85, voters_batches_txt, transform=ax_accurate.transAxes, fontsize=12, verticalalignment='top',
-                   bbox=props)
-    ax_errors.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin With Counting Errors')
-    ax_accurate.set_title("Knesset " + str(knesset_num) + " - Batchcomp Required Number of Ballots by Assorter Margin Without Counting Errors")
-    ax_errors.xlabel("Assertion Margin (Log Scale)")
-    ax_accurate.xlabel("Assertion Margin (Log Scale)")
-    ax_diff.xlabel("Assertion Margin (Log Scale)")
-    ax_errors.ylabel("Required Ballots")
-    ax_accurate.ylabel("Required Ballots")
-    ax_diff.ylabel("Required Ballots")
-    ax_accurate.set_xscale('log')
-    ax_errors.set_xscale('log')
-    ax_diff.set_xscale('log')
+
 
     # Plot Difference
     diff = assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND] - assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND]
@@ -194,16 +176,33 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
         slicer = np.where(assertion_data_mat[:, ASSERTION_TYPE_IND] == i + 1)
         ax_diff.scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
     ax_diff.plot([0, max_margin], [0, 0], '--', label='0')
-    ax_diff.set_title('Difference (With Errors - Without Errors)')
 
-    ax_accurate.legend()
-    ax_errors.legend()
-    ax_diff.legend()
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(
+        " Batches")
+    ax_errors.text(0.78, 0.85, voters_batches_txt, transform=ax_errors.transAxes, fontsize=15, verticalalignment='top', bbox=props)
+    ax_accurate.text(0.78, 0.85, voters_batches_txt, transform=ax_accurate.transAxes, fontsize=15, verticalalignment='top', bbox=props)
+    ax_diff.text(0.78, 0.85, voters_batches_txt, transform=ax_errors.transAxes, fontsize=15, verticalalignment='top', bbox=props)
+    ax_errors.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin With Counting Errors')
+    ax_accurate.set_title("Knesset " + str(knesset_num) + " - Batchcomp Required Number of Ballots by Assorter Margin Without Counting Errors")
+    ax_diff.set_title("Knesset " + str(knesset_num) + " Difference in Ballots Required (With Errors - Without Errors)")
+    ax_errors.set_xlabel("Assertion Margin (Log Scale)")
+    ax_accurate.set_xlabel("Assertion Margin (Log Scale)")
+    ax_diff.set_xlabel("Assertion Margin (Log Scale)")
+    ax_errors.set_ylabel("Required Ballots")
+    ax_accurate.set_ylabel("Required Ballots")
+    ax_diff.set_ylabel("Required Ballots")
+    ax_accurate.set_xscale('log')
+    ax_errors.set_xscale('log')
+    ax_diff.set_xscale('log')
+    ax_accurate.legend(loc='right', prop={'size': 15})
+    ax_errors.legend(loc='right', prop={'size': 15})
+    ax_diff.legend(loc='right', prop={'size': 15})
 
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
-    ax_accurate.savefig(str(timestamp) + ' plot accurate.png', bbox_inches='tight')
-    ax_errors.savefig(str(timestamp) + ' plot errors.png', bbox_inches='tight')
-    ax_diff.savefig(str(timestamp) + ' plot diff.png', bbox_inches='tight')
+    fig_accurate.savefig(str(timestamp) + ' plot accurate.png', bbox_inches='tight')
+    fig_errors.savefig(str(timestamp) + ' plot errors.png', bbox_inches='tight')
+    fig_diff.savefig(str(timestamp) + ' plot diff.png', bbox_inches='tight')
 
     plt.show()
 
