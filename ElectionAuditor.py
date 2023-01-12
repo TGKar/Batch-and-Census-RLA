@@ -1,9 +1,9 @@
 from ElectionProfile import ElectionProfile
 from CompThresholdAssertion import CompThresholdAssertion
-from CompFailedThresholdAssertion import CompFailedThresholdAssertion
+from CompBelowThresholdAssertion import CompBelowThresholdAssertion
 from CompMoveSeatAssertion import CompMoveSeatAssertion
 from MoveSeatAssertion import MoveSeatAssertion
-from FailedThresholdAssertion import FailedThresholdAssertion
+from BelowThresholdAssertion import BelowThresholdAssertion
 from ThresholdAssertion import ThresholdAssertion
 from SetEta import SetEta
 import numpy as np
@@ -15,11 +15,11 @@ class Auditor:
         if bathcomp:
             self.move_seat_assertion = CompMoveSeatAssertion
             self.threshold_assertion = CompThresholdAssertion
-            self.failed_assertion = CompFailedThresholdAssertion
+            self.failed_assertion = CompBelowThresholdAssertion
         else:
             self.move_seat_assertion = MoveSeatAssertion
             self.threshold_assertion = ThresholdAssertion
-            self.failed_assertion = FailedThresholdAssertion
+            self.failed_assertion = BelowThresholdAssertion
         self.election_profile = election_profile
         self.risk_limit = risk_limit
         self.threshold = threshold

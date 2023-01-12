@@ -55,13 +55,15 @@ class CensusAuditor:
 
         for i, hh in tqdm(enumerate(self.household_data)):
             alpha = 0
+            worst_assertion = None
             for j, assertion in enumerate(self.assertions):
                 assertion_done, assertion_t_max = assertion.audit_household(hh)
+                if alpha < 1 / assertion_t_max:
+                    worst_assertion = assertion
                 alpha = max(alpha, 1 / assertion_t_max)
             alpha_list.append(alpha)
-            #if i % 10000 == 0 and i > 0:
-            #    plt.plot(np.arange(len(alpha_list)), alpha_list)
-            #    plt.show()
+            #if i % 1000 == 0 and i > 0:
+            #    print(worst_assertion, " marign: ", worst_assertion.resident_margin, " assorter value", worst_assertion.exp_assorter_val)
 
         plt.plot(np.arange(len(alpha_list)), alpha_list)
         plt.show()

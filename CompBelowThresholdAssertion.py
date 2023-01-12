@@ -6,7 +6,7 @@ from MyEta import MY_ETA, MyEta
 from SetEta import SET_ETA, SetEta
 import numpy as np
 
-class CompFailedThresholdAssertion(Assorter):
+class CompBelowThresholdAssertion(Assorter):
     """
     Asserts the hypothesis that a certain party has at least a certain share of the valid votes.
     """

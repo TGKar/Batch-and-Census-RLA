@@ -1,7 +1,7 @@
 import numpy as np
 from collections import Counter
 
-REPS_N = 100
+REPS_N = 435
 MAX_RESIDENTS = 8
 EPSILON = 10**(-10)
 STATE_IND = 0
@@ -65,8 +65,9 @@ class CensusProfile:
 
     @staticmethod
     def generate_census_data(noisy_pes=False, household_mismatch=0.005):
-        state_pop = np.array(np.load(STATE_POP_FILE)[20:35] / 1000, dtype=int)  # todo delete slicing
-        household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)
+        state_pop = np.array(np.load(STATE_POP_FILE) / 10000, dtype=int)  # todo delete slicing
+        household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)[:-1]  # TODO delete slicing
+        household_residents_p /= np.sum(household_residents_p)
         mean_residents_per_hh = np.sum(household_residents_p * np.arange(len(household_residents_p)))
         state_households = (1+household_mismatch) * state_pop / mean_residents_per_hh
         state_households = state_households.astype(int)

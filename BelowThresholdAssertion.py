@@ -7,7 +7,7 @@ from MyEta import MY_ETA, MyEta
 TYPE = 2
 
 
-class FailedThresholdAssertion(Assorter):
+class BelowThresholdAssertion(Assorter):
     """
     Asserts the hypothesis that a certain party has at most a certain share of the valid votes.
     """

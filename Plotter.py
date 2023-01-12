@@ -6,7 +6,7 @@ import numpy as np
 import time, os, fnmatch, shutil
 
 
-ASSERTION_LABELS = ['Passed Threshold', 'Failed Threshold', 'Move Seat Between Parties']
+ASSERTION_LABELS = ['Above Threshold', 'Below Threshold', 'Move Seat Between Parties']
 TOP_ASSERTION_NUM = 3
 
 # Assertion dictionary indexes

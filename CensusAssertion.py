@@ -81,12 +81,14 @@ class CensusAssorter(ABC):
                 if assorter_value > 0:
                     self.T = np.inf
             else:
-                self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                          (self.u - self.mu)
+                if (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u-self.eta.value) / (self.u - self.mu) > 10:  # TODO delete
+                    print('Overflow incoming?')
+                    print('mu ', self.mu, ' eta ', self.eta.value, ' u ', self.u, ' assorter value ', assorter_value)
+                self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u-self.eta.value) / (self.u - self.mu)
 
             self.update_mu_and_u(assorter_value)
             self.eta.calculate_eta(1, assorter_value, self.mu)  # Prepare eta for next batch
-            if self.mu <= 0:
+            if self.mu <= 0 or self.T > 1 / self.alpha:
                 self.T = float('inf')
             if self.mu > self.u:
                 self.T = 0

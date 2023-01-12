@@ -59,7 +59,7 @@ def make_comp_plot(profile, knesset_num, reps=10, alpha=ALPHA, threshold=THRESHO
                                         len(profile.batches), knesset_num)
 
 def make_error_plot(reps=10, alpha=ALPHA, threshold=THRESHOLD):
-    for knesset_i in [24]:  # [23, 24]:
+    for knesset_i in [23, 24]:
         noised_assertions_list = []
         unnoised_assertions_list = []
         unnoised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
@@ -146,13 +146,9 @@ if __name__ == "__main__":
 
     election_profiles = []
     #prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
-
-    # make_error_plot(1)
-
-    #make_comp_plot(prof, KNESSET_NUM, reps=1)
     #for knesset_i in [22, 23, 24]:
     #    prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
     #    make_comp_plot(prof, knesset_i, reps=10)
-        #election_profiles.append(prof)
+    #    election_profiles.append(prof)
     make_error_plot(reps=10)
     #make_prediction_plots(election_profiles)
