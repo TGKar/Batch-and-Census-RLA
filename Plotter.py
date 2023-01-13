@@ -2,8 +2,9 @@ from ElectionAuditor import ElectionAuditor
 from ElectionAssertion import Assorter
 import matplotlib.pyplot as plt
 from matplotlib import rc
+from matplotlib.ticker import MaxNLocator
 import numpy as np
-import time, os, fnmatch, shutil
+import time
 
 
 ASSERTION_LABELS = ['Above Threshold', 'Below Threshold', 'Move Seat Between Parties']
@@ -253,13 +254,21 @@ def prediction_plots(assertions_lists):
 
 
 def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
+    set_font()
     rounded_max_x = int(max_x * len(alpha_lists[0])) / len(alpha_lists[0])
     alpha = np.mean(alpha_lists, axis=0)[:int(rounded_max_x * len(alpha_lists[0]))]
-    plt.plot(rounded_max_x * np.arange(1, len(alpha) + 1) / (len(alpha) + 1), alpha)
-    plt.xticks(np.linspace(0, rounded_max_x, 11))
-    plt.yticks(np.linspace(0, 1, 11))
-    plt.xlabel('Share of Households Examined')
-    plt.ylabel('Outputted Risk-Limit')
+    #print(np.where(alpha <= 0.1)[0][0] / len(alpha), '% of households required for risk limit 0.1.')
+    #print(np.where(alpha <= 0.05)[0][0] / len(alpha), '% of households required for risk limit 0.05.')
+    fig, ax = plt.subplots()
+    ax.plot(rounded_max_x * np.arange(1, len(alpha) + 1) / (len(alpha) + 1), alpha)
+    fig.subplots_adjust(left=0.05, bottom=0.08, top=0.93, right=0.97)
+    ax.set_xticks(np.linspace(0, rounded_max_x, 11))
+    ax.set_yticks(np.linspace(0, 1, 11))
+    ax.set_xlabel('Share of Households Examined')
+    ax.set_ylabel('Outputted Risk-Limit')
+    ax.set_xlim(0, 1.05*max_x)
+    ax.set_ylim(0, 1.05)
+    ax.xaxis.set_major_locator(MaxNLocator(prune='lower'))
 
     if title is None:
         plot_title = 'Risk-Limit by Share of Households Examined During the PES'
@@ -267,10 +276,10 @@ def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
             plot_title += '- Up to ' + str(allowed_seat_disc) + ' Seat Discrepancy'
     else:
         plot_title = title
-    plt.title(plot_title)
-    plt.grid()
+    ax.set_title(plot_title)
+    ax.grid()
     plt.show()
 
 def set_font():
-    rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 17})
+    rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 18})
     rc('text', usetex=True)

@@ -102,8 +102,9 @@ def make_census_plot(error_rate=0.0, household_mismatch=0.0, reps=10, allowed_se
         alphas, second_alphas = auditor.audit()
         alpha_lists.append(alphas)
         second_alpha_lists.append(second_alphas)
-    Plotter.census_plot(alpha_lists, allowed_seat_disc, max_x=0.02)
-    Plotter.census_plot(second_alpha_lists, allowed_seat_disc)
+    title = None #'Risk-Limit by Share of Households Examined During the PES - 5%% Census and PES Disagreement'
+    Plotter.census_plot(alpha_lists, allowed_seat_disc, max_x=0.02, title=title)
+    #Plotter.census_plot(second_alpha_lists, allowed_seat_disc)
 
 
 def old_plot(profile, reps=1):
@@ -147,7 +148,7 @@ def old_plot(profile, reps=1):
 
 
 if __name__ == "__main__":
-    make_census_plot(reps=10)
+    make_census_plot(reps=10, error_rate=0.05)
     #exit(0)
 
     election_profiles = []

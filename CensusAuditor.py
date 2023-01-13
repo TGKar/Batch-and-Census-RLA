@@ -48,8 +48,8 @@ class CensusAuditor:
             second_alpha = 0
             for j, assertion in enumerate(self.assertions):
                 assertion_done, assertion_t_max = assertion.audit_household(hh)
-                if i % 10**6 == 0:
-                    print(assertion, assertion_t_max)
+                #if i % 10**6 == 0:
+                #    print(assertion, assertion_t_max)
                 if assertion.state_from != 0 or assertion.state_to != 1:
                     second_alpha = max(second_alpha, 1 / assertion_t_max)
                 alpha = max(alpha, 1 / assertion_t_max)
