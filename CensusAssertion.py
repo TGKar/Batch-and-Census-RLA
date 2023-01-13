@@ -5,7 +5,7 @@ from SetEta import SetEta
 from abc import ABC, abstractmethod
 from CensusProfile import CensusProfile, EPSILON, STATE_IND, IN_CENSUS_IND, IN_PES_IND, CENSUS_RESIDENTS_IND, PES_RESIDENTS_IND
 
-MAX_ERR = 10**(-15)
+MAX_ERR = 10**(-10)
 
 class CensusAssorter(ABC):
     def __init__(self, risk_limit, state_from, state_to, divisor_func, census_profile: CensusProfile,
@@ -139,7 +139,7 @@ class CensusAssorter(ABC):
         state_to_d = self.divisor_func(self.state_to_reps + 1)
         c = 2 * ((self.max_residents/state_to_d) + (self.state_to_constant / (self.households_n * state_to_d))
                  - (self.state_from_constant / (self.households_n * state_from_d)))
-        z = max(1/state_from_d, 1/state_to_d) * self.max_residents / c
+        z = max(1 / (state_from_d*c), 1 / (state_to_d*c), 0) * self.max_residents
         return c, z
 
     def calc_margin(self, state_from_pop, state_to_pop):
@@ -148,7 +148,7 @@ class CensusAssorter(ABC):
         state_to_divisor = self.divisor_func(self.state_to_reps + 1)
         residents_margin = (state_from_pop / state_from_divisor - state_to_pop / state_to_divisor) / \
                       ((1/state_from_divisor) + (1/state_to_divisor))
-        assert(residents_margin >= 0)
+        assert residents_margin >= 0
         return residents_margin
 
     def __str__(self):

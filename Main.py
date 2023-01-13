@@ -1,6 +1,6 @@
 from ElectionProfile import ElectionProfile
-from ElectionAuditor import Auditor
-from CensusProfile import CensusProfile, US_DIVISOR_FUNC, MAX_RESIDENTS
+from ElectionAuditor import ElectionAuditor
+from CensusProfile import CensusProfile, US_DIVISOR_FUNC, DHONDT_DIVISOR_FUNC, MAX_RESIDENTS
 from CensusAuditor import CensusAuditor
 from PluralityAuditor import PluralityAuditor
 import numpy as np
@@ -46,8 +46,8 @@ def make_comp_plot(profile, knesset_num, reps=10, alpha=ALPHA, threshold=THRESHO
     batchcomp_assertions_list = []
     alpha_assertions_list = []
     for rep in range(reps):
-        batchcomp_auditor = Auditor(profile, alpha, threshold)
-        alpha_auditor = Auditor(profile, alpha, threshold, bathcomp=False)
+        batchcomp_auditor = ElectionAuditor(profile, alpha, threshold)
+        alpha_auditor = ElectionAuditor(profile, alpha, threshold, bathcomp=False)
 
         batchcomp_audit_approves, batchcomp_assertions = batchcomp_auditor.batch_audit()
         alpha_audit_approves, alpha_assertions = alpha_auditor.batch_audit()
@@ -65,8 +65,8 @@ def make_error_plot(reps=10, alpha=ALPHA, threshold=THRESHOLD):
         unnoised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
         for rep in range(reps):
             noised_profile = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i], noise=True)
-            noised_auditor = Auditor(noised_profile, alpha, threshold)
-            unnoised_auditor = Auditor(unnoised_profile, alpha, threshold)
+            noised_auditor = ElectionAuditor(noised_profile, alpha, threshold)
+            unnoised_auditor = ElectionAuditor(unnoised_profile, alpha, threshold)
 
             noised_audit_approves, noised_assertions = noised_auditor.batch_audit()
             unnoised_audit_approves, unnoised_assertions = unnoised_auditor.batch_audit()
@@ -83,7 +83,7 @@ def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
     for profile in tqdm(profiles):
         assertions_list = []
         for rep in range(reps):
-            auditor = Auditor(profile, alpha, threshold)
+            auditor = ElectionAuditor(profile, alpha, threshold)
             audit_approves, assertions = auditor.batch_audit()
             assert audit_approves
             assertions_list.append(assertions)
@@ -91,13 +91,20 @@ def make_prediction_plots(profiles, reps=10, alpha=ALPHA, threshold=THRESHOLD):
 
     Plotter.prediction_plots(assertions_lists)
 
-def make_census_plot(census_profiles, allowed_seat_disc):
+
+def make_census_plot(error_rate=0.0, household_mismatch=0.0, reps=10, allowed_seat_disc=0):
     alpha_lists = []
-    for profile in census_profiles:
-        alpha_lists.append([])
-        auditor = CensusAuditor(profile, 10 ** (-10), US_DIVISOR_FUNC, MAX_RESIDENTS, allowed_seat_disc=allowed_seat_disc)
-        alpha_lists.append(auditor.audit())
-    Plotter.census_plot(alpha_lists, allowed_seat_disc)
+    second_alpha_lists = []
+    for i in range(reps):
+        print("Iteration ", i)
+        profile = CensusProfile.generate_census_data(DHONDT_DIVISOR_FUNC, pes_noise=error_rate, household_mismatch=household_mismatch)
+        auditor = CensusAuditor(profile, 10**(-100), DHONDT_DIVISOR_FUNC, MAX_RESIDENTS, allowed_seat_disc=allowed_seat_disc)
+        alphas, second_alphas = auditor.audit()
+        alpha_lists.append(alphas)
+        second_alpha_lists.append(second_alphas)
+    Plotter.census_plot(alpha_lists, allowed_seat_disc, max_x=0.02)
+    Plotter.census_plot(second_alpha_lists, allowed_seat_disc)
+
 
 def old_plot(profile, reps=1):
     correct_approvals = 0
@@ -107,7 +114,7 @@ def old_plot(profile, reps=1):
 
     for i in range(reps):
         print("REPEATING: " + str(i))
-        auditor = Auditor(profile, ALPHA, THRESHOLD)
+        auditor = ElectionAuditor(profile, ALPHA, THRESHOLD)
         audit_approves, assertions = auditor.batch_audit()
 
         print("Reported Results:")
@@ -140,8 +147,7 @@ def old_plot(profile, reps=1):
 
 
 if __name__ == "__main__":
-    #census_profile = CensusProfile.generate_census_data()
-    #make_census_plot([census_profile], 3)
+    make_census_plot(reps=10)
     #exit(0)
 
     election_profiles = []
@@ -150,5 +156,5 @@ if __name__ == "__main__":
     #    prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS, APPARENTMENTS[knesset_i])
     #    make_comp_plot(prof, knesset_i, reps=10)
     #    election_profiles.append(prof)
-    make_error_plot(reps=10)
+    # make_error_plot(reps=10)
     #make_prediction_plots(election_profiles)

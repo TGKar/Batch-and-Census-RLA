@@ -10,7 +10,7 @@ import numpy as np
 from MyEta import MY_ETA
 import matplotlib.pyplot as plt
 
-class Auditor:
+class ElectionAuditor:
     def __init__(self, election_profile: ElectionProfile, risk_limit, threshold, bathcomp=True):
         if bathcomp:
             self.move_seat_assertion = CompMoveSeatAssertion

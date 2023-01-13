@@ -1,4 +1,4 @@
-from ElectionAuditor import Auditor
+from ElectionAuditor import ElectionAuditor
 from ElectionAssertion import Assorter
 import matplotlib.pyplot as plt
 from matplotlib import rc
@@ -252,12 +252,23 @@ def prediction_plots(assertions_lists):
     plt.show()
 
 
-def census_plot(alpha_lists, allowed_seat_disc):
-    alpha = np.mean(alpha_lists, axis=0)
-    plt.plot(np.arange(1, len(alpha) + 1), alpha)
-    plt.xlabel('Households Examined')
-    plt.ylabel('Risk-Limit')
-    plt.title('Risk-Limit by Households Examined - Up to ' + str(allowed_seat_disc) + ' Seat Discrepancy')
+def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
+    rounded_max_x = int(max_x * len(alpha_lists[0])) / len(alpha_lists[0])
+    alpha = np.mean(alpha_lists, axis=0)[:int(rounded_max_x * len(alpha_lists[0]))]
+    plt.plot(rounded_max_x * np.arange(1, len(alpha) + 1) / (len(alpha) + 1), alpha)
+    plt.xticks(np.linspace(0, rounded_max_x, 11))
+    plt.yticks(np.linspace(0, 1, 11))
+    plt.xlabel('Share of Households Examined')
+    plt.ylabel('Outputted Risk-Limit')
+
+    if title is None:
+        plot_title = 'Risk-Limit by Share of Households Examined During the PES'
+        if allowed_seat_disc > 0:
+            plot_title += '- Up to ' + str(allowed_seat_disc) + ' Seat Discrepancy'
+    else:
+        plot_title = title
+    plt.title(plot_title)
+    plt.grid()
     plt.show()
 
 def set_font():

@@ -1,8 +1,8 @@
 import numpy as np
 from collections import Counter
 
-REPS_N = 435
-MAX_RESIDENTS = 8
+REPS_N = 56
+MAX_RESIDENTS = 15
 EPSILON = 10**(-10)
 STATE_IND = 0
 IN_CENSUS_IND = 1
@@ -13,11 +13,14 @@ PES_RESIDENTS_IND = 4
 #US_DIVISOR_FUNC = lambda r: np.sqrt(r * (r+1))
 
 # Data file names
-STATE_POP_FILE = 'state_pop.npy'
-HOUSEHOLD_RESIDENTS_P_FILE = 'household_residents_p.npy'
+STATE_POP_FILE = 'cyprus_pop.npy'
+HOUSEHOLD_RESIDENTS_P_FILE = 'cyprus_household_residents_p.npy'
 
 def US_DIVISOR_FUNC(r):
     return np.sqrt(r * (r+1))
+
+def DHONDT_DIVISOR_FUNC(r):
+    return r
 
 class CensusProfile:
     def __init__(self, census_data, representatives_n, dividers_func, state_constants):
@@ -34,7 +37,6 @@ class CensusProfile:
         self.pes_allocation = self.calculate_allocation(census_data[:, [STATE_IND, PES_RESIDENTS_IND]])
         assert(np.allclose(list(self.census_allocation.values()), list(self.pes_allocation.values())))
 
-
     def calculate_allocation(self, households):
         """
 
@@ -48,7 +50,7 @@ class CensusProfile:
         residents_dict = self.sort_dict(residents_dict)
 
         # Create price table
-        state_pops_list = np.array(list(residents_dict.values()), dtype=np.float)
+        state_pops_list = np.array(list(residents_dict.values()), dtype=int)
         state_consts_list = np.array(list(self.state_constants.values()), dtype=np.float)
         dividers = np.vectorize(self.dividers_func)(np.arange(1, self.representatives_n + 1))
         price_table = state_pops_list.reshape(-1, 1) / dividers.reshape(1, -1)
@@ -64,9 +66,9 @@ class CensusProfile:
         return dict(sorted(d.items(), key=lambda item: item[0]))
 
     @staticmethod
-    def generate_census_data(noisy_pes=False, household_mismatch=0.005):
-        state_pop = np.array(np.load(STATE_POP_FILE) / 10000, dtype=int)  # todo delete slicing
-        household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)[:-1]  # TODO delete slicing
+    def generate_census_data(divisor_func, pes_noise=0, household_mismatch=0.0):
+        state_pop = np.array(np.load(STATE_POP_FILE), dtype=int)
+        household_residents_p = np.load(HOUSEHOLD_RESIDENTS_P_FILE)
         household_residents_p /= np.sum(household_residents_p)
         mean_residents_per_hh = np.sum(household_residents_p * np.arange(len(household_residents_p)))
         state_households = (1+household_mismatch) * state_pop / mean_residents_per_hh
@@ -92,14 +94,16 @@ class CensusProfile:
         household_data[:, PES_RESIDENTS_IND] = household_data[:, CENSUS_RESIDENTS_IND]
         household_data[np.where(household_data[:, IN_CENSUS_IND] == 0), CENSUS_RESIDENTS_IND] = 0
         household_data[np.where(household_data[:, IN_PES_IND] == 0), PES_RESIDENTS_IND] = 0
-        if noisy_pes:
-            pass  # TODO implement
-
+        if pes_noise > 0:
+            noisy_hh_n = int(household_n * pes_noise)
+            pes_households = np.where(household_data[:, IN_PES_IND] > 0)[0]
+            noisy_indexes = np.random.choice(pes_households, noisy_hh_n, replace=False)
+            household_data[noisy_indexes, PES_RESIDENTS_IND] = np.random.choice(len(household_residents_p), noisy_hh_n, p=household_residents_p)
         # Create state_consts to balance state population discrepancies
         state_consts = dict()  # state_const - census_state_population = true_state_population
         for i in range(len(state_pop)):
             state_consts[i] = state_pop[i] - np.sum(household_data[state_inds[i]:state_inds[i + 1], CENSUS_RESIDENTS_IND])
             assert state_consts[i] + np.sum(household_data[np.where(household_data[:, STATE_IND] == i), CENSUS_RESIDENTS_IND])
 
-        return CensusProfile(household_data, REPS_N, US_DIVISOR_FUNC, state_consts)
+        return CensusProfile(household_data, REPS_N, divisor_func, state_consts)
 

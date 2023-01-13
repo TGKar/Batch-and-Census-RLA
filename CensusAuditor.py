@@ -37,37 +37,28 @@ class CensusAuditor:
                             self.assertions.append(CensusAssorter(risk_limit, state2, state1, divisor_func,
                                                                   census_profile, max_residents, mode=-allowed_seat_disc))
 
-        # TODO delete
-        margins = []
-        assorter_values = []
-        for assertion in self.assertions:
-            margins.append(assertion.resident_margin)
-            assorter_values.append(assertion.exp_assorter_val)
-        plt.scatter(margins, assorter_values)
-        plt.show()
-
-
-
     def audit(self):
         print("Auditing... ", self.household_data.shape[0], 'households.')
         np.random.shuffle(self.household_data)
         alpha_list = []
+        second_alpha_list = []  # alpha list without the worst assertion
 
         for i, hh in tqdm(enumerate(self.household_data)):
             alpha = 0
-            worst_assertion = None
+            second_alpha = 0
             for j, assertion in enumerate(self.assertions):
                 assertion_done, assertion_t_max = assertion.audit_household(hh)
-                if alpha < 1 / assertion_t_max:
-                    worst_assertion = assertion
+                if i % 10**6 == 0:
+                    print(assertion, assertion_t_max)
+                if assertion.state_from != 0 or assertion.state_to != 1:
+                    second_alpha = max(second_alpha, 1 / assertion_t_max)
                 alpha = max(alpha, 1 / assertion_t_max)
             alpha_list.append(alpha)
+            second_alpha_list.append(second_alpha)
             #if i % 1000 == 0 and i > 0:
             #    print(worst_assertion, " marign: ", worst_assertion.resident_margin, " assorter value", worst_assertion.exp_assorter_val)
 
-        plt.plot(np.arange(len(alpha_list)), alpha_list)
-        plt.show()
-        return alpha_list
+        return alpha_list, second_alpha_list
 
 """
     def sample_household(self):  # TODO I was here
