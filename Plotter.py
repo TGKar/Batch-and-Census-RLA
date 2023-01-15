@@ -257,8 +257,9 @@ def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
     set_font()
     rounded_max_x = int(max_x * len(alpha_lists[0])) / len(alpha_lists[0])
     alpha = np.mean(alpha_lists, axis=0)[:int(rounded_max_x * len(alpha_lists[0]))]
-    #print(np.where(alpha <= 0.1)[0][0] / len(alpha), '% of households required for risk limit 0.1.')
-    #print(np.where(alpha <= 0.05)[0][0] / len(alpha), '% of households required for risk limit 0.05.')
+    if np.any(alpha <= 0.05):
+        print(100 * np.where(alpha <= 0.1)[0][0] / len(alpha_lists[0]), '% of households required for risk limit 0.1.')
+        print(100 * np.where(alpha <= 0.05)[0][0] / len(alpha_lists[0]), '% of households required for risk limit 0.05.')
     fig, ax = plt.subplots()
     ax.plot(rounded_max_x * np.arange(1, len(alpha) + 1) / (len(alpha) + 1), alpha)
     fig.subplots_adjust(left=0.05, bottom=0.08, top=0.93, right=0.97)

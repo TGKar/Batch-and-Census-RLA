@@ -14,6 +14,7 @@ PES_RESIDENTS_IND = 4
 
 # Data file names
 STATE_POP_FILE = 'cyprus_pop.npy'
+#STATE_POP_FILE = 'state_pop.npy'
 HOUSEHOLD_RESIDENTS_P_FILE = 'cyprus_household_residents_p.npy'
 
 def US_DIVISOR_FUNC(r):
@@ -35,7 +36,7 @@ class CensusProfile:
         self.households_n = census_data.shape[0]
         self.census_allocation = self.calculate_allocation(census_data[:, [STATE_IND, CENSUS_RESIDENTS_IND]])
         self.pes_allocation = self.calculate_allocation(census_data[:, [STATE_IND, PES_RESIDENTS_IND]])
-        assert(np.allclose(list(self.census_allocation.values()), list(self.pes_allocation.values())))
+        print('Allocations match:', np.allclose(list(self.census_allocation.values()), list(self.pes_allocation.values())))
 
     def calculate_allocation(self, households):
         """

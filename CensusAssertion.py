@@ -11,7 +11,6 @@ class CensusAssorter(ABC):
     def __init__(self, risk_limit, state_from, state_to, divisor_func, census_profile: CensusProfile,
                  max_residents_per_household, mode=0):
         """
-
         :param risk_limit:
         :param state_from:
         :param state_to:

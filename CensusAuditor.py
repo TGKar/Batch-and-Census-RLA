@@ -43,7 +43,7 @@ class CensusAuditor:
         alpha_list = []
         second_alpha_list = []  # alpha list without the worst assertion
 
-        for i, hh in tqdm(enumerate(self.household_data)):
+        for i, hh in tqdm(enumerate(self.household_data[:int(len(self.household_data))])):
             alpha = 0
             second_alpha = 0
             for j, assertion in enumerate(self.assertions):
