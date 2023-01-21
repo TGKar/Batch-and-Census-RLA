@@ -21,6 +21,14 @@ MARGIN_IND = 3
 
 
 def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list, total_voters, total_batches, knesset_num):
+    """
+    Makes the comparison plots from a list of assertions
+    :param alpha_assertions_list: The audited assertions of ALPHA-batch
+    :param batchcomp_assertions_list: The audited assertions of Batchcomp
+    :param total_voters: # of voters in the elections
+    :param total_batches: # of batches in the elections
+    :param knesset_num: Knesset number
+    """
     set_font()
 
     assertion_data = dict()  # Contains lists of required ballots using ALPHA / batchcomp and the assertion's margin
@@ -79,7 +87,6 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
         ax_bc.scatter(assertion_data_mat[slicer, MARGIN_IND], assertion_data_mat[slicer, BATCHCOMP_REQ_BALLOTS_IND], label=lab)
     ax_alpha.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     ax_bc.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
-    #axs[0].set_xlim((0, max_margin + total_voters / 10**5))
 
     ax_bc.set_xscale('log')
     ax_alpha.set_xscale('log')
@@ -87,13 +94,9 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
 
     props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(" Batches")
-    #ax_alpha.text(0.7, 0.85, voters_batches_txt, transform=ax_alpha.transAxes, fontsize=15, verticalalignment='top', bbox=props)
     ax_alpha.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_bc.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_diff.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
-
-    #ax_bc.text(0.7, 0.85, voters_batches_txt, transform=ax_alpha.transAxes, fontsize=15, verticalalignment='top', bbox=props)
-    #ax_diff.text(0.7, 0.85, voters_batches_txt, transform=ax_alpha.transAxes, fontsize=15, verticalalignment='top', bbox=props)
 
     ax_alpha.set_title("Knesset " + str(knesset_num) + ' - ALPHA-Batch Required Number of Ballots by Assorter Margin')
     ax_bc.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin')
@@ -125,11 +128,19 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     fig_bc.show()
     fig_diff.show()
     plt.show()
-    save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
-    np.save(save_filename, assertion_data_mat)
+    #save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
+    #np.save(save_filename, assertion_data_mat)
 
 
 def assertions_with_error_plots(assertions_list, noised_assertions_list, total_voters, total_batches, knesset_num):
+    """
+    Plots the with / without error plots
+    :param assertions_list: List of audited assertions without counting errors
+    :param noised_assertions_list: List of audited assertions with counting errors
+    :param total_voters: Total number of voters
+    :param total_batches: Total number of batches
+    :param knesset_num: Knesset election number
+    """
     set_font()
 
     assertion_data = dict()  # Contains lists of required ballots using ALPHA / batchcomp and the assertion's margin
@@ -176,8 +187,6 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     ax_accurate.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
     ax_errors.plot([0, max_margin], [total_voters, total_voters], '--', label='Total Voters')
 
-
-
     # Plot Difference
     diff = assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND] - assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND]
     for i, lab in enumerate(ASSERTION_LABELS):
@@ -185,17 +194,12 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
         ax_diff.scatter(assertion_data_mat[slicer, MARGIN_IND], diff[slicer], label=lab)
     ax_diff.plot([0, max_margin], [0, 0], '--', label='0')
 
-    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(
         " Batches")
-
     ax_errors.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_accurate.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_diff.annotate(voters_batches_txt, xy=(0.75, 0.55), xycoords='axes fraction', fontsize=18)
 
-    #ax_errors.text(0.78, 0.85, voters_batches_txt, transform=ax_errors.transAxes, fontsize=15, verticalalignment='top', bbox=props)
-    #ax_accurate.text(0.78, 0.85, voters_batches_txt, transform=ax_accurate.transAxes, fontsize=15, verticalalignment='top', bbox=props)
-    #ax_diff.text(0.78, 0.85, voters_batches_txt, transform=ax_errors.transAxes, fontsize=15, verticalalignment='top', bbox=props)
     ax_errors.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin With Counting Errors')
     ax_accurate.set_title("Knesset " + str(knesset_num) + " - Batchcomp Required Number of Ballots by Assorter Margin Without Counting Errors")
     ax_diff.set_title("Knesset " + str(knesset_num) + " Difference in Ballots Required (With Errors - Without Errors)")
@@ -212,14 +216,9 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     ax_errors.legend(loc='right', prop={'size': 18})
     ax_diff.legend(loc='upper right', prop={'size': 18})
 
-    timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
-    #fig_accurate.savefig(str(timestamp) + ' plot accurate.png', bbox_inches='tight')
-    #fig_errors.savefig(str(timestamp) + ' plot errors.png', bbox_inches='tight')
-    #fig_diff.savefig(str(timestamp) + ' plot diff.png', bbox_inches='tight')
-
     plt.show()
 
-def prediction_plots(assertions_lists):
+def prediction_plots(assertions_lists):  # Not included in thesis
     set_font()
 
     # Create a dictionary with every assertion's data across all repeats
@@ -254,6 +253,13 @@ def prediction_plots(assertions_lists):
 
 
 def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
+    """
+    Plots the census risk-limit as a factor of the PES size
+    :param alpha_lists: List of lists where every inner-list holds the outputted risk-limit of the audit per PES size
+    :param allowed_seat_disc: Maximal allowed seat discrepancy
+    :param max_x:  Maximal PES size to plot, as share of total households
+    :param title: Title of the plot. If none, generated automatically
+    """
     set_font()
     rounded_max_x = int(max_x * len(alpha_lists[0])) / len(alpha_lists[0])
     alpha = np.mean(alpha_lists, axis=0)[:int(rounded_max_x * len(alpha_lists[0]))]
@@ -282,5 +288,8 @@ def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
     plt.show()
 
 def set_font():
+    """
+    Sets the fonts upcoming plots
+    """
     rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 18})
     rc('text', usetex=True)

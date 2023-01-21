@@ -7,9 +7,9 @@ import Eta
 
 TYPE = 1
 
-class ThresholdAssertion(Assorter):
+class AlphaThresholdAssertion(Assorter):
     """
-    Asserts the hypothesis that a certain party has at least a certain share of the valid votes.
+    Asserts the hypothesis that a certain party has at least a certain share of the valid votes.  Uses ALPHA's method.
     """
 
     def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):  # TODO Support more eta types
@@ -28,10 +28,9 @@ class ThresholdAssertion(Assorter):
             eta = AdaptiveEta(u, self.reported_assorter_mean, 5000, DEFAULT_MU)
         elif eta_mode == MY_ETA:
             eta = MyEta(self.reported_assorter_mean, election_profile.tot_batch.total_votes)
-            # print("Reported assorter mean: ", reported_assorter_mean)
         super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=vote_margin)
 
-    def audit_ballot(self, ballot):
+    def audit_ballot(self, ballot):    # Not officially supported. Debug if actually used.
         if ballot == self.party:
             assorter_value = self.u
         elif ballot == INVALID_BALLOT:
@@ -51,6 +50,10 @@ class ThresholdAssertion(Assorter):
         return (self.T >= 1 / self.alpha), self.T
 
     def get_assorter_value(self, batch: Batch):
+        """
+        :param batch: batch to audit
+        :return: The value of this assertion's assorter (A) on a given batch
+        """
         return (1 / batch.total_votes) * (batch.true_tally[self.party] / (2 * self.threshold) + 0.5 * batch.true_invalid_votes)
 
     def __str__(self):

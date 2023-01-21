@@ -2,6 +2,9 @@ from abc import ABC, abstractmethod
 from ElectionProfile import EPSILON
 
 class Eta(ABC):
+    """
+    General structure of an eta class
+    """
 
     @abstractmethod
     def __init__(self, u, initial_eta):
@@ -17,4 +20,10 @@ class Eta(ABC):
 
     @abstractmethod
     def calculate_eta(self, samples, assorter_value, mu):
+        """
+        Updates the value of this eta
+        :param samples: Number of audited households / ballots
+        :param assorter_value: Total of this eta's assorter over the audited ballots / households
+        :param mu: Current value of mu
+        """
         pass

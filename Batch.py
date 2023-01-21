@@ -21,7 +21,6 @@ class Batch:
         self.reported_valid_votes = sum(reported_tally.values())
         self.total_votes = self.reported_valid_votes + reported_invalid_votes
 
-        # TODO add noise to reported results and verify that total results remain the same
         self.reported_tally = reported_tally
         self.reported_paired_tally = self.perform_apparentment(reported_tally, apparentments)
 

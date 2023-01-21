@@ -8,10 +8,10 @@ import matplotlib.pyplot as plt
 TYPE = 3
 
 
-class MoveSeatAssertion(Assorter):
+class AlphaMoveSeatAssertion(Assorter):
     """
     Asserts the hypothesis a seat from one party shouldn't be given to another specific party (specific for this assertion)
-    instead.
+    instead.  Uses ALPHA's method.
     """
 
     def __init__(self, risk_limit, party_from, party_to, election_profile: ElectionProfile, paired, eta_mode=ADAPTIVE_ETA):  # TODO Support more eta types
@@ -71,7 +71,7 @@ class MoveSeatAssertion(Assorter):
 
         super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=weighted_vote_margin)
 
-    def audit_ballot(self, ballot):
+    def audit_ballot(self, ballot):  # Not officially supported. Debug if actually used.
         if ballot in self.party_from.split(' + '):
             assorter_value = self.u
         elif ballot in self.party_to.split(' + '):
@@ -79,44 +79,20 @@ class MoveSeatAssertion(Assorter):
         else:
             assorter_value = 0.5
 
-        if self.u - self.mu == 0 or self.mu == 0:
-            print('PROBLEMO: ZERO DIVISION INCOMING')
-            print('mu ', self.mu)
-            print('u', self.u)
         self.T *= (1 / self.u)*(assorter_value * self.eta.value / self.mu + \
                   (self.u - assorter_value)*(self.u - self.eta.value)/(self.u - self.mu))
         self.update_mu_and_u(1, assorter_value)
         self.eta.calculate_eta(1, assorter_value, self.mu)
         return (self.T >= 1 / self.alpha), self.T
-    """
-    def audit_batch(self, batch: Batch):
-        assorter_value = self.get_assorter_value(batch)
-        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu)
-
-
-        self.update_mu_and_u(batch.total_votes, assorter_value)
-        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-
-        if self.mu < 0:
-            self.T = float('inf')
-        elif self.mu >= self.u:
-            self.T = 0
-
-        # Debugging stuff
-        self.T_list.append(self.T)
-        self.mu_list.append(self.mu)
-        self.eta_list.append(self.eta.value)
-        self.assorter_value.append(self.eta.assorter_sum / self.eta.total_ballots)
-        self.plot_x.append(self.eta.total_ballots)
-
-        return self.T >= (1 / self.alpha), self.T
-    """
 
     def __str__(self):
         return "Move seat from " + self.party_from + " to " + self.party_to
 
     def get_assorter_value(self, batch: Batch):
+        """
+        :param batch: batch to audit
+        :return: The value of this assertion's assorter (A) on a given batch
+        """
         if self.paired:
             party_from_votes = batch.true_paired_tally[self.party_from]
             party_to_votes = batch.true_paired_tally[self.party_to]
@@ -126,6 +102,9 @@ class MoveSeatAssertion(Assorter):
         return (1 / batch.total_votes) * (self.u*party_from_votes + 0.5*(batch.total_votes - party_from_votes - party_to_votes))
 
     def calc_margins(self):
+        """
+        Calculates the margins of this assertion
+        """
         if self.paired:
             party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
             party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from]
@@ -143,14 +122,3 @@ class MoveSeatAssertion(Assorter):
         weighted_margin = party_from_votes / party_from_seats - party_to_votes / (party_to_seats + 1)
 
         return weighted_margin, vote_margin
-
-    # TODO delete
-    def plot(self):
-        fig, axs = plt.subplots(2)
-        axs[0].plot(self.plot_x, self.mu_list, label='mu')
-        axs[0].plot(self.plot_x, self.eta_list, label='eta')
-        axs[0].plot(self.plot_x, self.assorter_value, label='Assorter mean value')
-        axs[0].legend()
-        axs[1].plot(self.plot_x, self.T_list, label='T')
-        fig.suptitle(str(self) + ' (margin: ' + str('{:,}'.format(self.get_margin())) + ')')
-        plt.show()

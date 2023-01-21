@@ -1,10 +1,10 @@
 from ElectionProfile import ElectionProfile
-from CompThresholdAssertion import CompThresholdAssertion
-from CompBelowThresholdAssertion import CompBelowThresholdAssertion
-from CompMoveSeatAssertion import CompMoveSeatAssertion
-from MoveSeatAssertion import MoveSeatAssertion
-from BelowThresholdAssertion import BelowThresholdAssertion
-from ThresholdAssertion import ThresholdAssertion
+from BatchcompThresholdAssertion import BatchcompThresholdAssertion
+from BatchcompBelowThresholdAssertion import BatchcompBelowThresholdAssertion
+from BatchcompMoveSeatAssertion import BatchcompMoveSeatAssertion
+from AlphaMoveSeatAssertion import AlphaMoveSeatAssertion
+from AlphaBelowThresholdAssertion import AlphaBelowThresholdAssertion
+from AlphaThresholdAssertion import AlphaThresholdAssertion
 from SetEta import SetEta
 import numpy as np
 from MyEta import MY_ETA
@@ -13,13 +13,13 @@ import matplotlib.pyplot as plt
 class ElectionAuditor:
     def __init__(self, election_profile: ElectionProfile, risk_limit, threshold, bathcomp=True):
         if bathcomp:
-            self.move_seat_assertion = CompMoveSeatAssertion
-            self.threshold_assertion = CompThresholdAssertion
-            self.failed_assertion = CompBelowThresholdAssertion
+            self.move_seat_assertion = BatchcompMoveSeatAssertion
+            self.threshold_assertion = BatchcompThresholdAssertion
+            self.failed_assertion = BatchcompBelowThresholdAssertion
         else:
-            self.move_seat_assertion = MoveSeatAssertion
-            self.threshold_assertion = ThresholdAssertion
-            self.failed_assertion = BelowThresholdAssertion
+            self.move_seat_assertion = AlphaMoveSeatAssertion
+            self.threshold_assertion = AlphaThresholdAssertion
+            self.failed_assertion = AlphaBelowThresholdAssertion
         self.election_profile = election_profile
         self.risk_limit = risk_limit
         self.threshold = threshold
@@ -30,7 +30,6 @@ class ElectionAuditor:
         self.create_comparison_assertions()
 
     def create_threshold_assertions(self):
-        # TODO check only parties with minimal number of seats that isn't 0
         for party in self.election_profile.parties:
             if self.election_profile.reported_seats_won[party] == 0:  # Assumes party can't pass threshold and get 0 seats
                 self.failed_threshold_assertions.append(self.failed_assertion(self.risk_limit, party, self.threshold, self.election_profile))
@@ -45,7 +44,7 @@ class ElectionAuditor:
         for i, party1 in enumerate(self.election_profile.reported_paired_seats_won.keys()):
             if self.election_profile.reported_paired_seats_won[party1] > 0 and (party1 not in paired_parties):
                 for j in range(i):
-                    party2 = list(self.election_profile.reported_paired_seats_won.keys())[j]  # TODO change to .keys()
+                    party2 = list(self.election_profile.reported_paired_seats_won.keys())[j]
                     if self.election_profile.reported_paired_seats_won[party2] > 0 and (party2 not in paired_parties):
                         # Uncomment to check exact number of seats
                         self.comparison_assertions.append(self.move_seat_assertion(self.risk_limit, party1, party2, self.election_profile, True))
@@ -81,15 +80,12 @@ class ElectionAuditor:
         margin_threshold = []
         required_ballots_failed = []
         margin_failed = []
-        batch_prediction = []
-        batch_prediction_diff = []
 
         # Audit elections
         batch_counter, ballot_counter = 0, 0
         assertions = self.comparison_assertions + self.failed_threshold_assertions + self.passed_threshold_assertions
         while len(assertions) > 0 and batch_counter < len(self.election_profile.batches):
             batch_counter += 1
-            #print('batch counter ', batch_counter, ' ballot counter ', ballot_counter)
             if not np.isclose(np.sum(batch_probs), 1.0):
                 print('batch counter ', batch_counter)
                 print('total batches ', len(self.election_profile.batches))
@@ -110,16 +106,6 @@ class ElectionAuditor:
 
                 if assorter_true_mean < 0.5:
                     print("A WRONG ASSERTION WAS APPROVED!!!")
-                # batch_prediction.append(0)
-                #batch_prediction.append(assertions[delete_ind - i].get_batch_prediction())
-                """
-                if assertions[delete_ind - i].type == 3:  # TODO delete later
-                    true_margin = assertions[delete_ind - i].true_vote_margin
-                    closer_margin = assertions[delete_ind - i].closer_margin
-                else:
-                    true_margin = '-'
-                    closer_margin = '-'
-                """
 
                 print("Finished assertion: ", str(assertions[delete_ind - i]), ' with reported margin ',
                       assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
@@ -210,15 +196,15 @@ class ElectionAuditor:
                 assertion.eta.assorter_sum / assertion.eta.total_ballots))
             print('Ballots examined: ', str(assertion.eta.total_ballots), '/', str(assertion.eta.total_ballots))
 
-        # TODO delete next section
-        plt.scatter(margin_threshold, required_ballots_threshold, label='Passed Threshold')
-        plt.scatter(margin_failed, required_ballots_failed, label='Failed Threshold')
-        plt.scatter(margin_moveseat, required_ballots_moveseat, label='Move Seat Between Parties')
-        plt.legend()
-        plt.title('Required # of Ballots vs. Assorter Margin')
-        plt.xlabel("Assertion Margin")
-        plt.ylabel("Required Ballots")
-        plt.show()
+        # Next block is for debugging
+        # plt.scatter(margin_threshold, required_ballots_threshold, label='Passed Threshold')
+        # plt.scatter(margin_failed, required_ballots_failed, label='Failed Threshold')
+        # plt.scatter(margin_moveseat, required_ballots_moveseat, label='Move Seat Between Parties')
+        # plt.legend()
+        # plt.title('Required # of Ballots vs. Assorter Margin')
+        # plt.xlabel("Assertion Margin")
+        # plt.ylabel("Required Ballots")
+        # plt.show()
 
         return len(assertions) == 0
 

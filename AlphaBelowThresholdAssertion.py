@@ -7,9 +7,9 @@ from MyEta import MY_ETA, MyEta
 TYPE = 2
 
 
-class BelowThresholdAssertion(Assorter):
+class AlphaBelowThresholdAssertion(Assorter):
     """
-    Asserts the hypothesis that a certain party has at most a certain share of the valid votes.
+    Asserts the hypothesis that a certain party has at most a certain share of the valid votes. Uses ALPHA's method.
     """
 
     def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=ADAPTIVE_ETA):
@@ -33,7 +33,7 @@ class BelowThresholdAssertion(Assorter):
             eta = MyEta(reported_assorter_mean, election_profile.tot_batch.total_votes)
         super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=vote_margin)
 
-    def audit_ballot(self, ballot):
+    def audit_ballot(self, ballot):    # Not officially supported. Debug if actually used.
         if ballot == self.party:
             assorter_value = 0
         elif ballot == INVALID_BALLOT:
@@ -53,6 +53,10 @@ class BelowThresholdAssertion(Assorter):
         return self.T >= (1 / self.alpha), self.T
 
     def get_assorter_value(self, batch: Batch):
+        """
+        :param batch: batch to audit
+        :return: The value of this assertion's assorter (A) on a given batch
+        """
         non_party_votes = batch.total_votes - batch.true_invalid_votes - batch.true_tally[self.party]
         return (1 / batch.total_votes) * (non_party_votes / (2 * (1 - self.threshold)) + 0.5 * batch.true_invalid_votes)
 

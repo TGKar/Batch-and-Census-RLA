@@ -7,22 +7,26 @@ from MyEta import MY_ETA, MyEta
 import numpy as np
 
 
-class CompThresholdAssertion(Assorter):
+class BatchcompThresholdAssertion(Assorter):
     """
     Asserts the hypothesis that a certain party has at least a certain share of the valid votes.
     """
 
     def __init__(self, risk_limit, party, threshold, election_profile: ElectionProfile, eta_mode=SET_ETA):
+        """
+        :param risk_limit: risk-limit
+        :param party: party this assertion refers to
+        :param threshold: Electoral threshold
+        :param election_profile: election profile
+        :param eta_mode: Eta update rule name
+        """
         self.type = 1
         self.party = party
         self.threshold = threshold
-        self.profile = election_profile  # TODO delete
-
         self.inner_u = 0
         for batch in election_profile.batches:
             batch_max_disc = self.get_inner_assorter_value(batch.reported_tally[party], batch.reported_invalid_votes, batch.total_votes)
             self.inner_u = max(batch_max_disc, self.inner_u)
-        #self.inner_u = 1 / (2*threshold)
 
         reported_inner_assorter_mean = self.get_inner_assorter_value(election_profile.tot_batch.reported_tally[party],
                                                                             election_profile.tot_batch.reported_invalid_votes,
@@ -36,7 +40,6 @@ class CompThresholdAssertion(Assorter):
         eta = None
         vote_margin = election_profile.tot_batch.reported_tally[party] - \
                       threshold * (election_profile.tot_batch.total_votes - election_profile.tot_batch.reported_invalid_votes)
-        #u = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin)) + EPSILON
         u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*reported_inner_assorter_mean) / (
                 2 * (self.inner_u - self.reported_inner_assorter_margin))
         self.reported_assorter_mean = u - EPSILON
@@ -49,15 +52,25 @@ class CompThresholdAssertion(Assorter):
 
         super().__init__(risk_limit, election_profile, u, eta, vote_margin=vote_margin, weighted_vote_margin=vote_margin)
 
-    def audit_ballot(self, ballot):
+    def audit_ballot(self, ballot):  # Not supported
         return None, None
 
     def get_assorter_value(self, batch: Batch):
+        """
+        :param batch: batch to audit
+        :return: The value of this assertion's assorter (A) on a given batch
+        """
         discrepancy = self.get_inner_assorter_value(batch.reported_tally[self.party], batch.reported_invalid_votes, batch.total_votes) \
                     - self.get_inner_assorter_value(batch.true_tally[self.party], batch.true_invalid_votes, batch.total_votes)
         return 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*(self.inner_u - self.reported_inner_assorter_margin))
 
     def get_inner_assorter_value(self, party_votes, invalid_votes, total_votes):
+        """
+        :param party_votes: # of votes for this assertion's party in a batch
+        :param invalid_votes: # of invalid votes in this batch
+        :param total_votes: total # of votes in the batch
+        :return: The value of the inner assorter (a) over the given data
+        """
         return (party_votes/(2*self.threshold) + 0.5 * invalid_votes) / total_votes
 
     def __str__(self):

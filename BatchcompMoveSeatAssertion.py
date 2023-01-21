@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-class CompMoveSeatAssertion(Assorter):
+class BatchcompMoveSeatAssertion(Assorter):
     """
     Asserts the hypothesis a seat from one party shouldn't be given to another specific party (specific for this assertion)
     instead.
@@ -60,26 +60,15 @@ class CompMoveSeatAssertion(Assorter):
             self.inner_u = max(batch_max_disc, self.inner_u)
 
         self.inner_u = min(self.inner_u, (0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats))*MAX_DISC_SHARE)
-        # self.inner_u = 0.5 + (self.party_to_seats + 1)/(2 * self.party_from_seats)
-
         self.reported_inner_assorter_margin = self.get_inner_assorter_value(party_from_reported_votes,
                                                                             party_to_reported_votes,
                                                                             election_profile.tot_batch.total_votes) - 0.5
 
         weighted_vote_margin, vote_margin = self.calc_margins()
 
-        # TODO delete next line
-        _, self.true_vote_margin = self.calc_true_margins()
-
-        #u = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin)) + EPSILON
         u = 0.5 + (self.reported_inner_assorter_margin + MAX_ERR*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
             (2 * (self.inner_u - self.reported_inner_assorter_margin))
         self.reported_assorter_mean = u - EPSILON
-
-        # Next lines are used to convert this to an alpha batch comparison audit
-        # u = 0.5 + (self.reported_inner_assorter_margin + self.inner_u*(0.5 + (self.party_to_seats + 1)/self.party_from_seats)) / \
-        #    (2 * (self.inner_u - self.reported_inner_assorter_margin))
-        # self.reported_assorter_mean = 0.5 + self.reported_inner_assorter_margin / (2 * (self.inner_u - self.reported_inner_assorter_margin))
 
         eta = None
         if eta_mode == ADAPTIVE_ETA:
@@ -133,6 +122,7 @@ class CompMoveSeatAssertion(Assorter):
         return self.T >= (1 / self.alpha), self.T
 
     def get_assorter_value(self, batch: Batch):
+
         if self.paired:
             rep_party_from_votes = batch.reported_paired_tally[self.party_from]
             rep_party_to_votes = batch.reported_paired_tally[self.party_to]
@@ -168,8 +158,6 @@ class CompMoveSeatAssertion(Assorter):
         axs[0].plot(self.plot_x, self.assorter_mean, label='Assorter mean value')
         axs[0].legend()
         axs[1].plot(self.plot_x, self.T_list, label='T')
-        #axs[1].scatter(self.plot_x, self.inc_T_list, s=20, label='Batch T')
-        #axs[1].legend()
         axs[0].set_xlabel('Ballots')
         axs[0].set_ylabel('Value')
         axs[1].set_xlabel('Ballots')
@@ -178,6 +166,9 @@ class CompMoveSeatAssertion(Assorter):
         plt.show()
 
     def calc_margins(self):
+        """
+        Calculates and returns this assertion's margins
+        """
         if self.paired:
             party_from_votes = self.election_profile.tot_batch.reported_paired_tally[self.party_from]
             party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from] + min(self.mode, 0)
@@ -196,30 +187,20 @@ class CompMoveSeatAssertion(Assorter):
         vote_margin = ((party_from_votes*party_from_ratio) - (party_to_votes*party_to_ratio)) / (party_from_ratio + party_to_ratio)
 
         weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
-        if party_to_margin < party_from_margin:  # TODO delete
+        if party_to_margin < party_from_margin:  # Next lines are useful for debugging but not necessary
             self.closer_margin = 'party to'
         else:
             self.closer_margin = 'party_from'
-        return weighted_margin, vote_margin  # min(party_to_margin, party_from_margin)
-
-    def calc_true_margins(self):  # TODO I was here
-        if self.paired:
-            party_from_votes = self.election_profile.tot_batch.true_paired_tally[self.party_from]
-            party_from_seats = self.election_profile.reported_paired_seats_won[self.party_from] + min(self.mode, 0)
-            party_to_seats = self.election_profile.reported_paired_seats_won[self.party_to] + max(self.mode, 0)
-            party_to_votes = self.election_profile.tot_batch.true_paired_tally[self.party_to]
-        else:
-            party_from_votes = self.election_profile.tot_batch.true_tally[self.party_from]
-            party_from_seats = self.election_profile.reported_seats_won[self.party_from] + min(self.mode, 0)
-            party_to_seats = self.election_profile.reported_seats_won[self.party_to] + max(self.mode, 0)
-            party_to_votes = self.election_profile.tot_batch.true_tally[self.party_to]
-        party_to_margin = (party_to_seats+1) * party_from_votes / party_from_seats - party_to_votes
-        party_from_margin = party_from_votes - party_from_seats * party_to_votes / (party_to_seats+1)
-        weighted_margin = party_from_votes/party_from_seats - party_to_votes/(party_to_seats+1)
-        return weighted_margin, min(party_to_margin, party_from_margin)
+        return weighted_margin, vote_margin
 
 
     def get_inner_assorter_value(self, party_from_votes, party_to_votes, total_votes):
+        """
+        :param party_votes: # of votes for this assertion's party in a batch
+        :param invalid_votes: # of invalid votes in this batch
+        :param total_votes: total # of votes in the batch
+        :return: The value of the inner assorter (a) over the given data
+        """
         assorter_max = 0
 
         if self.mode == 0:

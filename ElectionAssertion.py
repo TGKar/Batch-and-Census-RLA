@@ -33,7 +33,7 @@ class Assorter(ABC):
         self.vote_margin = vote_margin
         self.weighted_vote_margin = weighted_vote_margin
 
-        # Next couple of lines predict the # of batches required for the audit
+        # Next couple of lines predict the # of batches required for the audit. Not included in thesis.
         self.batch_num = len(election_profile.batches)
         #self.batch_pred = -np.log(self.alpha) / \
         #                  np.log(self.inner_u / (self.inner_u - self.reported_inner_assorter_margin))
@@ -41,12 +41,13 @@ class Assorter(ABC):
 
     @abstractmethod
     def audit_ballot(self, ballot):
+        """
+        Audits a single ballot
+        :param ballot: party the ballot is for
+        """
         pass
 
     def audit_batch(self, batch):
-        if str(self) == "Move seat from Meshutefet to Yahadut Hatora + Shas":  # TODO delete
-            #print('now')
-            pass
         self.batch_counter += 1
         assorter_value = self.get_assorter_value(batch)
         if self.mu == 0:
@@ -57,11 +58,6 @@ class Assorter(ABC):
                       (self.u - self.mu)
         self.update_mu_and_u(batch.total_votes, assorter_value)
         self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-
-        # Delete next 2 lines
-        #self.u = self.eta.value + EPSILON
-        #self.eta.u = self.u
 
         if self.mu < 0:
             self.T = float('inf')
@@ -71,32 +67,13 @@ class Assorter(ABC):
             self.T = 0
 
         return self.T >= (1 / self.alpha), self.T
-
-    def audit_batch_no_u(self, batch):
-        self.batch_counter += 1
-        assorter_value = self.get_assorter_value(batch)
-        self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
-                  (self.u - self.mu)
-        #self.T *= assorter_value/self.mu
-        self.update_mu_and_u(batch.total_votes, assorter_value)
-        self.eta.calculate_eta(batch.total_votes, assorter_value * batch.total_votes, self.mu)  # Prepare eta for next batch
-        #print("Assorter value: ", assorter_value, ".  T: ", str(self.T), '.  Eta: ' + str(self.eta.value))
-
-        # Delete next 2 lines
-        #self.u = self.eta.value + EPSILON
-        #self.eta.u = self.u
-
-        if self.mu < 0:
-            self.T = float('inf')
-        elif (self.batch_counter == self.total_batches) and (self.assorter_total / self.total_ballots >= 0.5):
-            self.T = float('inf')
-        elif self.mu >= self.u:
-            self.T = 0
-
-        return self.T >= (1 / self.alpha), self.T
-
 
     def update_mu_and_u(self, ballot_count, assorter_sum):
+        """
+        Updates the variables mu and u
+        :param ballot_count: # of ballots that were audited since last mu and u update
+        :param assorter_sum: total of the assorter over all ballots that were updated since the last mu and u update
+        """
         self.ballots_counter += ballot_count
         self.assorter_total += assorter_sum * ballot_count
         if self.total_ballots == self.ballots_counter:
@@ -107,13 +84,6 @@ class Assorter(ABC):
             self.u = max(self.u, self.mu + 2*EPSILON)
         self.eta.u = self.u
 
-        #if self.u - self.mu == 0 or self.mu == 0:  # TODO delete
-        #    print('PROBLEMO: ZERO DIVISION INCOMING')
-        #    print(self)
-        #    print('mu ', self.mu)
-        #    print('u', self.u)
-        #    print(self.ballots_counter, ' \ ', self.total_ballots)
-
     def get_margin(self):
         return self.vote_margin
 
@@ -121,7 +91,8 @@ class Assorter(ABC):
     def get_assorter_value(self, batch: Batch):
         pass
 
-    def get_batch_prediction(self):  # TODO Make abstract and return NAN for alpha
+"""
+    def get_batch_prediction(self):  # Not currently supported
         x = 0.5 + (self.reported_inner_assorter_margin) / (2*(self.inner_u - self.reported_inner_assorter_margin))
         d = self.batch_num
         min_batches = 1
@@ -136,3 +107,4 @@ class Assorter(ABC):
             else:
                 min_batches = batches
         return batches
+"""

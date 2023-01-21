@@ -6,7 +6,7 @@ SET_ETA = "Set"
 class SetEta(Eta):
     def __init__(self, u, initial_eta, mu=0.5):
         """
-        Adaptive alternative hypothesis for an ALPHA assertion
+        An eta that doesn't change based on previously audited ballots
         :param u: Upper bound of the assorter
         :param initial_eta: Initial value for the alternative hypothesis (the prior)
         :param d: Effects the balance between the prior and the mean assorter value seen thus far. A larger value
