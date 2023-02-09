@@ -7,3 +7,5 @@ compare_audits.py
 *.pkl
 *.pkl
 .idea/workspace.xml
+*.pyc
+*.pyc

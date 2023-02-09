@@ -1,0 +1,575 @@
+C:\Users\barkr\AppData\Local\Programs\Python\Python39\python.exe "C:/Users/barkr/Documents/Uni/Thesis/Israeli Batch RLA/Main.py"
+Elections Tallies Loaded
+{'Avoda': 4, '1': 0, 'Habait Hayehudi': 0, 'Yahadut Hatora': 7, 'Balad': 0, 'Hadash Taal': 5, '2': 0, '3': 0, '4': 0, '5': 0, 'Tziyonut Detit': 14, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, 'Hamahane Hamamlahti': 12, '×š': 0, 'Yisrael Beytenu': 6, 'Likud': 32, 'Meretz': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, 'Raam': 5, 'Yesh Atid': 24, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, 'Shas': 11, '26': 0}
+Elections Tallies Loaded
+{'Avoda': 6, 'Yahadut Hatora': 7, 'Meshutefet': 13, '1': 0, '2': 0, '3': 0, '4': 0, 'Yemina': 7, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, 'Otzma Yehudit': 0, 'Yisrael Beytenu': 8, 'Likud': 32, 'Meretz': 5, '12': 0, '13': 0, '14': 0, 'Kahol Lavan': 33, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, 'Shas': 9}
+Results approved!
+Results approved!
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Results approved!
+Results approved!
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Batch-comp (total discrepancy) move seat from Likud + Yemina to Yahadut Hatora + Shas approved via small mu
+Results approved!
+Results approved!
+Mean SD:  2846.9903764213295  with max SD:  7843.414014955478
+Assertion margin: 4919.344827586301 : Required ballots batchcomp:  1,036,112.3 , 23.204329601932113 %. Required ballots ALPHA:  4,407,033.8 , 98.69805122673996 %
+Assertion margin: 2996.2857142857247 : Required ballots batchcomp:  1,512,698.0 , 33.87773987451312 %. Required ballots ALPHA:  4,358,261.2 , 97.60576085827006 %
+Assertion margin: 47.107142857141426 : Required ballots batchcomp:  4,465,090.8 , 99.99827106169353 %. Required ballots ALPHA:  4,465,148.6 , 99.99956552586598 %
+Elections Tallies Loaded
+{'Avoda': 7, 'Yahadut Hatora': 7, 'Meshutefet': 15, 'Liberalit': 0, 'Peula': 0, 'Tzomet': 0, 'Yemina': 6, 'Hahazon': 0, 'Adom Lavan': 0, 'Ihud Habrit': 0, 'Kvod Haadam': 0, 'Hatanachi': 0, 'Manhigut Hevratit': 0, 'Halev Hayehudi': 0, 'Ani veAta': 0, 'Yisrael Beytenu': 7, 'Likud': 36, 'Kol Hanashim': 0, 'Hakoah Lehaspia': 0, 'Kama': 0, 'Otzma Yehudit': 0, 'Mitkademet': 0, 'Kahol Lavan': 33, 'Pirates': 0, 'Daam': 0, 'Israelist': 0, 'Shmah': 0, 'Seder Hadash': 0, 'Mishpat Tzedek': 0, 'Shas': 9}
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Mean SD:  1496.3583478191088  with max SD:  3136.5743112510504
+Assertion margin: 3590.625000000001 : Required ballots batchcomp:  1,127,803.7 , 24.437068471453163 %. Required ballots ALPHA:  4,581,337.3 , 99.26767689352532 %
+Assertion margin: 3544.5087719298567 : Required ballots batchcomp:  1,424,603.0 , 30.868067781332506 %. Required ballots ALPHA:  4,581,169.0 , 99.26403019629979 %
+Assertion margin: 3042.2048192771563 : Required ballots batchcomp:  1,594,986.7 , 34.55991428203075 %. Required ballots ALPHA:  4,564,821.0 , 98.90980437191978 %
+Elections Tallies Loaded
+{'Avoda': 7, 'Yemina': 7, 'Yahadut Hatora': 7, 'Meshutefet': 6, 'Hayisraelim': 0, 'Tzomet': 0, 'Tziyonut Detit': 6, 'Gimlaim': 0, 'Calcalit': 0, 'Brit Shutafut': 0, 'Kvod Haadam': 0, 'Gush Tanachi': 0, 'Manhigut Hevratit': 0, 'Halev Hayehudi': 0, 'Ani veAta': 0, 'Kahol Lavan': 8, 'Yisrael Beytenu': 7, 'Likud': 30, 'Meretz': 6, 'Kamah': 0, 'Olam Hadash': 0, 'Anahnu': 0, 'Raam': 4, 'Yesh Atid': 17, 'Pirates': 0, 'Atzmenu': 0, 'Maan': 0, 'Hetz': 0, 'Daam': 0, 'Habilti Efshari': 0, 'Shema': 0, 'Seder Hadash': 0, 'Mishpat Tzedek': 0, 'Rapeh': 0, 'Hatikva Leshinui': 0, 'Am Shalem': 0, 'Democratit': 0, 'Shas': 9, 'Tikva Hadasha': 6}
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Results approved!
+Mean SD:  1888.9744384555147  with max SD:  5291.894197732981
+Assertion margin: 2162.285714285706 : Required ballots batchcomp:  1,394,595.1 , 31.435535624323066 %. Required ballots ALPHA:  4,412,624.9 , 99.46487495956714 %
+Assertion margin: 2566.813953488359 : Required ballots batchcomp:  1,411,262.5 , 31.811235099005604 %. Required ballots ALPHA:  4,424,876.8 , 99.74104475172805 %
+Assertion margin: 367.28571428571433 : Required ballots batchcomp:  3,782,269.4 , 85.25604633523166 %. Required ballots ALPHA:  4,435,198.0 , 99.9736946802168 %
+
+Iteration  0
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905356 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252301 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.500491581781311 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746476 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599263 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336776 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968708 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874732 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020425 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441759 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109439 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681165 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073968 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:27, 4355.23it/s] 
+Iteration  1
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905355 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252301 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813109 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746477 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454178 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599265 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.501120590333678 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496788 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874731 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020429 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441756 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109442 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681172 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073968 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:26, 4390.94it/s] 
+Iteration  2
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.501088663390536 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.50145679882523 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813109 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746478 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496786 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251076 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874738 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.501440616502043 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441756 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109442 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681165 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:27, 4374.82it/s] 
+Iteration  3
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905354 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252301 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.500491581781311 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746482 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454178 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496788 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874734 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020429 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441758 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.500821275410944 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.501581322968117 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073969 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:26, 4425.39it/s] 
+Iteration  4
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905357 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813113 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746483 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454178 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599263 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336777 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496788 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251076 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874738 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020427 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441759 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681169 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:26, 4395.24it/s] 
+Iteration  5
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.501088663390536 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252301 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813109 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746484 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336775 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251074 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874736 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020431 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441756 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109439 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681165 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073971 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:27, 4374.51it/s] 
+Iteration  6
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905355 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813113 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746483 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251077 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874735 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020425 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441756 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109442 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681171 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073969 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:27, 4378.08it/s] 
+Iteration  7
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905357 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252301 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813114 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746475 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599265 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336781 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496785 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251076 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874735 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020427 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109442 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.501581322968117 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073971 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:26, 4432.02it/s] 
+Iteration  8
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.501088663390536 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.500491581781311 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746485 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454178 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.501120590333678 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496789 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968708 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251074 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874739 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020432 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681166 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:25, 4467.72it/s] 
+Iteration  9
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600642 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905358 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252301 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813115 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746477 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496789 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251076 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874736 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.501440616502043 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.500821275410944 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681167 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073968 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:25, 4463.81it/s] 
+0.6566422086674674 % of households required for risk limit 0.1.
+0.8533201865031704 % of households required for risk limit 0.05.
+0.6566422086674674 % of households required for risk limit 0.1.
+0.8533201865031704 % of households required for risk limit 0.05.
+Iteration  0
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.501088663390536 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.50145679882523 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813109 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.501493372174648 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599265 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496785 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251077 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874734 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020431 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441756 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109443 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.501581322968117 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:31, 4181.58it/s] 
+Iteration  1
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905355 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252303 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813111 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746478 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599262 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496789 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251073 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874736 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.501440616502043 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681167 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073969 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:29, 4244.12it/s] 
+Iteration  2
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905359 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.50145679882523 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813113 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746475 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599263 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496786 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874737 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020433 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441758 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681167 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073968 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:30, 4191.33it/s] 
+Iteration  3
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.501088663390536 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813113 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746476 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599265 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336776 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496785 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401822 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874732 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020432 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441758 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681171 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311335 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073969 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:29, 4267.08it/s] 
+Iteration  4
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905358 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813107 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.501493372174648 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454179 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336782 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944022 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874734 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020426 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681171 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073969 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:27, 4335.63it/s] 
+Iteration  5
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905357 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813108 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746482 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454178 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336781 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251077 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874734 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.501440616502043 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681167 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311335 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:29, 4275.59it/s] 
+Iteration  6
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905359 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252299 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813108 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746477 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454179 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336781 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251076 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874739 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020427 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441758 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.501581322968117 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311333 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:28, 4316.87it/s] 
+Iteration  7
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905353 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252302 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813113 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746475 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.500458461145418 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599265 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336776 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496786 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874734 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020429 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.5008212754109441 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.501581322968117 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073966 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:28, 4317.90it/s] 
+Iteration  8
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600641 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905355 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.5014567988252303 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.5004915817813108 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746478 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454178 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599264 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336777 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496788 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251076 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.501502338294402 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874737 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020431 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441757 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.500821275410944 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681171 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311335 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073969 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:28, 4288.04it/s] 
+Iteration  9
+Allocations match: True
+Census move representative from 1 to 0 Margin  4988.461538461543 . exp assorter value  0.5004934165600642 state from pop: 51500 seats:  3 . State to pop: 351600 seats: 22
+Census move representative from 0 to 1 Margin  10515.384615384615 . exp assorter value  0.5010886633905353 state from pop: 351600 seats:  22 . State to pop: 51500 seats: 3
+Census move representative from 2 to 0 Margin  11943.749999999995 . exp assorter value  0.50145679882523 state from pop: 154200 seats:  9 . State to pop: 351600 seats: 22
+Census move representative from 0 to 2 Margin  3862.5000000000014 . exp assorter value  0.500491581781311 state from pop: 351600 seats:  22 . State to pop: 154200 seats: 9
+Census move representative from 2 to 1 Margin  11792.30769230769 . exp assorter value  0.5014933721746478 state from pop: 154200 seats:  9 . State to pop: 51500 seats: 3
+Census move representative from 1 to 2 Margin  4030.769230769233 . exp assorter value  0.5004584611454181 state from pop: 51500 seats:  3 . State to pop: 154200 seats: 9
+Census move representative from 3 to 0 Margin  8438.461538461543 . exp assorter value  0.5012538945599263 state from pop: 258900 seats:  16 . State to pop: 351600 seats: 22
+Census move representative from 0 to 3 Margin  7215.384615384612 . exp assorter value  0.5011205903336778 state from pop: 351600 seats:  22 . State to pop: 258900 seats: 16
+Census move representative from 3 to 1 Margin  10580.0 . exp assorter value  0.5011587084496787 state from pop: 258900 seats:  16 . State to pop: 51500 seats: 3
+Census move representative from 1 to 3 Margin  4940.000000000002 . exp assorter value  0.5005085371968709 state from pop: 51500 seats:  3 . State to pop: 258900 seats: 16
+Census move representative from 3 to 2 Margin  4684.615384615385 . exp assorter value  0.5006663139251075 state from pop: 258900 seats:  16 . State to pop: 154200 seats: 9
+Census move representative from 2 to 3 Margin  11203.846153846143 . exp assorter value  0.5015023382944019 state from pop: 154200 seats:  9 . State to pop: 258900 seats: 16
+Census move representative from 4 to 0 Margin  8072.413793103445 . exp assorter value  0.5008912925401823 state from pop: 101900 seats:  6 . State to pop: 351600 seats: 22
+Census move representative from 0 to 4 Margin  7565.5172413793125 . exp assorter value  0.5008732628874737 state from pop: 351600 seats:  22 . State to pop: 101900 seats: 6
+Census move representative from 4 to 1 Margin  9859.999999999998 . exp assorter value  0.5014406165020431 state from pop: 101900 seats:  6 . State to pop: 51500 seats: 3
+Census move representative from 1 to 4 Margin  5480.000000000004 . exp assorter value  0.5006852523441756 state from pop: 51500 seats:  3 . State to pop: 101900 seats: 6
+Census move representative from 4 to 2 Margin  5862.499999999995 . exp assorter value  0.500821275410944 state from pop: 101900 seats:  6 . State to pop: 154200 seats: 9
+Census move representative from 2 to 4 Margin  10143.749999999996 . exp assorter value  0.5015813229681171 state from pop: 154200 seats:  9 . State to pop: 101900 seats: 6
+Census move representative from 4 to 3 Margin  7778.260869565211 . exp assorter value  0.5009215828311334 state from pop: 101900 seats:  6 . State to pop: 258900 seats: 16
+Census move representative from 3 to 4 Margin  7908.695652173915 . exp assorter value  0.5009957492073968 state from pop: 258900 seats:  16 . State to pop: 101900 seats: 6
+Auditing...  381334 households.
+381334it [01:28, 4327.60it/s] 
+0.771502147723518 % of households required for risk limit 0.1.
+1.0680925382997581 % of households required for risk limit 0.05.
+0.771502147723518 % of households required for risk limit 0.1.
+1.0680925382997581 % of households required for risk limit 0.05.
+
+Process finished with exit code 0

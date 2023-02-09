@@ -70,8 +70,8 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     top_assertions = assertion_data_mat[np.argsort(assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND])[-TOP_ASSERTION_NUM:], :]
     for i in range(top_assertions.shape[0]):
         print("Assertion margin:", top_assertions[i, MARGIN_IND],": Required ballots batchcomp: ",
-              str('{:,}'.format(top_assertions[i, BATCHCOMP_REQ_BALLOTS_IND])), ". Required ballots ALPHA: ",
-              str('{:,}'.format(top_assertions[i, ALPHA_REQ_BALLOTS_IND])))
+              str('{:,}'.format(top_assertions[i, BATCHCOMP_REQ_BALLOTS_IND])), ',', str(100*top_assertions[i, BATCHCOMP_REQ_BALLOTS_IND] / total_voters), '%'
+              ". Required ballots ALPHA: ", str('{:,}'.format(top_assertions[i, ALPHA_REQ_BALLOTS_IND])), ',', str(100*top_assertions[i, ALPHA_REQ_BALLOTS_IND] / total_voters), '%')
 
     # Plot comparison
     fig_alpha, ax_alpha = plt.subplots()
@@ -92,15 +92,14 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     ax_alpha.set_xscale('log')
     ax_diff.set_xscale('log')
 
-    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     voters_batches_txt = str('{:,}'.format(total_voters)) + " Voters, " + str('{:,}'.format(total_batches)) + str(" Batches")
     ax_alpha.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_bc.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_diff.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
 
-    ax_alpha.set_title("Knesset " + str(knesset_num) + ' - ALPHA-Batch Required Number of Ballots by Assorter Margin')
-    ax_bc.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin')
-    ax_diff.set_title("Knesset " + str(knesset_num) + ' - Difference in Required Ballots (ALPHA Batch - Batchcomp)')
+    ax_alpha.set_title("Knesset " + str(knesset_num) + ' - ALPHA-Batch Required Number of Ballots by Assorter Margin', fontsize=27)
+    ax_bc.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin', fontsize=27)
+    ax_diff.set_title("Knesset " + str(knesset_num) + ' - Difference in Required Ballots (ALPHA Batch - Batchcomp)', fontsize=27)
 
     # Plot Difference
     diff = assertion_data_mat[:, ALPHA_REQ_BALLOTS_IND] - assertion_data_mat[:, BATCHCOMP_REQ_BALLOTS_IND]
@@ -110,15 +109,24 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     ax_diff.plot([0, max_margin], [0, 0], '--', label='0')
 
 
-    ax_alpha.set_xlabel("Assertion Margin (Log Scale)")
-    ax_alpha.set_ylabel("Required Ballots")
-    ax_bc.set_xlabel("Assertion Margin (Log Scale)")
-    ax_bc.set_ylabel("Required Ballots")
-    ax_diff.set_xlabel("Assertion Margin (Log Scale)")
-    ax_diff.set_ylabel("Required Ballots")
-    ax_alpha.legend(loc='right', prop={'size': 18})
-    ax_bc.legend(loc='right', prop={'size': 18})
-    ax_diff.legend(loc='right', prop={'size': 18})
+    ax_alpha.set_xlabel("Assertion Margin (Log Scale)", fontsize=24)
+    ax_alpha.set_ylabel("Required Ballots", fontsize=24)
+    ax_bc.set_xlabel("Assertion Margin (Log Scale)", fontsize=24)
+    ax_bc.set_ylabel("Required Ballots", fontsize=24)
+    ax_diff.set_xlabel("Assertion Margin (Log Scale)", fontsize=24)
+    ax_diff.set_ylabel("Required Ballots", fontsize=24)
+    ax_alpha.legend(loc='right', prop={'size': 20})
+    ax_bc.legend(loc='right', prop={'size': 20})
+    ax_diff.legend(loc='right', prop={'size': 20})
+    ax_bc.tick_params(axis='both', which='major', labelsize=18)
+    ax_bc.tick_params(axis='both', which='minor', labelsize=14)
+    ax_bc.yaxis.get_offset_text().set_fontsize(18)
+    ax_alpha.tick_params(axis='both', which='major', labelsize=18)
+    ax_alpha.tick_params(axis='both', which='minor', labelsize=14)
+    ax_alpha.yaxis.get_offset_text().set_fontsize(18)
+    ax_diff.tick_params(axis='both', which='major', labelsize=18)
+    ax_diff.tick_params(axis='both', which='minor', labelsize=14)
+    ax_diff.yaxis.get_offset_text().set_fontsize(18)
 
     timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
     #fig_alpha.savefig(str(timestamp) + ' plot alpha.png', bbox_inches='tight')
@@ -128,8 +136,8 @@ def assertions_comparison_plots(alpha_assertions_list, batchcomp_assertions_list
     fig_bc.show()
     fig_diff.show()
     plt.show()
-    #save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
-    #np.save(save_filename, assertion_data_mat)
+    save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' data matrix - ' + timestamp
+    np.save(save_filename, assertion_data_mat)
 
 
 def assertions_with_error_plots(assertions_list, noised_assertions_list, total_voters, total_batches, knesset_num):
@@ -200,23 +208,36 @@ def assertions_with_error_plots(assertions_list, noised_assertions_list, total_v
     ax_accurate.annotate(voters_batches_txt, xy=(0.75, 0.85), xycoords='axes fraction', fontsize=18)
     ax_diff.annotate(voters_batches_txt, xy=(0.75, 0.55), xycoords='axes fraction', fontsize=18)
 
-    ax_errors.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin With Counting Errors')
-    ax_accurate.set_title("Knesset " + str(knesset_num) + " - Batchcomp Required Number of Ballots by Assorter Margin Without Counting Errors")
-    ax_diff.set_title("Knesset " + str(knesset_num) + " Difference in Ballots Required (With Errors - Without Errors)")
-    ax_errors.set_xlabel("Assertion Margin (Log Scale)")
-    ax_accurate.set_xlabel("Assertion Margin (Log Scale)")
-    ax_diff.set_xlabel("Assertion Margin (Log Scale)")
-    ax_errors.set_ylabel("Required Ballots")
-    ax_accurate.set_ylabel("Required Ballots")
-    ax_diff.set_ylabel("Required Ballots")
+    ax_errors.set_title("Knesset " + str(knesset_num) + ' - Batchcomp Required Number of Ballots by Assorter Margin With Counting Errors', fontsize=25)
+    ax_accurate.set_title("Knesset " + str(knesset_num) + " - Batchcomp Required Number of Ballots by Assorter Margin Without Counting Errors", fontsize=25)
+    ax_diff.set_title("Knesset " + str(knesset_num) + " Difference in Ballots Required (With Errors - Without Errors)", fontsize=25)
+    ax_errors.set_xlabel("Assertion Margin (Log Scale)", fontsize=24)
+    ax_accurate.set_xlabel("Assertion Margin (Log Scale)", fontsize=24)
+    ax_diff.set_xlabel("Assertion Margin (Log Scale)", fontsize=24)
+    ax_errors.set_ylabel("Required Ballots", fontsize=24)
+    ax_accurate.set_ylabel("Required Ballots", fontsize=24)
+    ax_diff.set_ylabel("Required Ballots", fontsize=24)
     ax_accurate.set_xscale('log')
     ax_errors.set_xscale('log')
     ax_diff.set_xscale('log')
     ax_accurate.legend(loc='right', prop={'size': 18})
     ax_errors.legend(loc='right', prop={'size': 18})
-    ax_diff.legend(loc='upper right', prop={'size': 18})
+    ax_diff.legend(loc='lower right', prop={'size': 18})
+
+    ax_errors.tick_params(axis='both', which='major', labelsize=18)
+    ax_errors.tick_params(axis='both', which='minor', labelsize=14)
+    ax_accurate.tick_params(axis='both', which='major', labelsize=18)
+    ax_accurate.tick_params(axis='both', which='minor', labelsize=14)
+    ax_diff.tick_params(axis='both', which='major', labelsize=18)
+    ax_diff.tick_params(axis='both', which='minor', labelsize=14)
+
+    timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
+    save_filename = ".\\Results\\Knesset " + str(knesset_num) + ' errors data matrix - ' + timestamp
+    np.save(save_filename, assertion_data_mat)
 
     plt.show()
+
+
 
 def prediction_plots(assertions_lists):  # Not included in thesis
     set_font()
@@ -268,13 +289,15 @@ def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
         print(100 * np.where(alpha <= 0.05)[0][0] / len(alpha_lists[0]), '% of households required for risk limit 0.05.')
     fig, ax = plt.subplots()
     ax.plot(rounded_max_x * np.arange(1, len(alpha) + 1) / (len(alpha) + 1), alpha)
-    fig.subplots_adjust(left=0.05, bottom=0.08, top=0.93, right=0.97)
+    fig.subplots_adjust(left=0.07, bottom=0.1, top=0.93, right=0.97)
     ax.set_xticks(np.linspace(0, rounded_max_x, 11))
     ax.set_yticks(np.linspace(0, 1, 11))
-    ax.set_xlabel('Share of Households Examined')
-    ax.set_ylabel('Outputted Risk-Limit')
+    ax.set_xlabel('Share of Households Examined', fontsize=24)
+    ax.set_ylabel('Outputted Risk-Limit', fontsize=24)
     ax.set_xlim(0, 1.05*max_x)
     ax.set_ylim(0, 1.05)
+    ax.yaxis.get_offset_text().set_fontsize(18)
+    ax.tick_params(axis='both', which='major', labelsize=18)
     ax.xaxis.set_major_locator(MaxNLocator(prune='lower'))
 
     if title is None:
@@ -283,13 +306,22 @@ def census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=None):
             plot_title += '- Up to ' + str(allowed_seat_disc) + ' Seat Discrepancy'
     else:
         plot_title = title
-    ax.set_title(plot_title)
+    ax.set_title(plot_title, fontsize=27)
     ax.grid()
     plt.show()
+
+    timestamp = time.strftime('%b-%d-%Y_%H%M', time.localtime())
+    save_filename = ".\\Results\\Census RLA alpha lists - " + timestamp
+    np.save(save_filename, alpha_lists)
 
 def set_font():
     """
     Sets the fonts upcoming plots
     """
-    rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 18})
-    rc('text', usetex=True)
+    #rc('font', **{'family': 'serif', 'serif': ['Computer Modern'], 'size': 18})
+    #rc('text', usetex=True)
+    plt.rcParams['text.usetex'] = True
+    plt.rcParams['text.latex.preamble'] = [r'\usepackage{lmodern}']
+
+    #plt.rcParams['font.family'] = 'serif'
+    #plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']

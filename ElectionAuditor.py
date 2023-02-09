@@ -107,9 +107,9 @@ class ElectionAuditor:
                 if assorter_true_mean < 0.5:
                     print("A WRONG ASSERTION WAS APPROVED!!!")
 
-                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with reported margin ',
-                      assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
-                      '. batch count ', batch_counter)  # , " Prediction: ", batch_prediction[-1]
+                #print("Finished assertion: ", str(assertions[delete_ind - i]), ' with reported margin ',
+                #      assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
+                #      '. batch count ', batch_counter)  # , " Prediction: ", batch_prediction[-1]
                 # batch_prediction_diff.append(batch_prediction[-1] - batch_counter)
 
                 if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
@@ -171,9 +171,9 @@ class ElectionAuditor:
 
                 if assorter_true_mean < 0.5:
                     print("A WRONG ASSERTION WAS APPROVED!!!")
-                print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',
-                      assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
-                      "True mean:", assorter_true_mean)
+                #print("Finished assertion: ", str(assertions[delete_ind - i]), ' with margin ',
+                #      assertions[delete_ind - i].vote_margin, 'after ballot ', str('{:,}'.format(ballot_counter)),
+                #      "True mean:", assorter_true_mean)
 
                 if assertions[delete_ind - i].eta.assorter_sum / assertions[delete_ind - i].eta.total_ballots < 0.5:
                     assertions[delete_ind - i].plot()

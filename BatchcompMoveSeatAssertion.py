@@ -93,6 +93,8 @@ class BatchcompMoveSeatAssertion(Assorter):
         return None, None
 
     def audit_batch(self, batch: Batch):
+        #if self.party_from == 'Likud + Yemina' and self.party_to == 'Kahol Lavan + Yisrael Beytenu':
+        #    print('now')
         self.batch_counter += 1
         assorter_value = self.get_assorter_value(batch)
         self.T *= (assorter_value/self.mu) * (self.eta.value-self.mu) / (self.u-self.mu) + (self.u - self.eta.value) / \
@@ -102,8 +104,6 @@ class BatchcompMoveSeatAssertion(Assorter):
         if self.mu <= 0:
             print(self, "approved via small mu")
             self.T = float('inf')
-        if self.mu > self.u:
-            self.T = 0
 
         # For debugging purposes
         self.T_list.append(self.T)
@@ -137,7 +137,6 @@ class BatchcompMoveSeatAssertion(Assorter):
         discrepancy = self.get_inner_assorter_value(rep_party_from_votes, rep_party_to_votes, batch.total_votes) - \
                       self.get_inner_assorter_value(true_party_from_votes, true_party_to_votes, batch.total_votes)
         assorter_value = 0.5 + (self.reported_inner_assorter_margin - discrepancy) / (2*(self.inner_u - self.reported_inner_assorter_margin))
-        assert assorter_value >= 0
         return assorter_value
 
     def __str__(self):

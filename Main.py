@@ -101,8 +101,12 @@ def make_census_plot(error_rate=0.0, household_mismatch=0.0, reps=10, allowed_se
         alphas, second_alphas = auditor.audit()
         alpha_lists.append(alphas)
         second_alpha_lists.append(second_alphas)
-    title = None  # 'Risk-Limit by Share of Households Examined During the PES - 5' + r'\%+' + ' Census and PES Disagreement'
-    Plotter.census_plot(alpha_lists, allowed_seat_disc, max_x=1.0, title=title)  # max_x=0.2
+
+    title = None
+    if error_rate > 0.0:
+        title = 'Risk-Limit by Share of Households Examined During the PES - ' + str(int(100*error_rate)) + r'\%+' + ' Census and PES Disagreement'
+
+    Plotter.census_plot(alpha_lists, allowed_seat_disc, max_x=0.02, title=title)
     Plotter.census_plot(second_alpha_lists, allowed_seat_disc)
 
 if __name__ == "__main__":
@@ -110,7 +114,8 @@ if __name__ == "__main__":
     prof = ElectionProfile(RESULTS_FILE, THRESHOLD, SEATS, APPARENTMENTS[KNESSET_NUM])
     for knesset_i in [22, 23, 24]:
         prof = ElectionProfile('Results ' + str(knesset_i) + '.csv', THRESHOLD, SEATS,  APPARENTMENTS[knesset_i])
-        make_comp_plot(prof, knesset_i, reps=1)
+        make_comp_plot(prof, knesset_i, reps=10)
         election_profiles.append(prof)
-    make_error_plot(reps=1)
-    make_census_plot(reps=1, error_rate=0.0)
+    make_error_plot(reps=10)
+    make_census_plot(reps=10, error_rate=0.0)
+    make_census_plot(reps=10, error_rate=0.05)
