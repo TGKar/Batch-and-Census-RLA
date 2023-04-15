@@ -12,3 +12,6 @@ For additional plots regarding both Batchcomp and the census RLA method, see "Ne
   - Comparisons between Batchcomp and ALPHA-Batch for two addtional election cycles.
   - Simulations for Batchcomp on the Israeli Knesset elections where the vote tallying is not entirely accurate.
   - Simulations for the census RLA where the census has enumeration errors.
+
+
+Feel free to email me with any questions or comments at barkrv@gmail.com
